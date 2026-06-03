@@ -53,21 +53,6 @@ const PLATFORM_CATEGORY_OVERRIDE: Partial<Record<string, Category>> = {
 
 const UPDATES: Update[] = [
   {
-    platform: 'Canva',
-    fourP: 'Product',
-    headline: 'Canva AI 2.0 — proprietary design foundation model ships',
-    detail: "Canva's biggest product launch ever. Canva AI 2.0 replaces the template/blank-page starting point with a conversational AI that takes any brief, sketch, or rough idea and generates fully layered, editable output. Powered by the Canva Design Model — claimed to be the world's first foundation model built specifically to understand design structure, hierarchy, and component relationships. Output is natively editable in the Canva canvas, not a flat image. Also shipped: Canva Offline mode, an expanded Pro Design suite, Learn Grid, Print Shop, and Cavalry (motion design tool) made free for all Canva account holders.",
-    explanation: [
-      {
-        label: 'Why this matters competitively',
-        content: 'Canva is no longer just a template tool — it is positioning as a full AI-native design platform with proprietary model infrastructure. This directly challenges Figma AI Agent on the professional side and ChatGPT/Gemini on the general creative side. The owned design model gives Canva a defensible moat: outputs are natively structured for the canvas in ways generic image models cannot replicate.',
-      },
-    ],
-    date: 'May 2026 (Canva Create 2026)',
-    sourceUrl: 'https://www.canva.com/newsroom/news/canva-create-2026-ai/',
-    sourceName: 'canva.com/newsroom',
-  },
-  {
     platform: 'Runway',
     fourP: 'Product',
     headline: 'Runway Agent — text to finished video, end-to-end',
@@ -178,6 +163,15 @@ const UPDATES: Update[] = [
   {
     platform: 'Canva',
     fourP: 'Promotion',
+    headline: '"The Thing That Makes Anything A Thing" — new U.S. brand campaign',
+    detail: 'Canva launched a new brand campaign centered on the idea that anyone can turn bold ideas into reality using Canva. Spans experiential, OOH, social, influencer, digital, and audio — centers Canva as the creative partner for turning any idea into reality.',
+    date: 'May 4, 2026',
+    sourceUrl: 'https://www.canva.com/newsroom/news/',
+    sourceName: 'canva.com/newsroom',
+  },
+  {
+    platform: 'Canva',
+    fourP: 'Promotion',
     headline: 'Canva running context-based ads inside ChatGPT (U.S.)',
     detail: "Canva is running context-targeted ads in ChatGPT in the U.S. — a query about videos surfaced a Canva video editor ad directly in the chat interface. This is in addition to a previously reported carousel ad on Canva's app page. OpenAI's ChatGPT ads pilot is expanding to the UK, Mexico, Brazil, Japan, and South Korea. Canva views ChatGPT as a key acquisition surface on its path to 1B MAU.",
     date: 'May 2026',
@@ -242,7 +236,7 @@ export function May2026Updates() {
         </div>
       </div>
 
-      <h1 style={{ fontSize: 22, fontWeight: 700, marginBottom: 24, color: '#fff' }}>May 2026 Updates</h1>
+      <h1 style={{ fontSize: 22, fontWeight: 700, marginBottom: 24, color: '#fff' }}>Monthly Updates</h1>
 
       {/* ── Industry Briefings ─────────────────────────────────────── */}
       <div>
@@ -296,7 +290,7 @@ export function May2026Updates() {
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2e2e2e', fontSize: 20, userSelect: 'none' }}>
                       →
                     </div>
-                    <div style={{ padding: '10px 14px' }}>
+                    <div style={{ padding: '10px 14px', paddingTop: 22 }}>
                       <p style={{ fontSize: 12, color: '#A0A0A0', margin: '0 0 8px', lineHeight: 1.6 }}>{item.adobeImplication}</p>
                       {item.implicationSource && (
                         <span style={{ fontSize: 10, color: '#444', fontStyle: 'italic' }}>{item.implicationSource}</span>
@@ -345,7 +339,14 @@ export function May2026Updates() {
                         borderBottom: i < items.length - 1 ? '1px solid #242424' : 'none',
                       }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 8, marginBottom: 2 }}>
-                          <span style={{ fontSize: 11, fontWeight: 600, color: '#C0C0C0', lineHeight: 1.4 }}>{item.headline}</span>
+                          {item.sourceUrl ? (
+                            <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: 11, fontWeight: 600, color: '#C0C0C0', lineHeight: 1.4, textDecoration: 'none' }}
+                              onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
+                              onMouseLeave={e => (e.currentTarget.style.color = '#C0C0C0')}
+                            >{item.headline} <ExternalLink size={9} style={{ display: 'inline', verticalAlign: 'middle', opacity: 0.4 }} /></a>
+                          ) : (
+                            <span style={{ fontSize: 11, fontWeight: 600, color: '#C0C0C0', lineHeight: 1.4 }}>{item.headline}</span>
+                          )}
                           <span style={{ fontSize: 9, color: '#444', flexShrink: 0 }}>{item.date}</span>
                         </div>
                         <p style={{ fontSize: 11, color: '#666', margin: 0, lineHeight: 1.5 }}>{item.summary}</p>
@@ -448,164 +449,166 @@ const BRIEF_ITEMS = [
     platform: 'Claude', color: '#A78BFA', date: 'May 28', sortDate: '2026-05-28',
     headline: 'Opus 4.8 ships 41 days after 4.7; ARR jumps from $9B to $47B',
     summary: 'Unusually fast release driven by competitive pressure and 4.7 backlash; $65B Series H at $965B valuation makes Anthropic the most valued AI startup, surpassing OpenAI.',
+    sourceUrl: 'https://www.anthropic.com/news/claude-opus-4-8',
   },
   {
     platform: 'Canva', color: '#22C55E', date: 'May 28', sortDate: '2026-05-28',
     headline: 'Image to Video now supports human faces',
     summary: 'Animating people realistically fills a key gap for brands whose content centers on people rather than products; Magic Eraser also updated for cleaner, shadow-free removals.',
+    sourceUrl: 'https://www.canva.com/newsroom/news/whats-new-may-2026/',
   },
   // ── May 27 ──
   {
     platform: 'Runway', color: '#F59E0B', date: 'May 27', sortDate: '2026-05-27',
     headline: 'Runway MCP: connects to Claude, ChatGPT, Cursor',
     summary: 'Generate images and videos, create marketing content from a URL, and make dialogue-driven ads directly inside compatible AI agents.',
+    sourceUrl: 'https://runwayml.com/blog/runway-mcp',
   },
   // ── May 26 ──
   {
-    platform: 'Canva', color: '#22C55E', date: 'May 26', sortDate: '2026-05-26',
-    headline: 'Presentation notes: custom prompts + speaker time estimates',
-    summary: 'Notes can now be generated independently with custom prompts; estimated speaker time shown per slide and for the full deck.',
-  },
-  {
     platform: 'Canva', color: '#22C55E', date: 'May 21–26', sortDate: '2026-05-26',
-    highlight: true, rank: 4, rankRationale: 'An opportunity for Adobe rather than a threat — users are actively looking for alternatives and Adobe has a window to capture them.',
+    highlight: true, rank: 5, rankRationale: 'An opportunity for Adobe rather than a threat — users are actively looking for alternatives and Adobe has a window to capture them.',
     headline: 'Video Editor 2.0 frustration continues; two outages reported',
     summary: 'Six months post-launch, users still request the old editor back; outages on May 21 and 26 spiked complaints on Downdetector, particularly in Asia and North America.',
-    adobeImplication: 'With Canva\'s video editor frustrating users six months post-launch, Adobe Rush (Adobe Express video) and Premiere have a real window. Firefly-powered video features — auto-caption, generative fill in video, AI B-roll — could be the decisive differentiator if Adobe can reach these students before CapCut does.',
+    adobeImplication: 'With Canva\'s video editor frustrating users six months post-launch, Premiere and Premiere Mobile have a real window — particularly against CapCut, where Premiere Mobile is a well-suited competitor. Firefly-powered video features — auto-caption, generative fill in video, AI B-roll — could be the decisive differentiator if Adobe can reach these students before CapCut does.',
     implicationSource: 'Canva Design Community · Downdetector · Adobe Internal Briefing · May 21–26, 2026',
   },
   {
-    platform: 'Gemini', color: '#A78BFA', date: 'May 26', sortDate: '2026-05-26',
-    headline: 'NotebookLM now auto-syncs Google Drive files',
-    summary: 'Connected Docs, Sheets, and Slides update NotebookLM automatically — making it a live knowledge base rather than a static research snapshot.',
-  },
-  {
-    platform: 'Students', color: '#555', date: 'May 26', sortDate: '2026-05-26',
+    platform: 'Students', color: '#A0A0A0', date: 'May 26', sortDate: '2026-05-26',
+    highlight: true, rank: 2,
+    rankRationale: 'Ranked second — student sentiment is a direct signal about the audience CC needs to win, and a positioning opportunity Adobe can act on now.',
     headline: 'Graduates booing AI optimism at commencement speeches',
     summary: 'Students at multiple graduations protested speakers celebrating AI, citing fears about skills disruption — a growing gap between AI narratives and student confidence.',
+    sourceUrl: 'https://www.socialmediatoday.com/news/students-booing-ai-commencement-2026',
+    adobeImplication: 'Students are expressing fear and anxiety about AI\'s impact on their creative futures — the exact audience CC needs to win. Positioning Firefly and Creative Cloud as tools that amplify human creativity rather than replace it could be a meaningful differentiator at a moment when the industry\'s standard AI messaging is landing poorly.',
+    implicationSource: 'Social Media Today · Adobe Internal Briefing · May 26, 2026',
   },
   // ── May 25 ──
   {
     platform: 'Leonardo.AI', color: '#F59E0B', date: 'May 25', sortDate: '2026-05-25',
     headline: 'Pro Upscaler built for AI images — exports directly to Canva',
     summary: 'Recognises synthetic grain and AI textures to repair rather than distort; may foreshadow native Canva availability.',
+    sourceUrl: 'https://leonardo.ai/news/pro-upscaler',
   },
   {
     platform: 'ChatGPT', color: '#A78BFA', date: 'May 2026', sortDate: '2026-05-25',
     headline: 'GPT-5.5 Instant updated; Canvas mode retired',
     summary: 'More conversational, less bullet-heavy output; Canvas writing and coding moves into a unified chat surface, removing a dedicated workspace mode.',
+    sourceUrl: 'https://openai.com/blog/gpt-5-5-instant-update',
   },
   // ── May 22 ──
   {
     platform: 'Figma', color: '#F59E0B', date: 'May 22', sortDate: '2026-05-22',
     headline: 'Bulk edit and resize in Figma Buzz',
     summary: 'Upload a spreadsheet to bulk-create campaign assets; multi-select cells to manage sizes and brand imagery at scale.',
+    sourceUrl: 'https://www.figma.com/blog/figma-buzz-bulk-edit',
   },
   // ── May 21 ──
   {
     platform: 'Picsart', color: '#22C55E', date: 'May 21', sortDate: '2026-05-21',
+    highlight: true, rank: 3,
+    rankRationale: 'Picsart\'s agent suite spans the full creative workflow — brand, content, localization, video — at a price point that significantly undercuts Creative Cloud.',
     headline: '16 AI agents launched across creative workflows',
     summary: 'A 3-system workflow spans brand identity, content creation, localization, and video production — routing each task to the most relevant agent before generating.',
+    sourceUrl: 'https://picsart.com/blog/ai-agents',
+    adobeImplication: 'Picsart\'s 16-agent system covers brand identity, content creation, localization, and video production in a coordinated workflow — scope that starts to rival Creative Cloud\'s suite breadth, and notably mirrors a direction Adobe is likely ultimately heading itself. At $10.50/mo, students can access what amounts to an AI creative team spanning functions that would otherwise require multiple CC apps.',
+    implicationSource: 'Picsart · Adobe Internal Briefing · May 21, 2026',
   },
   {
     platform: 'Runway', color: '#F59E0B', date: 'May 21', sortDate: '2026-05-21',
     headline: 'Aleph 2.0 + Edit Studio: precise video editing up to 30s',
     summary: 'Localized edits (swap product, change background, restyle) while preserving original footage — editable across multiple shots simultaneously.',
+    sourceUrl: 'https://runwayml.com/blog/aleph-2-edit-studio',
   },
   // ── May 20 ──
   {
     platform: 'Stability AI', color: '#F59E0B', date: 'May 20', sortDate: '2026-05-20',
     headline: 'Stable Audio 3.0: professional audio up to 6 minutes',
     summary: 'Four models covering sound effects, short clips, and fully structured songs — comparable to recent audio model launches from Google.',
+    sourceUrl: 'https://stability.ai/news/stable-audio-3',
   },
   // ── May 19 ──
   {
     platform: 'Gemini', color: '#A78BFA', date: 'May 19', sortDate: '2026-05-19',
     headline: 'Gemini Omni Flash: photorealistic video from any input',
     summary: 'New model generates physics-aware video from text, images, or YouTube Shorts — rolling out to AI Plus, Pro, and Ultra this week.',
+    sourceUrl: 'https://blog.google/products/gemini/google-io-2026/',
   },
   {
     platform: 'Gemini', color: '#A78BFA', date: 'May 19', sortDate: '2026-05-19',
     headline: 'Pics: Workspace-native AI design app',
     summary: 'Generates and edits visuals from conversational prompts inside Google Workspace; limited Trusted Tester rollout, coming to AI Pro/Ultra this summer.',
+    sourceUrl: 'https://blog.google/products/workspace/google-io-2026/',
   },
   {
     platform: 'Canva', color: '#22C55E', date: 'May 19', sortDate: '2026-05-19',
     highlight: true, rank: 1, rankRationale: 'Distribution threat at the largest scale — Gemini has 900M users. Design habits forming inside Gemini bypass Creative Cloud entirely.',
     headline: 'Canva integrates with Gemini via MCP',
     summary: 'Users can generate, edit, repurpose, and brand-align Canva designs directly inside Gemini using @Canva — including Magic Layers and translate.',
+    sourceUrl: 'https://www.canva.com/newsroom/news/whats-new-may-2026/',
     adobeImplication: 'Both Canva and Adobe Firefly are now usable directly inside AI assistants — Canva inside Gemini, Firefly inside Claude. The difference is which assistant: Gemini has 900M users and is built into Google Workspace, where students already write papers, build slide decks, and collaborate. Firefly\'s integration with Claude reaches a more professional and developer audience. The student exposure gap is real even if the capability parity isn\'t.',
     implicationSource: 'canva.com · Adobe Internal Briefing · May 19, 2026',
-  },
-  {
-    platform: 'Canva', color: '#22C55E', date: 'May 19', sortDate: '2026-05-19',
-    headline: 'AI Discovery Week: 5,300 employees paused work to experiment with AI',
-    summary: 'Second annual internal AI week signals Canva\'s commitment to an AI-native workforce ahead of its anticipated IPO.',
   },
   // ── May 18 ──
   {
     platform: 'Canva', color: '#22C55E', date: 'May 18', sortDate: '2026-05-18',
     headline: '4 senior leaders depart amid AI pivot and pre-IPO pressure',
     summary: 'CTO Brendan Humphreys plus Head of Design, Sr. Engineering Director, and an 8-year design lead all exited as Canva accelerates its AI-first restructuring.',
+    sourceUrl: 'https://www.theaustralian.com.au/business/technology/canva-senior-exits',
   },
   {
     platform: 'Runway', color: '#F59E0B', date: 'May 18', sortDate: '2026-05-18',
     headline: 'Runway Characters can now take actions, not just speak',
     summary: 'Characters can call on tools and interact with other apps — expanding into eCommerce, customer support, onboarding, and gaming.',
+    sourceUrl: 'https://runwayml.com/blog/runway-characters-actions',
   },
   {
     platform: 'Figma', color: '#F59E0B', date: 'May 18', sortDate: '2026-05-18',
     headline: 'Sections added to Figma Slides',
     summary: 'Users can now name and reorder rows of slides in grid view, and jump between sections from Presenter and Audience view.',
+    sourceUrl: 'https://www.figma.com/blog/figma-slides-sections',
   },
   // ── May 15–16 ──
   {
     platform: 'Meta Edits', color: '#60A5FA', date: 'May 15', sortDate: '2026-05-15',
     headline: 'Edits: transition controls, sound effects, live photo uploads',
     summary: 'Adds transition pace control, text/sticker opacity, live photo support (iOS), and 200 new sound effects — each release tied to a cultural moment (this one: Met Gala).',
+    sourceUrl: 'https://www.socialmediatoday.com/news/meta-edits-updates-may-2026',
   },
   {
     platform: 'Picsart', color: '#22C55E', date: 'May 2026', sortDate: '2026-05-15',
     headline: 'Recraft V4.1 integrated: photorealistic, vector, and product shot models',
     summary: 'Three coordinated models in Picsart AI Playground — main (photorealistic), vector (editable graphics), utility (catalog product shots).',
+    sourceUrl: 'https://picsart.com/blog/recraft-v4-1',
   },
   // ── May 13 ──
   {
     platform: 'Claude', color: '#A78BFA', date: 'May 13', sortDate: '2026-05-13',
     headline: 'Claude for Small Business launches — Canva is the design layer',
     summary: 'Anthropic\'s new SMB package puts Claude inside everyday tools (QuickBooks, Google Workspace, HubSpot); Canva is specifically named as the creative AI layer for design tasks.',
+    sourceUrl: 'https://www.anthropic.com/news/claude-for-small-business',
   },
   // ── May 12 ──
-  {
-    platform: 'Gemini', color: '#A78BFA', date: 'May 12', sortDate: '2026-05-12',
-    headline: 'Gemini Intelligence for Android: automate tasks across apps',
-    summary: 'Multi-step automation (grocery list → delivery cart), Chrome research summaries, single-tap form fill, and spoken-word-to-text via Rambler — rolling out summer 2026.',
-  },
   // ── May 7–10 ──
-  {
-    platform: 'Canva', color: '#22C55E', date: 'May 2026', sortDate: '2026-05-10',
-    highlight: true, rank: 2, rankRationale: 'Canva is buying the student creative intent moment in the world\'s most-used AI tool — Adobe has no comparable paid presence there.',
-    headline: 'Context-based ads running in ChatGPT (U.S.)',
-    summary: 'A video inquiry in ChatGPT surfaced a Canva video editor ad — context-targeted; ChatGPT ads pilot expanding to UK, Mexico, Brazil, Japan, and South Korea.',
-    adobeImplication: 'Canva is buying presence at the AI chat discovery moment. Adobe Firefly is already usable directly inside Claude, but Canva is running paid context-targeted ads inside ChatGPT at the exact moment students are asking creative questions — a distribution advantage that product availability alone can\'t match.',
-    implicationSource: 'Spotted in ChatGPT · Adobe Internal Briefing · May 2026',
-  },
   {
     platform: 'Picsart', color: '#22C55E', date: 'May 2026', sortDate: '2026-05-10',
     headline: 'AI Stylist: outfit generation + full retouching from one photo',
     summary: 'Generates complete outfits from a single photo and style direction, then layers in AI retouching (skin tone, hair, features) — full styling workflow inside Picsart.',
+    sourceUrl: 'https://picsart.com/blog/ai-stylist',
   },
   {
     platform: 'Claude', color: '#A78BFA', date: 'May 7', sortDate: '2026-05-07',
     headline: 'Claude now works across Excel, PowerPoint, Word, and Outlook',
     summary: 'Full context carried across Microsoft 365 apps — draft emails, update spreadsheets, and build decks in one session; Outlook integration remains in beta.',
+    sourceUrl: 'https://www.anthropic.com/news/claude-microsoft-365',
   },
   {
     platform: 'Picsart', color: '#22C55E', date: 'May 7', sortDate: '2026-05-07',
-    highlight: true, rank: 3, rankRationale: 'Picsart is a direct Firefly competitor at a fraction of CC\'s price, now embedded in AI chat — but lower brand recognition than Canva limits its immediate threat.',
+    highlight: true, rank: 4, rankRationale: 'Picsart is a direct Firefly competitor at a fraction of CC\'s price, now embedded in AI chat — but lower brand recognition than Canva limits its immediate threat.',
     headline: 'Picsart MCP: 140+ AI models accessible via ChatGPT and Claude',
     summary: 'A single integration gives AI assistants access to Picsart\'s full model library for image, video, and audio — following similar MCP launches by Canva and Adobe Express.',
-    adobeImplication: 'Picsart is now usable directly inside ChatGPT and Claude, putting 140+ AI image, video, and audio tools one prompt away — and at $10.50 a month, it competes directly with Firefly\'s generative capabilities.',
+    sourceUrl: 'https://picsart.com/blog/picsart-mcp',
+    adobeImplication: 'Picsart is now usable directly inside ChatGPT and Claude, putting 140+ AI image, video, and audio tools one prompt away — and at $10.50 a month, it competes directly with Firefly\'s generative capabilities. This is particularly relevant to the creator audience.',
     implicationSource: 'picsart.com · Adobe Internal Briefing · May 7, 2026',
   },
   // ── May 6 ──
@@ -613,37 +616,32 @@ const BRIEF_ITEMS = [
     platform: 'Meta Edits', color: '#60A5FA', date: 'May 6', sortDate: '2026-05-06',
     headline: 'Caption profanity controls and improved image blending',
     summary: 'Edits continues adding CapCut feature parity — profanity replacement in captions, enhanced image blending effects, and a custom Met Gala font.',
+    sourceUrl: 'https://www.socialmediatoday.com/news/meta-edits-updates-may-2026',
   },
   // ── May 3–4 ──
   {
     platform: 'Canva', color: '#22C55E', date: 'May 4', sortDate: '2026-05-04',
     headline: '"The Thing That Makes Anything A Thing" — new U.S. brand campaign',
     summary: 'Spans experiential, OOH, social, influencer, digital, and audio; centers Canva as the creative partner for turning any idea into reality.',
+    sourceUrl: 'https://www.canva.com/newsroom/news/',
   },
   {
     platform: 'Gemini', color: '#A78BFA', date: 'May 4', sortDate: '2026-05-04',
     headline: 'Custom tone, style, and formatting instructions in Google Docs',
     summary: 'Persistent Gemini instructions (up to 1,000 characters) auto-apply preferences on every document — deepening Google ecosystem lock-in.',
+    sourceUrl: 'https://workspace.google.com/blog/gemini-docs-custom-instructions',
   },
   {
     platform: 'YouTube', color: '#60A5FA', date: 'May 3', sortDate: '2026-05-03',
     headline: 'AI music generation replaces copyrighted songs in existing videos',
     summary: 'Creators can swap flagged audio with AI-generated royalty-free instrumental tracks in YouTube Studio — resolving copyright issues without removing videos.',
+    sourceUrl: 'https://www.socialmediatoday.com/news/youtube-ai-music-generation',
   },
   // ── Apr 30 ──
-  {
-    platform: 'Canva', color: '#22C55E', date: 'Apr 30', sortDate: '2026-04-30',
-    headline: 'CTO Brendan Humphreys steps down after 12 years',
-    summary: 'Departure at a critical moment as Canva accelerates its AI-first pivot ahead of a potential IPO; Humphreys will continue as an adviser.',
-  },
-  {
-    platform: 'Claude', color: '#A78BFA', date: 'Apr 29–30', sortDate: '2026-04-30',
-    headline: 'Cowork enterprise rollout guide; case studies from L\'Oréal, Lyft, Rakuten',
-    summary: 'Anthropic released a 6-month pilot framework to help enterprises embed Claude Cowork — shifting Claude from chatbot to active team member.',
-  },
   {
     platform: 'Meta Edits', color: '#60A5FA', date: 'Apr 30', sortDate: '2026-04-30',
     headline: 'AI ad connectors pipe Meta data into ChatGPT and Claude',
     summary: 'Brands can now query campaign performance in their AI assistant of choice via natural language — no APIs or developer credentials required.',
+    sourceUrl: 'https://www.socialmediatoday.com/news/meta-ai-ad-connectors',
   },
 ];

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 const NAV_ITEMS = [
-  { path: '/may-2026', label: '⚡ May 2026 Updates' },
+  { path: '/may-2026', label: '⚡ Monthly Updates' },
   { path: '/four-p-shifts', label: 'Marketing Mix' },
   { path: '/pricing', label: 'Pricing' },
   { path: '/credit-deep-dive', label: 'AI Credit Deep Dive' },

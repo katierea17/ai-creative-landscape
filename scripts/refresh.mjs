@@ -26,7 +26,7 @@ const COMPETITORS = [
   {
     id: 'canva',
     name: 'Canva',
-    pricing: 'Free: 50 AI credits/mo. Pro: $15/mo (500 AI credits/mo). Students: free via Canva for Education.',
+    pricing: 'Free: 50 AI credits/mo. Pro: $18/mo or $144/yr (500 AI credits/mo). Students: free via Canva for Education.',
     notable: 'Canva AI 2.0 + proprietary Canva Design Model launched May 2026. Canva Create 2026 event.',
     studentPromo: 'Pro free for students ($15/mo value)',
     messaging: 'Hero positioning: "What will you design today?" / "For everyone, everywhere." Canva Create 2026 framing: AI as creative collaborator, not replacement.',
@@ -35,7 +35,7 @@ const COMPETITORS = [
   {
     id: 'capcut',
     name: 'CapCut',
-    pricing: 'Free: 150 AI credits/wk. Pro: $7.99/mo.',
+    pricing: 'Free: 150 AI credits/wk. Pro: $19.99/mo or $179.99/yr (1,200 AI credits/mo).',
     notable: 'CapCut + Google Gemini integration announced May 2026',
     studentPromo: null,
     messaging: 'Positioning: fast, social-native video editor. TikTok ecosystem tie-in central to brand identity.',
@@ -98,8 +98,8 @@ const COMPETITORS = [
   {
     id: 'picsart',
     name: 'Picsart',
-    pricing: 'Free: 5 AI credits/wk (~20/mo). Gold: $4.66/mo (unlimited).',
-    notable: 'Free tier reduced from unlimited to 5 AI credits/week',
+    pricing: 'Free: 5 AI credits/wk (~20/mo). Pro: $10.50/mo (500 AI credits/mo, formerly Gold).',
+    notable: 'Gold tier renamed to Pro; moved from unlimited to 500 AI credits/mo',
     studentPromo: null,
     messaging: 'Broad consumer creative/editing app. "Create anything."',
     campaigns: null,
@@ -194,12 +194,12 @@ async function main() {
     try {
       const prompt = `You are a competitive intelligence analyst tracking AI creative tools.
 
-Search the web for changes to ${competitor.name} that were announced or went into effect in MAY 2026 ONLY. Ignore anything from before May 2026.
+Search the web for changes to ${competitor.name} that were announced or went into effect in THE LAST 30 DAYS ONLY. Ignore anything older than 30 days.
 
-CURRENT KNOWN DATA (as of early May 2026):
+CURRENT KNOWN DATA (last updated):
 ${formatSnapshot(competitor)}
 
-Look specifically for changes that happened in May 2026 across ALL four dimensions:
+Look specifically for changes that happened in the last 30 days across ALL four dimensions:
 
 PRODUCT / PRICING / FEATURES:
 - Price increases or cuts
@@ -222,12 +222,12 @@ MESSAGING / POSITIONING:
 - New competitive positioning language (e.g. explicitly targeting Adobe, or emphasising AI safety)
 - Changes to homepage, landing page, or ad copy that signal a strategy shift
 
-If a change happened before May 2026, do NOT report it — it is already known.
+If a change happened more than 30 days ago, do NOT report it — it is already known.
 
 Respond using EXACTLY this format — no extra text:
 
 CHANGES_FOUND: yes | no
-SUMMARY: <one concise paragraph covering all dimensions, or "No changes detected in May 2026.">
+SUMMARY: <one concise paragraph covering all dimensions, or "No changes detected in the last 30 days.">
 PROPOSED_UPDATES:
 - field: <pricing | notable | studentPromo | messaging | campaign | other>
   old: <current value, or "none on file">
@@ -277,7 +277,7 @@ PROPOSED_UPDATES:
 
   if (changes.length === 0) {
     console.log('\n✅  All clear — no changes detected across any competitors.');
-    console.log('    Dashboard data is current as of May 2026.\n');
+    console.log('    Dashboard data is current as of the last 30 days.\n');
     return;
   }
 
