@@ -476,7 +476,7 @@ const BRIEF_ITEMS = [
   {
     platform: 'Students', color: '#A0A0A0', date: 'May 26', sortDate: '2026-05-26',
     highlight: true, rank: 2,
-    rankRationale: 'Ranked second — student sentiment is a direct signal about the audience CC needs to win, and a positioning opportunity Adobe can act on now.',
+    rankRationale: 'Student sentiment is a direct signal about the audience CC needs to win, and a positioning opportunity Adobe can act on now.',
     headline: 'Graduates booing AI optimism at commencement speeches',
     summary: 'Students at multiple graduations protested speakers celebrating AI, citing fears about skills disruption — a growing gap between AI narratives and student confidence.',
     sourceUrl: 'https://www.socialmediatoday.com/news/students-booing-ai-commencement-2026',
