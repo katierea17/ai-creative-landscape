@@ -1,5 +1,5 @@
 // ── Gen AI Survey Data ─────────────────────────────────────────────────────
-// GenAI Tracker · Q2 2026 · n=137 · US students 18-24
+// GenAI Tracker · Q2 2026 · n=128 · US students 18-24
 
 interface BarRow { label: string; value: number; color: string; }
 
@@ -56,18 +56,18 @@ function QCard({ qNum, question, note, color, children }: {
 const Q2_COLOR = '#06B6D4';
 const Q2: BarRow[] = [
   { label: 'Canva',            value: 72, color: Q2_COLOR },
-  { label: 'ChatGPT',          value: 64, color: Q2_COLOR },
-  { label: 'CapCut',           value: 57, color: Q2_COLOR },
-  { label: 'Gemini',           value: 39, color: Q2_COLOR },
-  { label: 'Picsart',          value: 39, color: Q2_COLOR },
-  { label: 'Adobe Photoshop',  value: 36, color: Q2_COLOR },
-  { label: 'Google Photos',    value: 31, color: Q2_COLOR },
-  { label: 'Instagram Edits',  value: 28, color: Q2_COLOR },
+  { label: 'ChatGPT',          value: 67, color: Q2_COLOR },
+  { label: 'CapCut',           value: 59, color: Q2_COLOR },
+  { label: 'Gemini',           value: 42, color: Q2_COLOR },
+  { label: 'Picsart',          value: 40, color: Q2_COLOR },
+  { label: 'Adobe Photoshop',  value: 38, color: Q2_COLOR },
+  { label: 'Google Photos',    value: 32, color: Q2_COLOR },
+  { label: 'Instagram Edits',  value: 30, color: Q2_COLOR },
   { label: 'Adobe Express',    value: 21, color: Q2_COLOR },
   { label: 'Claude',           value: 20, color: Q2_COLOR },
-  { label: 'Adobe Premiere',   value: 16, color: Q2_COLOR },
-  { label: 'Final Cut Pro',    value: 15, color: Q2_COLOR },
-  { label: 'Adobe Firefly',    value: 12, color: Q2_COLOR },
+  { label: 'Adobe Premiere',   value: 17, color: Q2_COLOR },
+  { label: 'Final Cut Pro',    value: 16, color: Q2_COLOR },
+  { label: 'Adobe Firefly',    value: 13, color: Q2_COLOR },
   { label: 'Figma',            value:  9, color: Q2_COLOR },
   { label: 'DaVinci Resolve',  value:  7, color: Q2_COLOR },
   { label: 'Midjourney',       value:  5, color: Q2_COLOR },
@@ -78,103 +78,102 @@ const Q2: BarRow[] = [
 const Q3_COLOR = '#14B8A6';
 const Q3: BarRow[] = [
   { label: 'Canva',            value: 48, color: Q3_COLOR },
-  { label: 'ChatGPT',          value: 45, color: Q3_COLOR },
+  { label: 'ChatGPT',          value: 47, color: Q3_COLOR },
   { label: 'CapCut',           value: 39, color: Q3_COLOR },
-  { label: 'Gemini',           value: 23, color: Q3_COLOR },
-  { label: 'Picsart',          value: 19, color: Q3_COLOR },
-  { label: 'Google Photos',    value: 15, color: Q3_COLOR },
+  { label: 'Gemini',           value: 22, color: Q3_COLOR },
+  { label: 'Picsart',          value: 20, color: Q3_COLOR },
+  { label: 'Google Photos',    value: 16, color: Q3_COLOR },
   { label: 'Adobe Photoshop',  value: 12, color: Q3_COLOR },
   { label: 'Adobe Express',    value:  9, color: Q3_COLOR },
   { label: 'Instagram Edits',  value:  9, color: Q3_COLOR },
-  { label: 'Claude',           value:  7, color: Q3_COLOR },
+  { label: 'Claude',           value:  8, color: Q3_COLOR },
   { label: 'Adobe Premiere',   value:  7, color: Q3_COLOR },
   { label: 'Final Cut Pro',    value:  7, color: Q3_COLOR },
   { label: 'DaVinci Resolve',  value:  6, color: Q3_COLOR },
-  { label: 'Adobe Firefly',    value:  4, color: Q3_COLOR },
-  { label: 'Runway',           value:  4, color: Q3_COLOR },
+  { label: 'Adobe Firefly',    value:  5, color: Q3_COLOR },
+  { label: 'Runway',           value:  3, color: Q3_COLOR },
   { label: 'Figma',            value:  2, color: Q3_COLOR },
-  { label: 'Midjourney',       value:  1, color: Q3_COLOR },
 ];
 
 // ── Q4: Context for AI creative tools ────────────────────────────────────
 const Q4_COLOR = '#EB1000';
 const Q4: BarRow[] = [
-  { label: 'Schoolwork / class assignments',  value: 45, color: Q4_COLOR },
-  { label: 'Personal creative projects',      value: 25, color: Q4_COLOR },
-  { label: 'Social media content',            value: 16, color: Q4_COLOR },
+  { label: 'Schoolwork / class assignments',  value: 47, color: Q4_COLOR },
+  { label: 'Personal creative projects',      value: 24, color: Q4_COLOR },
+  { label: 'Social media content',            value: 15, color: Q4_COLOR },
   { label: 'Portfolio / professional work',   value: 14, color: Q4_COLOR },
 ];
 
 // ── Q5: How much creative work uses AI ───────────────────────────────────
 const Q5_COLOR = '#F97316';
 const Q5: BarRow[] = [
-  { label: '11–50%',   value: 50, color: Q5_COLOR },
-  { label: '0–10%',    value: 28, color: Q5_COLOR },
+  { label: '11–50%',   value: 48, color: Q5_COLOR },
+  { label: '0–10%',    value: 29, color: Q5_COLOR },
   { label: '51–75%',   value: 21, color: Q5_COLOR },
-  { label: '76–100%',  value:  1, color: Q5_COLOR },
+  { label: '76–100%',  value:  2, color: Q5_COLOR },
 ];
 
 // ── Q6: Tools used solely/primarily for AI ───────────────────────────────
 const Q6_COLOR = '#EC4899';
 const Q6: BarRow[] = [
-  { label: 'ChatGPT',          value: 50, color: Q6_COLOR },
-  { label: 'Gemini',           value: 34, color: Q6_COLOR },
+  { label: 'ChatGPT',          value: 53, color: Q6_COLOR },
+  { label: 'Gemini',           value: 35, color: Q6_COLOR },
   { label: 'Canva',            value: 26, color: Q6_COLOR },
   { label: 'CapCut',           value: 26, color: Q6_COLOR },
   { label: 'Claude',           value: 15, color: Q6_COLOR },
-  { label: 'Google Photos',    value: 14, color: Q6_COLOR },
   { label: 'Picsart',          value: 14, color: Q6_COLOR },
-  { label: 'Adobe Photoshop',  value: 12, color: Q6_COLOR },
-  { label: 'Adobe Express',    value:  9, color: Q6_COLOR },
+  { label: 'Google Photos',    value: 14, color: Q6_COLOR },
+  { label: 'Adobe Photoshop',  value: 13, color: Q6_COLOR },
+  { label: 'Adobe Express',    value: 10, color: Q6_COLOR },
   { label: 'Adobe Premiere',   value:  9, color: Q6_COLOR },
-  { label: 'Final Cut Pro',    value:  9, color: Q6_COLOR },
+  { label: 'Final Cut Pro',    value:  8, color: Q6_COLOR },
   { label: 'Instagram Edits',  value:  7, color: Q6_COLOR },
   { label: 'Adobe Firefly',    value:  5, color: Q6_COLOR },
-  { label: 'DaVinci Resolve',  value:  4, color: Q6_COLOR },
-  { label: 'Runway',           value:  4, color: Q6_COLOR },
+  { label: 'DaVinci Resolve',  value:  5, color: Q6_COLOR },
+  { label: 'Runway',           value:  3, color: Q6_COLOR },
   { label: 'Figma',            value:  3, color: Q6_COLOR },
-  { label: 'Midjourney',       value:  3, color: Q6_COLOR },
+  { label: 'Midjourney',       value:  2, color: Q6_COLOR },
 ];
 
 // ── Q7: Best overall for AI creativity ───────────────────────────────────
 const Q7_COLOR = '#A78BFA';
 const Q7: BarRow[] = [
-  { label: 'ChatGPT',               value: 36, color: Q7_COLOR },
-  { label: 'Canva',                 value: 15, color: Q7_COLOR },
-  { label: 'Gemini',                value:  9, color: Q7_COLOR },
+  { label: 'ChatGPT',               value: 38, color: Q7_COLOR },
+  { label: 'Canva',                 value: 13, color: Q7_COLOR },
+  { label: 'Gemini',                value: 10, color: Q7_COLOR },
   { label: 'CapCut',                value:  7, color: Q7_COLOR },
   { label: 'Claude',                value:  6, color: Q7_COLOR },
   { label: 'Adobe Photoshop',       value:  5, color: Q7_COLOR },
   { label: 'Other',                 value:  4, color: Q7_COLOR },
   { label: 'Adobe Firefly',         value:  3, color: Q7_COLOR },
-  { label: 'Another Adobe product', value:  3, color: Q7_COLOR },
   { label: 'Adobe Premiere',        value:  3, color: Q7_COLOR },
-  { label: 'Adobe Express',         value:  1, color: Q7_COLOR },
-  { label: 'Figma',                 value:  1, color: Q7_COLOR },
-  { label: 'Final Cut Pro',         value:  1, color: Q7_COLOR },
-  { label: 'Picsart',               value:  1, color: Q7_COLOR },
+  { label: 'Another Adobe product', value:  2, color: Q7_COLOR },
+  { label: 'Adobe Express',         value:  2, color: Q7_COLOR },
+  { label: 'Figma',                 value:  2, color: Q7_COLOR },
+  { label: 'Final Cut Pro',         value:  2, color: Q7_COLOR },
+  { label: 'Picsart',               value:  2, color: Q7_COLOR },
 ];
 
 // ── Q9: Too expensive ─────────────────────────────────────────────────────
 const Q9_COLOR = '#F97316';
 const Q9: BarRow[] = [
-  { label: 'Adobe Premiere',   value: 21, color: Q9_COLOR },
-  { label: 'Adobe Photoshop',  value: 20, color: Q9_COLOR },
-  { label: 'ChatGPT',          value: 17, color: Q9_COLOR },
-  { label: 'Adobe Express',    value: 17, color: Q9_COLOR },
-  { label: 'Final Cut Pro',    value: 15, color: Q9_COLOR },
-  { label: 'CapCut',           value: 14, color: Q9_COLOR },
-  { label: 'Picsart',          value: 12, color: Q9_COLOR },
-  { label: 'Gemini',           value: 12, color: Q9_COLOR },
+  { label: 'Adobe Premiere',   value: 23, color: Q9_COLOR },
+  { label: 'Adobe Photoshop',  value: 19, color: Q9_COLOR },
+  { label: 'Adobe Express',    value: 18, color: Q9_COLOR },
+  { label: 'ChatGPT',          value: 16, color: Q9_COLOR },
+  { label: 'Final Cut Pro',    value: 16, color: Q9_COLOR },
+  { label: 'CapCut',           value: 13, color: Q9_COLOR },
+  { label: 'Picsart',          value: 13, color: Q9_COLOR },
   { label: 'Adobe Illustrator',value: 12, color: Q9_COLOR },
+  { label: 'Gemini',           value: 11, color: Q9_COLOR },
   { label: 'Claude',           value:  9, color: Q9_COLOR },
-  { label: 'Adobe Firefly',    value:  9, color: Q9_COLOR },
   { label: 'DaVinci Resolve',  value:  9, color: Q9_COLOR },
+  { label: 'Adobe Firefly',    value:  9, color: Q9_COLOR },
   { label: 'Canva',            value:  7, color: Q9_COLOR },
-  { label: 'Midjourney',       value:  7, color: Q9_COLOR },
+  { label: 'Midjourney',       value:  6, color: Q9_COLOR },
   { label: 'Google Photos',    value:  6, color: Q9_COLOR },
   { label: 'Figma',            value:  5, color: Q9_COLOR },
-  { label: 'Instagram Edits',  value:  4, color: Q9_COLOR },
+  { label: 'Instagram Edits',  value:  5, color: Q9_COLOR },
   { label: 'Runway',           value:  4, color: Q9_COLOR },
 ];
 
@@ -185,38 +184,38 @@ export function SurveyData() {
     <div>
       <h1 style={{ fontSize: 22, fontWeight: 700, marginBottom: 4, color: '#fff' }}>Gen AI Survey Data</h1>
       <p style={{ color: '#A0A0A0', fontSize: 13, marginBottom: 24 }}>
-        GenAI Tracker · Q2 2026 · n=137 · US students 18–24 considering a paid creative tool
+        GenAI Tracker · Q2 2026 · n=128 · US students 18–24 considering a paid creative tool
       </p>
 
-      <QCard qNum="Q2" question="Which tools or platforms have you used for creative endeavors in the past 3 months?" note="Select all that apply · n=137" color={Q2_COLOR}>
-        <HBarChart rows={Q2} source="Q2 · GenAI Tracker n=137, May 2026" />
+      <QCard qNum="Q2" question="Which tools or platforms have you used for creative endeavors in the past 3 months?" note="Select all that apply · n=128" color={Q2_COLOR}>
+        <HBarChart rows={Q2} source="Q2 · GenAI Tracker n=128, May 2026" />
       </QCard>
 
-      <QCard qNum="Q3" question="Which tools or platforms do you use the most?" note="Select up to 3 · n=137" color={Q3_COLOR}>
-        <HBarChart rows={Q3} source="Q3 · GenAI Tracker n=137, May 2026" />
+      <QCard qNum="Q3" question="Which tools or platforms do you use the most?" note="Select up to 3 · n=128" color={Q3_COLOR}>
+        <HBarChart rows={Q3} source="Q3 · GenAI Tracker n=128, May 2026" />
       </QCard>
 
-      <QCard qNum="Q4" question="In what context do you use AI-powered creative tools the most?" note="Ranked — % who ranked each option #1 · n=137" color={Q4_COLOR}>
-        <HBarChart rows={Q4} source="Q4 · GenAI Tracker n=137, May 2026" />
+      <QCard qNum="Q4" question="In what context do you use AI-powered creative tools the most?" note="Ranked — % who ranked each option #1 · n=128" color={Q4_COLOR}>
+        <HBarChart rows={Q4} source="Q4 · GenAI Tracker n=128, May 2026" />
       </QCard>
 
-      <QCard qNum="Q5" question="About how much of your creative work uses built-in AI tools?" note="Single select · n=137" color={Q5_COLOR}>
-        <HBarChart rows={Q5} source="Q5 · GenAI Tracker n=137, May 2026" />
+      <QCard qNum="Q5" question="About how much of your creative work uses built-in AI tools?" note="Single select · n=128" color={Q5_COLOR}>
+        <HBarChart rows={Q5} source="Q5 · GenAI Tracker n=128, May 2026" />
       </QCard>
 
-      <QCard qNum="Q6" question="Of the creative tools you use, which (if any) do you use solely or primarily for its AI functionality?" note="Select all that apply · n=137" color={Q6_COLOR}>
-        <HBarChart rows={Q6} source="Q6 · GenAI Tracker n=137, May 2026" />
+      <QCard qNum="Q6" question="Of the creative tools you use, which (if any) do you use solely or primarily for its AI functionality?" note="Select all that apply · n=128" color={Q6_COLOR}>
+        <HBarChart rows={Q6} source="Q6 · GenAI Tracker n=128, May 2026" />
       </QCard>
 
-      <QCard qNum="Q7" question='Which ONE platform do you currently think is "the best overall" for AI-powered creativity?' note="Single select · n=137" color={Q7_COLOR}>
-        <HBarChart rows={Q7} source="Q7 · GenAI Tracker n=137, May 2026" />
+      <QCard qNum="Q7" question='Which ONE platform do you currently think is "the best overall" for AI-powered creativity?' note="Single select · n=128" color={Q7_COLOR}>
+        <HBarChart rows={Q7} source="Q7 · GenAI Tracker n=128, May 2026" />
       </QCard>
 
       {/* ── Open-ended responses ─────────────────────────────────────── */}
       <OECard
         qNum="Q8"
         question="What makes this platform stand out to you?"
-        note="Open-ended · n=137 · follows Q7 best-overall selection"
+        note="Open-ended · n=128 · follows Q7 best-overall selection"
         color="#F59E0B"
         themes={[
           { label: 'Ease of use & accessibility', summary: 'The dominant theme across all platforms. Nearly every substantive positive response cited simplicity, intuitive design, or ease of access — for Canva, CapCut, ChatGPT, and Adobe alike. "User friendly," "easy to understand," and "accessible" appeared in the majority of responses.' },
@@ -228,17 +227,17 @@ export function SurveyData() {
           { platform: 'ChatGPT', text: 'The images and art it creates are very specific and detailed. It can be a pigeon with a funny hat standing next to Bugs Bunny — it will make the image look good and polished while still being accurate to the idea.' },
           { platform: 'Canva', text: 'Canva stands out because it has multipurpose usages. I created a resume, a CV, a cover letter, and a presentation for my class using it. I am also working on a planner using it.' },
         ]}
-        source="Q8 · GenAI Tracker n=137, May 2026"
+        source="Q8 · GenAI Tracker n=128, May 2026"
       />
 
-      <QCard qNum="Q9" question="Which platforms feel TOO EXPENSIVE for the AI features they offer?" note="Select up to 3 · n=137" color={Q9_COLOR}>
-        <HBarChart rows={Q9} source="Q9 · GenAI Tracker n=137, May 2026" />
+      <QCard qNum="Q9" question="Which platforms feel TOO EXPENSIVE for the AI features they offer?" note="Select up to 3 · n=128" color={Q9_COLOR}>
+        <HBarChart rows={Q9} source="Q9 · GenAI Tracker n=128, May 2026" />
       </QCard>
 
       <OECard
         qNum="Q10"
         question="What makes it feel too expensive?"
-        note="Open-ended · follows Q9 too-expensive selections · n=137"
+        note="Open-ended · follows Q9 too-expensive selections · n=128"
         color="#EB1000"
         themes={[
           { label: 'Free alternatives undercut paid', summary: 'The clearest and most common theme across all 137 responses. Students consistently measured paid tools against free competitors — "cheaper or free apps offer the same and better," "I can get similar features on other apps for less." The availability of capable free tools made any paid tier feel harder to justify.' },
@@ -250,13 +249,13 @@ export function SurveyData() {
           { platform: 'Claude · Adobe Express · DaVinci Resolve', text: 'You don\'t get a lot for what you pay when cheaper, more accessible apps offer the same and better.' },
           { platform: 'Canva · Adobe', text: 'Their pricing is quite high for students or design beginners. Monthly subscription fees feel expensive when used solely for basic or personal needs.' },
         ]}
-        source="Q10 · GenAI Tracker n=137, May 2026"
+        source="Q10 · GenAI Tracker n=128, May 2026"
       />
 
       <OECard
         qNum="Q11"
         question="What's one AI creative tool or feature that impressed you recently — and why?"
-        note="Open-ended · n=137"
+        note="Open-ended · n=128"
         color="#14B8A6"
         themes={[
           { label: 'Background removal & content-aware fill', summary: 'The most frequently cited impressive feature category across the full dataset. Canva Magic Expand, Adobe content-aware fill, Google Photos eraser, and general "removing unwanted things from photos" appeared across dozens of responses. The common thread: AI doing in seconds what used to require significant skill or time.' },
@@ -268,7 +267,7 @@ export function SurveyData() {
         quotes={[
           { platform: 'Adobe Firefly', text: 'Adobe Firefly made me some of the best visual art I had seen and it was relatively cheap.' },
         ]}
-        source="Q11 · GenAI Tracker n=137, May 2026"
+        source="Q11 · GenAI Tracker n=128, May 2026"
       />
     </div>
   );
