@@ -80,13 +80,8 @@ const FINDINGS: FindingItem[] = [
     ],
     studyLabel: 'GenAI & Creativity study · 41 mentions',
   },
-];
-
-// ── Data — Jun 9 Report: What Are Students Saying They Use AI For Creatively? ─
-
-const FINDINGS_2: FindingItem[] = [
   {
-    rank: 1,
+    rank: 5,
     headline: "Students use AI to unlock ideation and cut 'glue work' — taste and final judgment stay human",
     finding: [
       "Rapid ideation & concept visualization: students use AI to generate directions and moodboards for a concept already in mind — not outsourcing the whole design",
@@ -106,10 +101,10 @@ const FINDINGS_2: FindingItem[] = [
       { text: 'showing 8 rough concepts in a first meeting instead of 2', source: 'Reddit · r/CreativeOperations · May 2026' },
       { text: 'it should be used educationally, like Clippy, to teach people about the software', source: 'NPS Survey · Photoshop (beta) · Canada · Mar 2026' },
     ],
-    studyLabel: 'TAO Report · AUP Experience Intelligence · Jun 9, 2026',
+    studyLabel: 'TAO Report · Jun 9, 2026',
   },
   {
-    rank: 2,
+    rank: 6,
     headline: 'Adobe is named as the execution layer — where AI-generated work gets finished and made professional',
     finding: [
       'Students describe a consistent two-step pipeline: AI tools (Midjourney, Runway, ChatGPT) generate the raw material; Adobe tools (Photoshop, Premiere, Illustrator) do the finishing',
@@ -127,10 +122,10 @@ const FINDINGS_2: FindingItem[] = [
       { text: 'generate shorter clips per image and stitch them together in capcut or premiere', source: 'Reddit · r/generativeAI · Apr 2026' },
       { text: 'As a student learning product design in Japan, Adobe AI has been an important tool for practice and research.', source: 'NPS Survey · Illustrator · Japan · Apr 2026' },
     ],
-    studyLabel: 'TAO Report · AUP Experience Intelligence · Jun 9, 2026',
+    studyLabel: 'TAO Report · Jun 9, 2026',
   },
   {
-    rank: 3,
+    rank: 7,
     headline: 'Four friction points consistently cap how deep students will push AI into creative work',
     finding: [
       "Skill atrophy fear: over-reliance is seen as a risk to foundational creative development — students prefer AI as mentor or critique partner, not a decision-maker",
@@ -148,7 +143,7 @@ const FINDINGS_2: FindingItem[] = [
       { text: 'it completely changes the cat and everything else and not what i want at all', source: 'Reddit · r/aiArt · Apr 2026' },
       { text: 'ai replacing the pipeline. the creative act was never the bottleneck', source: 'Reddit · r/artificial · Jun 2026' },
     ],
-    studyLabel: 'TAO Report · AUP Experience Intelligence · Jun 9, 2026',
+    studyLabel: 'TAO Report · Jun 9, 2026',
   },
 ];
 
@@ -322,6 +317,7 @@ export function CustomerSentiment() {
         <SourceChip label="Study 1 · How do students, those in creative fields/majors particularly, feel about generative AI in the context of creativity?" />
         <SourceChip label="Study 2 · What do students think about generative credits or AI credits or AI tokens?" />
         <SourceChip label="Social listening: Reddit, Discord · NPS surveys · App Store reviews" />
+        <SourceChip label="TAO Report · AUP Experience Intelligence · Jun 9, 2026 · What are students saying they use AI for creatively?" />
       </div>
 
       {/* Findings carousel */}
@@ -366,19 +362,6 @@ export function CustomerSentiment() {
         })}
       </div>
 
-      {/* ── Jun 9 Report: What Are Students Using AI For Creatively? ── */}
-      <div style={{ marginTop: 8, marginBottom: 16 }}>
-        <div style={{ fontSize: 10, fontWeight: 700, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10 }}>
-          This Week's Deep Dive — Jun 9, 2026
-        </div>
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 20 }}>
-          <SourceChip label="TAO (Total Analysis of Opinions) · AUP Experience Intelligence · Jun 9, 2026" />
-          <SourceChip label="'What are students saying they use AI for creatively?'" />
-          <SourceChip label="Social listening: Reddit, Discord · NPS surveys · Student-identified feedback, 18–24" />
-        </div>
-      </div>
-
-      <FindingsCarousel items={FINDINGS_2} title="Findings — What Students Use AI For Creatively" />
 
     </div>
   );
