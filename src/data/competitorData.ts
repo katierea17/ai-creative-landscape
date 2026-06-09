@@ -55,7 +55,7 @@ export const competitors: Competitor[] = [
     studentPromo: null,
     pricing: {
       free: true,
-      premiumSubscription: 'Google One from $2.99/mo (100GB)',
+      premiumSubscription: 'Google One from $1.99/mo (100GB)',
       oneTimePurchase: null,
       aiCredits: false,
       studentPrice: null,
@@ -250,7 +250,7 @@ export const competitors: Competitor[] = [
     studentPromo: null,
     pricing: {
       free: true,
-      premiumSubscription: 'Pro $20/mo, Team $25/mo per user',
+      premiumSubscription: 'Pro $20/mo, Max from $100/mo, Team $25/mo per user',
       oneTimePurchase: null,
       aiCredits: false,
       studentPrice: null,
@@ -411,14 +411,14 @@ export const competitors: Competitor[] = [
       aiCredits: true,
       studentPrice: null,
       studentPromo: null,
-      notableChange: 'V7 model released Mar 2026; no free tier since 2023',
+      notableChange: 'V7 model released Mar 2026; image-to-video launched 2025–2026; no free tier since 2023',
     },
     creditDetail: 'Basic: ~200 images/mo (3.3hr GPU). Standard: ~900 images/mo (15hr GPU). Pro: unlimited relaxed + 30hr fast. Credits = GPU compute time.',
     aiFeatures: {
       ideate: 'Describe, Remix, Vary',
       creativeEditing: 'Inpainting, outpainting, zoom',
       imageGeneration: true,
-      videoGeneration: false,
+      videoGeneration: 'Image-to-video (5s clips, extendable to 21s)',
     },
     experience: {
       easeOfUse: 'Medium',
@@ -445,12 +445,12 @@ export const competitors: Competitor[] = [
     studentPromo: '$2.99/mo as part of Apple Creator Studio',
     pricing: {
       free: false,
-      premiumSubscription: '$4.99/mo or $49/yr',
-      oneTimePurchase: null,
+      premiumSubscription: '$12.99/mo or $129/yr (Apple Creator Studio bundle)',
+      oneTimePurchase: '$299.99 (standalone, Mac App Store)',
       aiCredits: false,
       studentPrice: '$2.99/mo (via Apple Creator Studio)',
       studentPromo: '$2.99/mo as part of Apple Creator Studio',
-      notableChange: 'Moved from $299 one-time to $4.99/mo subscription Jan 2026; student bundle $2.99/mo resets market expectations',
+      notableChange: 'Subscription via Apple Creator Studio (FCP + Logic Pro + Motion + more) at $12.99/mo; standalone $299.99 one-time still on App Store; student bundle $2.99/mo',
     },
     creditDetail: null,
     aiFeatures: {
@@ -523,7 +523,7 @@ export const competitors: Competitor[] = [
     studentPromo: 'Free (Figma for Education)',
     pricing: {
       free: true,
-      premiumSubscription: 'Professional $12/mo per editor, Organization $45/mo per editor',
+      premiumSubscription: 'Professional $16/mo per editor, Organization $55/mo per editor',
       oneTimePurchase: null,
       aiCredits: true,
       studentPrice: 'Free (Figma Education)',
@@ -845,4 +845,4 @@ export const fourPShifts: FourPShift[] = [
   },
 ];
 
-export const lastUpdated = 'May 2026';
+export const lastUpdated = 'Jun 9, 2026';

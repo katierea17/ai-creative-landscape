@@ -5,8 +5,17 @@ import { CategoryBadge } from '../components/CategoryBadge';
 import { EditableField } from '../components/EditableField';
 import { useFilter } from '../context/FilterContext';
 import { competitors } from '../data/competitorData';
+import type { Category } from '../data/competitorData';
 
 const CREDIT_COMPETITORS = ['canva', 'capcut', 'picsart', 'midjourney', 'figma', 'runway'];
+
+// Adobe is the "self" benchmark — not in competitorData, so injected as a stub
+const ADOBE_STUB = {
+  id: 'adobe',
+  name: 'Adobe CC (Students)',
+  category: 'Professional Tools' as Category,
+  creditDetail: 'CC All Apps Students & Teachers: 4,000 generative credits/mo (intro rate $19.99/mo yr 1, then $39.99/mo). Credits power Firefly features across the suite — Generative Fill, Text to Image, Generative Expand, and more.',
+};
 
 // First paid tier credits — monthly equivalent for bar comparison
 const PAID_TIER_CREDITS: Record<string, {
@@ -47,7 +56,7 @@ const PAID_TIER_CREDITS: Record<string, {
   figma: {
     monthlyEquiv: 3000,
     label: '3,000/mo (Full seat)',
-    tierName: 'Professional ($12/mo per editor)',
+    tierName: 'Professional ($16/mo per editor)',
     sourceUrl: 'https://help.figma.com/hc/en-us/articles/33459875669015-How-AI-credits-work',
     sourceName: 'help.figma.com',
   },
@@ -58,6 +67,13 @@ const PAID_TIER_CREDITS: Record<string, {
     sourceUrl: 'https://runwayml.com/pricing',
     sourceName: 'runwayml.com/pricing',
   },
+  adobe: {
+    monthlyEquiv: 4000,
+    label: '4,000/mo',
+    tierName: 'CC All Apps — Students & Teachers ($19.99/mo intro)',
+    sourceUrl: 'https://helpx.adobe.com/creative-cloud/apps/generative-ai/generative-credits-faq.html#monthly-generative-credits',
+    sourceName: 'helpx.adobe.com · Generative Credits FAQ',
+  },
 };
 
 // Monthly price for the first paid tier (used for $/credit calculation)
@@ -66,8 +82,9 @@ const PAID_TIER_PRICE: Record<string, number> = {
   capcut:     19.99,
   picsart:    10.50,
   midjourney: 10.00,
-  figma:      12.00,
+  figma:      16.00,
   runway:     12.00,
+  adobe:      19.99,
 };
 
 // Midjourney uses GPU hours / images, not a generic "credit"
@@ -78,6 +95,7 @@ const COST_PER_CREDIT_UNIT: Record<string, string> = {
   midjourney: '/image*',
   figma:      '/credit',
   runway:     '/credit',
+  adobe:      '/credit',
 };
 
 const OVERAGE_SOURCES: Record<string, { url: string; name: string }> = {
@@ -87,6 +105,14 @@ const OVERAGE_SOURCES: Record<string, { url: string; name: string }> = {
   midjourney: { url: 'https://docs.midjourney.com/docs/plans', name: 'docs.midjourney.com/plans' },
   figma:      { url: 'https://www.figma.com/pricing/', name: 'figma.com/pricing' },
   runway:     { url: 'https://runwayml.com/pricing', name: 'runwayml.com/pricing' },
+  adobe:      { url: 'https://helpx.adobe.com/creative-cloud/apps/generative-ai/generative-credits-faq.html', name: 'helpx.adobe.com · Generative Credits FAQ' },
+};
+
+const STUDENT_PROMO_NOTE: Record<string, { short: string; effectiveCost: string | null }> = {
+  canva:  { short: 'Free for students', effectiveCost: '$0/credit' },
+  figma:  { short: 'Free (Figma for Education)', effectiveCost: '$0/credit' },
+  runway: { short: '25% off + 100K credits via Ambassador', effectiveCost: null },
+  adobe:  { short: 'Intro rate yr 1 only; $39.99/mo after', effectiveCost: null },
 };
 
 const CREDIT_NAMES: Record<string, string> = {
@@ -96,6 +122,7 @@ const CREDIT_NAMES: Record<string, string> = {
   midjourney: 'GPU Hours',
   figma: 'AI Credits',
   runway: 'Credits',
+  adobe: 'Generative Credits',
 };
 
 const CREDIT_LANGUAGE: Record<string, { name: string; pitch: string }> = {
@@ -105,16 +132,19 @@ const CREDIT_LANGUAGE: Record<string, { name: string; pitch: string }> = {
   'midjourney': { name: 'Fast GPU Hours', pitch: '"Your time to create at full speed." GPU hours are compute time for image generation — Basic gets 3.3 fast hrs/mo (~200 images). Highly technical framing that signals quality over convenience.' },
   'figma':      { name: 'AI Credits', pitch: '"Credits enable Figma AI features across your workflow." Professional seats get 3,000/mo. Positioned as a professional resource tied to seat type, not a consumer upsell.' },
   'runway':     { name: 'Credits', pitch: '"5–10 credits per second of video." Runway is the only competitor to market credits by the output second, making cost feel transparent and tied directly to creative output quality.' },
+  'adobe':      { name: 'Generative Credits', pitch: '"Create without limits." Generative Credits power Firefly AI features across Creative Cloud — Generative Fill, Text to Image, Generative Expand, and more. CC All Apps includes 4,000 credits/mo. Framed as included in your subscription, not a metered add-on.' },
 };
 
 export function CreditDeepDive() {
   const { activeCategories } = useFilter();
-  const creditCompetitors = competitors.filter(
-    c => CREDIT_COMPETITORS.includes(c.id) && activeCategories.includes(c.category)
-  );
+  const creditCompetitors = [
+    ADOBE_STUB as typeof competitors[0],
+    ...competitors.filter(c => CREDIT_COMPETITORS.includes(c.id) && activeCategories.includes(c.category)),
+  ];
   // Tags sourced from deck only — Canva (Slide 11), CapCut (Slide 14), Figma (Slide 21)
   // Picsart, Midjourney, Runway cleared — not in deck
   const [tags, setTags] = useState<Record<string, string[]>>({
+    adobe: ['Generative Fill', 'Text to Image', 'Generative Expand', 'Text to Vector', 'Generative Recolor'],
     canva: ['Magic Design', 'Magic Write', 'Magic Switch/Translate', 'Magic Tools', 'Magic Layers'],
     capcut: ['AI Remix', 'Auto Caption', 'Auto Removal', 'Motion Tracking'],
     picsart: [],
@@ -123,6 +153,7 @@ export function CreditDeepDive() {
     runway: [],
   });
   const [overages, setOverages] = useState<Record<string, string>>({
+    adobe: '⚠ Top-up cost per credit not yet confirmed — verify at helpx.adobe.com/creative-cloud/apps/generative-ai/generative-credits-faq.html',
     canva: 'Purchase additional credit packs (e.g. 100 credits add-on)',
     capcut: 'Purchase additional credits at $4.99 / 100 credits; purchased credits valid 2 years',
     picsart: 'Purchase additional credits or upgrade to Ultra plan',
@@ -185,7 +216,7 @@ export function CreditDeepDive() {
                     transition: 'width 0.5s',
                   }} />
                 </div>
-                <div style={{ width: 220, fontSize: 12, fontWeight: 600, color: '#fff', display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
+                <div style={{ fontSize: 12, fontWeight: 600, color: '#fff', display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0, flexWrap: 'wrap', maxWidth: 280 }}>
                   <span>{entry.label}</span>
                   <span style={{ fontSize: 10, color: '#555', fontWeight: 400 }}>· {entry.tierName}</span>
                   <a
@@ -197,6 +228,16 @@ export function CreditDeepDive() {
                   >
                     ↗
                   </a>
+                  {STUDENT_PROMO_NOTE[c.id] && (
+                    <span style={{
+                      fontSize: 10, fontWeight: 600,
+                      color: '#14B8A6', background: '#14B8A615',
+                      border: '1px solid #14B8A640',
+                      borderRadius: 3, padding: '1px 6px',
+                    }}>
+                      🎓 {STUDENT_PROMO_NOTE[c.id].short}
+                    </span>
+                  )}
                 </div>
               </div>
             );
@@ -239,9 +280,21 @@ export function CreditDeepDive() {
                     transition: 'width 0.5s',
                   }} />
                 </div>
-                <div style={{ width: 220, fontSize: 12, fontWeight: 600, color: '#fff', display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
+                <div style={{ fontSize: 12, fontWeight: 600, color: '#fff', display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0, flexWrap: 'wrap', maxWidth: 280 }}>
                   <span style={{ color: '#A78BFA' }}>{displayCost}{unit}</span>
                   <span style={{ fontSize: 10, color: '#555', fontWeight: 400 }}>· ${price}/mo ÷ {credits.toLocaleString()} credits</span>
+                  {STUDENT_PROMO_NOTE[c.id] && (
+                    <span style={{
+                      fontSize: 10, fontWeight: 600,
+                      color: '#14B8A6', background: '#14B8A615',
+                      border: '1px solid #14B8A640',
+                      borderRadius: 3, padding: '1px 6px',
+                    }}>
+                      🎓 {STUDENT_PROMO_NOTE[c.id].effectiveCost
+                        ? `${STUDENT_PROMO_NOTE[c.id].effectiveCost} for students`
+                        : STUDENT_PROMO_NOTE[c.id].short}
+                    </span>
+                  )}
                 </div>
               </div>
             );
@@ -257,6 +310,7 @@ export function CreditDeepDive() {
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {[
+            { id: 'adobe',      pct: 0,  label: 'N/A',   color: '#555',    note: 'No free tier for CC All Apps. Students must subscribe — but at $19.99/mo intro, the 4,000 credit/mo paid allocation means upgrade pressure is essentially zero for typical use.' },
             { id: 'canva',      pct: 48, label: '~48%',  color: '#14B8A6', note: '~24 credits/mo — 2 sessions/wk, ~3 credits each (1 image gen + 1 edit). Close to limit; upgrade pressure is real.' },
             { id: 'picsart',    pct: 90, label: '~90%+', color: '#F97316', note: 'Only 5 credits/wk free (~20/mo). Even light use — 1–2 AI image gens/week — nearly exhausts the free tier.' },
             { id: 'capcut',     pct: 20, label: '~20%',  color: '#14B8A6', note: '~120 credits/mo of 600 free. Auto Caption + AI Remix on 1–2 videos/wk. Plenty of headroom.' },
