@@ -82,6 +82,57 @@ const FINDINGS: FindingItem[] = [
   },
 ];
 
+// ── Data — Where Students Say AI Helps Creatively ───────────────────────
+
+const AI_USE_CASES = [
+  {
+    label: 'Rapid ideation & concept visualization',
+    descriptor: 'When "stuck" — generating directions/moodboards to help visualize a concept already in mind, not asking AI to "do the whole design"',
+    quote: { text: 'i already had an idea, but i was struggling to visualise it properly', source: 'Reddit · r/graphic_design · Apr 2026' },
+  },
+  {
+    label: 'More variations, faster',
+    descriptor: '"8 rough concepts in a first meeting instead of 2" — differentiation comes from art direction and human refinement after AI exploration',
+    quote: { text: 'showing 8 rough concepts in a first meeting instead of 2', source: 'Reddit · r/CreativeOperations · May 2026' },
+  },
+  {
+    label: 'Mockups & concept comps → rebuild in pro tools',
+    descriptor: 'AI for context placement and early exploration; then rebuild/refine in Figma or Photoshop for precision and control',
+    quote: { text: 'midjourney for exploration, photoshop for the real execution', source: 'Reddit · r/Design · Apr 2026' },
+  },
+  {
+    label: 'Production acceleration for video',
+    descriptor: 'Generate short clips per scene and assemble in CapCut or Premiere — not one-shot long generations',
+    quote: { text: 'generate shorter clips per image and stitch them together in capcut or premiere', source: 'Reddit · r/generativeAI · Apr 2026' },
+  },
+  {
+    label: '"Small annoying tasks" that free creative time',
+    descriptor: 'Cleaning notes, fixing spreadsheets, rewriting emails, summarizing PDFs — everyday survival that frees bandwidth for actual creative work',
+    quote: { text: 'most of my ai usage is literally: cleaning horrible class notes', source: 'Reddit · r/AIAssisted · May 2026' },
+  },
+  {
+    label: 'Learning/tutoring layer inside tools',
+    descriptor: 'Students want AI that points to tools, suggests workflows, helps with masking, and teaches the app — not just generation',
+    quote: { text: 'it should be used educationally, like Clippy, to teach people about the software — not holding them back from learning', source: 'NPS Survey · Photoshop (beta) · Canada · Mar 2026' },
+  },
+];
+
+const AI_TENSIONS = [
+  { label: 'Fear of skill atrophy / "AI as crutch"', descriptor: 'Over-reliance can hamper foundational skill development; recommended use is mentor/critique + practice briefs, not outsourcing decisions' },
+  { label: 'Low trust in originality + hallucinations', descriptor: 'AI is weak at true originality and sometimes fabricates sources — requires manual verification before using outputs' },
+  { label: 'Control/consistency in generative media', descriptor: 'Video generators "change the subject" even when instructed not to, forcing creators back to manual tools like Blender' },
+  { label: 'Back-end effort after generation', descriptor: 'The "handoff" from AI output to usable, brand-consistent assets is still time-consuming; typography and polish remain human-heavy' },
+];
+
+const STUDENT_TOOL_STACK = [
+  { category: 'LLMs / Ideation', tools: ['ChatGPT', 'Claude'], color: '#A78BFA' },
+  { category: 'Image Gen', tools: ['Midjourney'], color: '#06B6D4' },
+  { category: 'Video Gen', tools: ['Runway', 'Kling'], color: '#EC4899' },
+  { category: 'Video Assembly', tools: ['CapCut', 'Premiere Pro'], color: '#F59E0B' },
+  { category: 'Audio / Voice', tools: ['ElevenLabs'], color: '#14B8A6' },
+  { category: 'Adobe (execution layer)', tools: ['Photoshop', 'Premiere Pro', 'Illustrator'], color: '#EB1000' },
+];
+
 // ── Data — All Topics (sorted by mention count) ──────────────────────────
 
 // Topics already featured in the carousel, or covered by a carousel finding, are excluded here
@@ -267,7 +318,7 @@ export function CustomerSentiment() {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginBottom: 8 }}>
-        {ALL_TOPICS.map(topic => {
+        {ALL_TOPICS.map((topic) => {
           const studyColor = topic.study === 'credits' ? '#EB1000' : '#06B6D4';
           const studyLabel = topic.study === 'credits' ? 'AI Credits' : 'AI & Creativity';
           return (
@@ -294,6 +345,90 @@ export function CustomerSentiment() {
             </div>
           );
         })}
+      </div>
+
+      {/* ── Section 2: Where Students Say AI Helps ── */}
+      <SectionDivider label="Where Students Say AI Helps Creatively" />
+
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 16 }}>
+        <SourceChip label="TAO (Total Analysis of Opinions) · AUP Experience Intelligence · Jun 9, 2026" />
+        <SourceChip label="'What are students saying they use AI for creatively? (Where are they realizing the benefit?) And with what tools?'" />
+        <SourceChip label="Social listening: Reddit, Discord · NPS surveys · Student-identified feedback, 18–24" />
+      </div>
+
+      {/* Executive summary callout */}
+      <div style={{
+        background: '#f0faf7', border: '1px solid #14B8A630', borderLeft: '3px solid #14B8A6',
+        borderRadius: 4, padding: '12px 16px', marginBottom: 24,
+      }}>
+        <p style={{ margin: 0, fontSize: 13, color: '#111111', lineHeight: 1.6 }}>
+          <span style={{ fontWeight: 700 }}>Top-line finding: </span>
+          Students most often describe AI's creative value as speeding up ideation and production "glue work" (brainstorming, versions, cleanup), while keeping final taste and judgment human. The most cited tool stack is ChatGPT/Claude + Midjourney/Runway/Kling + Adobe Photoshop/Premiere/Illustrator.
+        </p>
+      </div>
+
+      {/* Use cases grid */}
+      <div style={{ fontSize: 10, fontWeight: 700, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>
+        Where students say AI helps — 6 benefit areas
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12, marginBottom: 28 }}>
+        {AI_USE_CASES.map(uc => (
+          <div key={uc.label} style={{
+            background: '#ffffff', border: '1px solid #e8e8e8',
+            borderLeft: '3px solid #14B8A6',
+            borderRadius: 3, padding: '12px 14px',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+            display: 'flex', flexDirection: 'column', gap: 8,
+          }}>
+            <span style={{ fontSize: 12, fontWeight: 700, color: '#111111', lineHeight: 1.3 }}>{uc.label}</span>
+            <p style={{ fontSize: 11, color: '#444444', margin: 0, lineHeight: 1.5, flex: 1 }}>{uc.descriptor}</p>
+            <div style={{ borderTop: '1px solid #f0f0f0', paddingTop: 8 }}>
+              <p style={{ fontSize: 11, color: '#111111', fontStyle: 'italic', margin: '0 0 4px', lineHeight: 1.5 }}>"{uc.quote.text}"</p>
+              <span style={{ fontSize: 9, color: '#888888' }}>— {uc.quote.source}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Tool stack */}
+      <div style={{ fontSize: 10, fontWeight: 700, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>
+        Common student tool stack
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 28 }}>
+        {STUDENT_TOOL_STACK.map(group => (
+          <div key={group.category} style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#ffffff', border: '1px solid #e8e8e8', borderRadius: 4, padding: '6px 10px' }}>
+            <span style={{ fontSize: 10, fontWeight: 600, color: '#888888', whiteSpace: 'nowrap' }}>{group.category}</span>
+            <span style={{ color: '#e0e0e0' }}>·</span>
+            <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+              {group.tools.map(tool => (
+                <span key={tool} style={{
+                  fontSize: 10, fontWeight: 600,
+                  color: group.color, background: `${group.color}12`,
+                  border: `1px solid ${group.color}30`,
+                  borderRadius: 3, padding: '1px 6px',
+                }}>{tool}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Tensions */}
+      <div style={{ fontSize: 10, fontWeight: 700, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>
+        Tensions &amp; constraints students call out
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10, marginBottom: 8 }}>
+        {AI_TENSIONS.map(t => (
+          <div key={t.label} style={{
+            background: '#ffffff', border: '1px solid #e8e8e8',
+            borderLeft: '3px solid #F97316',
+            borderRadius: 3, padding: '10px 12px',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+          }}>
+            <span style={{ fontSize: 12, fontWeight: 600, color: '#111111', lineHeight: 1.3, display: 'block', marginBottom: 5 }}>{t.label}</span>
+            <p style={{ fontSize: 11, color: '#111111', margin: 0, lineHeight: 1.4 }}>{t.descriptor}</p>
+          </div>
+        ))}
       </div>
 
     </div>
