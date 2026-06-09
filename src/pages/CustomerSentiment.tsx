@@ -82,55 +82,74 @@ const FINDINGS: FindingItem[] = [
   },
 ];
 
-// ── Data — Where Students Say AI Helps Creatively ───────────────────────
+// ── Data — Jun 9 Report: What Are Students Saying They Use AI For Creatively? ─
 
-const AI_USE_CASES = [
+const FINDINGS_2: FindingItem[] = [
   {
-    label: 'Rapid ideation & concept visualization',
-    descriptor: 'When "stuck" — generating directions/moodboards to help visualize a concept already in mind, not asking AI to "do the whole design"',
-    quote: { text: 'i already had an idea, but i was struggling to visualise it properly', source: 'Reddit · r/graphic_design · Apr 2026' },
+    rank: 1,
+    headline: "Students use AI to unlock ideation and cut 'glue work' — taste and final judgment stay human",
+    finding: [
+      "Rapid ideation & concept visualization: students use AI to generate directions and moodboards for a concept already in mind — not outsourcing the whole design",
+      "Volume at speed: 8 rough concepts for a first meeting instead of 2 — differentiation comes from art direction and refinement after AI exploration",
+      "Mockups & comps → rebuild in pro tools: AI for early exploration; finish and refine in Figma or Photoshop for precision and control",
+      "Production acceleration for video: generate short clips per scene, assemble in CapCut or Premiere — not one-shot long generations",
+      "Small annoying tasks: cleaning notes, summarizing PDFs, rewriting emails — everyday survival that frees bandwidth for actual creative work",
+      "In-app learning layer: students want AI that suggests workflows, guides masking, and teaches the software — not just generation",
+    ],
+    adobeImplication: [
+      "The ideation benefit maps directly to Firefly's concept-generation capabilities — but the student frame is 'a starting point I direct,' not 'AI that decides for me'",
+      "The tutoring/learning desire is under-served by every platform: an in-app Firefly Coach mode (suggest tools, guide masking, surface shortcuts) would align with how students actually want to learn",
+      "Students' preference for iterating at volume maps well to CC's 4,000-credit allotment — but only if surfaced in plain language before students hit a wall",
+    ],
+    quotes: [
+      { text: 'i already had an idea, but i was struggling to visualise it properly', source: 'Reddit · r/graphic_design · Apr 2026' },
+      { text: 'showing 8 rough concepts in a first meeting instead of 2', source: 'Reddit · r/CreativeOperations · May 2026' },
+      { text: 'it should be used educationally, like Clippy, to teach people about the software', source: 'NPS Survey · Photoshop (beta) · Canada · Mar 2026' },
+    ],
+    studyLabel: 'TAO Report · AUP Experience Intelligence · Jun 9, 2026',
   },
   {
-    label: 'More variations, faster',
-    descriptor: '"8 rough concepts in a first meeting instead of 2" — differentiation comes from art direction and human refinement after AI exploration',
-    quote: { text: 'showing 8 rough concepts in a first meeting instead of 2', source: 'Reddit · r/CreativeOperations · May 2026' },
+    rank: 2,
+    headline: 'Adobe is named as the execution layer — where AI-generated work gets finished and made professional',
+    finding: [
+      'Students describe a consistent two-step pipeline: AI tools (Midjourney, Runway, ChatGPT) generate the raw material; Adobe tools (Photoshop, Premiere, Illustrator) do the finishing',
+      'Most cited tool stack: ChatGPT / Claude for text → Midjourney for image exploration → Photoshop for final execution; Runway / Kling for video clips → Premiere Pro for assembly',
+      'Adobe appears at the end of the pipeline for precision control, typography, brand alignment, and professional export — not for generation',
+      'Japanese and Chinese student NPS respondents specifically name Adobe AI as a career-building learning tool, suggesting the execution-layer position holds globally',
+    ],
+    adobeImplication: [
+      "'Adobe is where the work gets finished' is a student-held belief Adobe doesn't currently claim in messaging — an organic positioning advantage worth owning",
+      "The pipeline position (after AI generation, before professional delivery) creates deep stickiness: students who depend on Photoshop for the last mile stay even as they experiment with upstream tools",
+      "International student mentions (Japan, China) suggest the execution-layer role is a global signal — an underexplored data point for regional CC Students marketing",
+    ],
+    quotes: [
+      { text: 'midjourney for exploration, photoshop for the real execution', source: 'Reddit · r/Design · Apr 2026' },
+      { text: 'generate shorter clips per image and stitch them together in capcut or premiere', source: 'Reddit · r/generativeAI · Apr 2026' },
+      { text: 'As a student learning product design in Japan, Adobe AI has been an important tool for practice and research.', source: 'NPS Survey · Illustrator · Japan · Apr 2026' },
+    ],
+    studyLabel: 'TAO Report · AUP Experience Intelligence · Jun 9, 2026',
   },
   {
-    label: 'Mockups & concept comps → rebuild in pro tools',
-    descriptor: 'AI for context placement and early exploration; then rebuild/refine in Figma or Photoshop for precision and control',
-    quote: { text: 'midjourney for exploration, photoshop for the real execution', source: 'Reddit · r/Design · Apr 2026' },
+    rank: 3,
+    headline: 'Four friction points consistently cap how deep students will push AI into creative work',
+    finding: [
+      "Skill atrophy fear: over-reliance is seen as a risk to foundational creative development — students prefer AI as mentor or critique partner, not a decision-maker",
+      "Low originality trust: AI is perceived as weak at true originality and prone to fabrication; outputs require manual verification before client or academic use",
+      "Consistency & control failure: video and image generators change subjects and styles even when instructed not to, forcing fallback to manual tools",
+      "The handoff cost: typography, brand consistency, and finish after AI generation remain human-heavy — the last mile of the pipeline hasn't been automated",
+    ],
+    adobeImplication: [
+      "Skill atrophy anxiety is the reason students resist fully AI-native tools — CC's role as the place where creative skills are built (not bypassed) is a credible counter-message no AI-first app can make",
+      "Consistency failure (subjects changing unexpectedly) is a direct product gap Firefly's style-reference and subject-lock tools could address explicitly in student marketing",
+      "The handoff cost is Adobe's home turf — Photoshop and Illustrator are already the tools students use to fix and polish AI output; naming this role explicitly would resonate",
+    ],
+    quotes: [
+      { text: 'the sweet spot is using ai to accelerate learning, not replace the struggle', source: 'Reddit · r/Design · Jun 2026' },
+      { text: 'it completely changes the cat and everything else and not what i want at all', source: 'Reddit · r/aiArt · Apr 2026' },
+      { text: 'ai replacing the pipeline. the creative act was never the bottleneck', source: 'Reddit · r/artificial · Jun 2026' },
+    ],
+    studyLabel: 'TAO Report · AUP Experience Intelligence · Jun 9, 2026',
   },
-  {
-    label: 'Production acceleration for video',
-    descriptor: 'Generate short clips per scene and assemble in CapCut or Premiere — not one-shot long generations',
-    quote: { text: 'generate shorter clips per image and stitch them together in capcut or premiere', source: 'Reddit · r/generativeAI · Apr 2026' },
-  },
-  {
-    label: '"Small annoying tasks" that free creative time',
-    descriptor: 'Cleaning notes, fixing spreadsheets, rewriting emails, summarizing PDFs — everyday survival that frees bandwidth for actual creative work',
-    quote: { text: 'most of my ai usage is literally: cleaning horrible class notes', source: 'Reddit · r/AIAssisted · May 2026' },
-  },
-  {
-    label: 'Learning/tutoring layer inside tools',
-    descriptor: 'Students want AI that points to tools, suggests workflows, helps with masking, and teaches the app — not just generation',
-    quote: { text: 'it should be used educationally, like Clippy, to teach people about the software — not holding them back from learning', source: 'NPS Survey · Photoshop (beta) · Canada · Mar 2026' },
-  },
-];
-
-const AI_TENSIONS = [
-  { label: 'Fear of skill atrophy / "AI as crutch"', descriptor: 'Over-reliance can hamper foundational skill development; recommended use is mentor/critique + practice briefs, not outsourcing decisions' },
-  { label: 'Low trust in originality + hallucinations', descriptor: 'AI is weak at true originality and sometimes fabricates sources — requires manual verification before using outputs' },
-  { label: 'Control/consistency in generative media', descriptor: 'Video generators "change the subject" even when instructed not to, forcing creators back to manual tools like Blender' },
-  { label: 'Back-end effort after generation', descriptor: 'The "handoff" from AI output to usable, brand-consistent assets is still time-consuming; typography and polish remain human-heavy' },
-];
-
-const STUDENT_TOOL_STACK = [
-  { category: 'LLMs / Ideation', tools: ['ChatGPT', 'Claude'], color: '#A78BFA' },
-  { category: 'Image Gen', tools: ['Midjourney'], color: '#06B6D4' },
-  { category: 'Video Gen', tools: ['Runway', 'Kling'], color: '#EC4899' },
-  { category: 'Video Assembly', tools: ['CapCut', 'Premiere Pro'], color: '#F59E0B' },
-  { category: 'Audio / Voice', tools: ['ElevenLabs'], color: '#14B8A6' },
-  { category: 'Adobe (execution layer)', tools: ['Photoshop', 'Premiere Pro', 'Illustrator'], color: '#EB1000' },
 ];
 
 // ── Data — All Topics (sorted by mention count) ──────────────────────────
@@ -172,14 +191,14 @@ function SectionDivider({ label }: { label: string }) {
 
 // ── Findings Carousel ────────────────────────────────────────────────────
 
-function FindingsCarousel({ items }: { items: FindingItem[] }) {
+function FindingsCarousel({ items, title = 'Top Findings — What Students Are Saying About AI' }: { items: FindingItem[]; title?: string }) {
   const [idx, setIdx] = useState(0);
   const item = items[idx];
 
   return (
     <div style={{ marginBottom: 32, display: 'flex', flexDirection: 'column', minHeight: 580 }}>
       <div style={{ fontSize: 10, fontWeight: 700, color: '#EB1000', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10 }}>
-        Top Findings — What Students Are Saying About AI
+        {title}
       </div>
 
       <div style={{ flex: 1, border: '1px solid #e0e0e0', borderRadius: 4, overflow: 'hidden', background: '#ffffff', boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
@@ -347,89 +366,19 @@ export function CustomerSentiment() {
         })}
       </div>
 
-      {/* ── Section 2: Where Students Say AI Helps ── */}
-      <SectionDivider label="Where Students Say AI Helps Creatively" />
-
-      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 16 }}>
-        <SourceChip label="TAO (Total Analysis of Opinions) · AUP Experience Intelligence · Jun 9, 2026" />
-        <SourceChip label="'What are students saying they use AI for creatively? (Where are they realizing the benefit?) And with what tools?'" />
-        <SourceChip label="Social listening: Reddit, Discord · NPS surveys · Student-identified feedback, 18–24" />
+      {/* ── Jun 9 Report: What Are Students Using AI For Creatively? ── */}
+      <div style={{ marginTop: 8, marginBottom: 16 }}>
+        <div style={{ fontSize: 10, fontWeight: 700, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10 }}>
+          This Week's Deep Dive — Jun 9, 2026
+        </div>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 20 }}>
+          <SourceChip label="TAO (Total Analysis of Opinions) · AUP Experience Intelligence · Jun 9, 2026" />
+          <SourceChip label="'What are students saying they use AI for creatively?'" />
+          <SourceChip label="Social listening: Reddit, Discord · NPS surveys · Student-identified feedback, 18–24" />
+        </div>
       </div>
 
-      {/* Executive summary callout */}
-      <div style={{
-        background: '#f0faf7', border: '1px solid #14B8A630', borderLeft: '3px solid #14B8A6',
-        borderRadius: 4, padding: '12px 16px', marginBottom: 24,
-      }}>
-        <p style={{ margin: 0, fontSize: 13, color: '#111111', lineHeight: 1.6 }}>
-          <span style={{ fontWeight: 700 }}>Top-line finding: </span>
-          Students most often describe AI's creative value as speeding up ideation and production "glue work" (brainstorming, versions, cleanup), while keeping final taste and judgment human. The most cited tool stack is ChatGPT/Claude + Midjourney/Runway/Kling + Adobe Photoshop/Premiere/Illustrator.
-        </p>
-      </div>
-
-      {/* Use cases grid */}
-      <div style={{ fontSize: 10, fontWeight: 700, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>
-        Where students say AI helps — 6 benefit areas
-      </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12, marginBottom: 28 }}>
-        {AI_USE_CASES.map(uc => (
-          <div key={uc.label} style={{
-            background: '#ffffff', border: '1px solid #e8e8e8',
-            borderLeft: '3px solid #14B8A6',
-            borderRadius: 3, padding: '12px 14px',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
-            display: 'flex', flexDirection: 'column', gap: 8,
-          }}>
-            <span style={{ fontSize: 12, fontWeight: 700, color: '#111111', lineHeight: 1.3 }}>{uc.label}</span>
-            <p style={{ fontSize: 11, color: '#444444', margin: 0, lineHeight: 1.5, flex: 1 }}>{uc.descriptor}</p>
-            <div style={{ borderTop: '1px solid #f0f0f0', paddingTop: 8 }}>
-              <p style={{ fontSize: 11, color: '#111111', fontStyle: 'italic', margin: '0 0 4px', lineHeight: 1.5 }}>"{uc.quote.text}"</p>
-              <span style={{ fontSize: 9, color: '#888888' }}>— {uc.quote.source}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Tool stack */}
-      <div style={{ fontSize: 10, fontWeight: 700, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>
-        Common student tool stack
-      </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 28 }}>
-        {STUDENT_TOOL_STACK.map(group => (
-          <div key={group.category} style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#ffffff', border: '1px solid #e8e8e8', borderRadius: 4, padding: '6px 10px' }}>
-            <span style={{ fontSize: 10, fontWeight: 600, color: '#888888', whiteSpace: 'nowrap' }}>{group.category}</span>
-            <span style={{ color: '#e0e0e0' }}>·</span>
-            <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
-              {group.tools.map(tool => (
-                <span key={tool} style={{
-                  fontSize: 10, fontWeight: 600,
-                  color: group.color, background: `${group.color}12`,
-                  border: `1px solid ${group.color}30`,
-                  borderRadius: 3, padding: '1px 6px',
-                }}>{tool}</span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Tensions */}
-      <div style={{ fontSize: 10, fontWeight: 700, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>
-        Tensions &amp; constraints students call out
-      </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10, marginBottom: 8 }}>
-        {AI_TENSIONS.map(t => (
-          <div key={t.label} style={{
-            background: '#ffffff', border: '1px solid #e8e8e8',
-            borderLeft: '3px solid #F97316',
-            borderRadius: 3, padding: '10px 12px',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
-          }}>
-            <span style={{ fontSize: 12, fontWeight: 600, color: '#111111', lineHeight: 1.3, display: 'block', marginBottom: 5 }}>{t.label}</span>
-            <p style={{ fontSize: 11, color: '#111111', margin: 0, lineHeight: 1.4 }}>{t.descriptor}</p>
-          </div>
-        ))}
-      </div>
+      <FindingsCarousel items={FINDINGS_2} title="Findings — What Students Use AI For Creatively" />
 
     </div>
   );
