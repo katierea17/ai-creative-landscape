@@ -21,7 +21,7 @@ const ADOBE_SENTIMENT_STUB = {
     complaints: [
       'AI features feel intrusive or unprofessional (Illustrator & InDesign NPS)',
       'CC cost increasingly benchmarked against simpler AI-first tools',
-      'Subscription fatigue at $39.99–$54.99/mo',
+      'Subscription fatigue at $39.99–$69.99/mo',
     ],
   },
 };
