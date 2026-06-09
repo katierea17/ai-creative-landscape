@@ -108,6 +108,19 @@ const OVERAGE_SOURCES: Record<string, { url: string; name: string }> = {
   adobe:      { url: 'https://www.adobe.com/ai/overview/generative-credits.html#get-credits-get-creative', name: 'adobe.com · Generative Credits add-on plans' },
 };
 
+// Top-up / add-on cost per credit — only competitors with published rates
+const TOP_UP_COST: Record<string, {
+  costPerCredit: number;
+  label: string;
+  packNote: string;
+  sourceUrl: string;
+  sourceName: string;
+}> = {
+  adobe:  { costPerCredit: 0.004995, label: '0.50¢/credit', packNote: '2,000 credits for $9.99/mo (entry pack)',     sourceUrl: 'https://www.adobe.com/ai/overview/generative-credits.html#get-credits-get-creative', sourceName: 'adobe.com · Generative Credits' },
+  figma:  { costPerCredit: 0.03,     label: '3.0¢/credit',  packNote: 'Pay-as-you-go at $0.03/credit',              sourceUrl: 'https://www.figma.com/pricing/',                                                   sourceName: 'figma.com/pricing' },
+  capcut: { costPerCredit: 0.0499,   label: '4.99¢/credit', packNote: '$4.99 per 100 credits',                      sourceUrl: 'https://www.capcut.com/help/credit-types',                                         sourceName: 'capcut.com/help/credit-types' },
+};
+
 const STUDENT_PROMO_NOTE: Record<string, { short: string; effectiveCost: string | null }> = {
   canva:  { short: 'Free for students', effectiveCost: '$0/credit' },
   figma:  { short: 'Free (Figma for Education)', effectiveCost: '$0/credit' },
@@ -299,6 +312,84 @@ export function CreditDeepDive() {
               </div>
             );
           })}
+        </div>
+      </div>
+
+      {/* Top-up cost per credit */}
+      <div style={{ marginBottom: 40 }}>
+        <div className="section-label" style={{ marginBottom: 4 }}>Top-Up Cost per Credit — Add-On Packs</div>
+        <p style={{ color: '#555', fontSize: 11, marginBottom: 16, fontStyle: 'italic' }}>
+          Cost per credit when purchasing add-on packs beyond the included allocation. Only competitors with published rates shown. Lower bar = cheaper overage.
+        </p>
+
+        {/* Insight callout */}
+        <div style={{
+          background: '#0d2b1e',
+          border: '1px solid #14B8A640',
+          borderLeft: '3px solid #14B8A6',
+          borderRadius: 4,
+          padding: '10px 14px',
+          marginBottom: 20,
+          display: 'flex',
+          alignItems: 'flex-start',
+          gap: 10,
+        }}>
+          <span style={{ fontSize: 16, flexShrink: 0, marginTop: 1 }}>💡</span>
+          <p style={{ margin: 0, fontSize: 12, color: '#A0A0A0', lineHeight: 1.6 }}>
+            <span style={{ color: '#14B8A6', fontWeight: 700 }}>Adobe has the lowest published top-up rate by a wide margin.</span>
+            {' '}At 0.50¢/credit, Adobe add-on packs are <span style={{ color: '#fff', fontWeight: 600 }}>6× cheaper than Figma</span> (3.0¢) and <span style={{ color: '#fff', fontWeight: 600 }}>10× cheaper than CapCut</span> (4.99¢). Canva, Picsart, Midjourney, and Runway do not publish a per-credit top-up rate.
+          </p>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {creditCompetitors
+            .filter(c => TOP_UP_COST[c.id])
+            .sort((a, b) => TOP_UP_COST[a.id].costPerCredit - TOP_UP_COST[b.id].costPerCredit)
+            .map(c => {
+              const entry = TOP_UP_COST[c.id];
+              const maxCost = Math.max(...Object.values(TOP_UP_COST).map(e => e.costPerCredit));
+              const pct = (entry.costPerCredit / maxCost) * 100;
+              const isLowest = entry.costPerCredit === Math.min(...Object.values(TOP_UP_COST).map(e => e.costPerCredit));
+              return (
+                <div key={c.id} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <div style={{ width: 100, fontSize: 12, color: '#A0A0A0', textAlign: 'right', flexShrink: 0 }}>{c.name}</div>
+                  <div style={{ flex: 1, background: '#2a2a2a', borderRadius: 2, height: 24, overflow: 'hidden' }}>
+                    <div style={{
+                      width: `${pct}%`,
+                      height: '100%',
+                      background: isLowest
+                        ? 'linear-gradient(90deg, #0d9488, #14B8A6)'
+                        : 'linear-gradient(90deg, #b45309, #F59E0B)',
+                      borderRadius: 2,
+                      transition: 'width 0.5s',
+                    }} />
+                  </div>
+                  <div style={{ fontSize: 12, fontWeight: 600, color: '#fff', display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0, flexWrap: 'wrap', maxWidth: 300 }}>
+                    <span style={{ color: isLowest ? '#14B8A6' : '#F59E0B' }}>{entry.label}</span>
+                    <span style={{ fontSize: 10, color: '#555', fontWeight: 400 }}>· {entry.packNote}</span>
+                    <a
+                      href={entry.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: '#06B6D4', fontSize: 10, fontWeight: 400, textDecoration: 'none' }}
+                      title={entry.sourceName}
+                    >
+                      ↗
+                    </a>
+                    {isLowest && (
+                      <span style={{
+                        fontSize: 10, fontWeight: 700,
+                        color: '#14B8A6', background: '#14B8A615',
+                        border: '1px solid #14B8A640',
+                        borderRadius: 3, padding: '1px 6px',
+                      }}>
+                        Best rate
+                      </span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
         </div>
       </div>
 
