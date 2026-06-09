@@ -105,7 +105,7 @@ const OVERAGE_SOURCES: Record<string, { url: string; name: string }> = {
   midjourney: { url: 'https://docs.midjourney.com/docs/plans', name: 'docs.midjourney.com/plans' },
   figma:      { url: 'https://www.figma.com/pricing/', name: 'figma.com/pricing' },
   runway:     { url: 'https://runwayml.com/pricing', name: 'runwayml.com/pricing' },
-  adobe:      { url: 'https://helpx.adobe.com/creative-cloud/apps/generative-ai/generative-credits-faq.html', name: 'helpx.adobe.com · Generative Credits FAQ' },
+  adobe:      { url: 'https://www.adobe.com/ai/overview/generative-credits.html#get-credits-get-creative', name: 'adobe.com · Generative Credits add-on plans' },
 };
 
 const STUDENT_PROMO_NOTE: Record<string, { short: string; effectiveCost: string | null }> = {
@@ -153,7 +153,7 @@ export function CreditDeepDive() {
     runway: [],
   });
   const [overages, setOverages] = useState<Record<string, string>>({
-    adobe: '⚠ Top-up cost per credit not yet confirmed — verify at helpx.adobe.com/creative-cloud/apps/generative-ai/generative-credits-faq.html',
+    adobe: 'Add-on packs: 2,000 credits $9.99/mo · 7,000 credits $29.99/mo · 10,000 credits $49.99/mo · 50,000 credits $199.99/mo (~$0.004–0.005/credit). Source: adobe.com/ai/overview/generative-credits.html',
     canva: 'Purchase additional credit packs (e.g. 100 credits add-on)',
     capcut: 'Purchase additional credits at $4.99 / 100 credits; purchased credits valid 2 years',
     picsart: 'Purchase additional credits or upgrade to Ultra plan',
