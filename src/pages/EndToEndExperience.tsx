@@ -19,12 +19,6 @@ const ADOBE_E2E_STUB = {
 
 const STAGES = ['Discover', 'Onboard', 'Create', 'Share/Export', 'Retain'];
 
-const FRICTION_COLORS = {
-  Low: '#14B8A6',
-  Medium: '#F97316',
-  High: '#EB1000',
-};
-
 // Stage notes sourced from:
 //   Canva   — Slide 11 · GenAI Competitive Landscape Assessment, May 2026 + canva.com
 //   ChatGPT — Slide 10 · GenAI Competitive Landscape Assessment, May 2026 + openai.com
@@ -132,33 +126,17 @@ export function EndToEndExperience() {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
         {filtered.map(c => {
-          const frictionColor = FRICTION_COLORS[c.experience.frictionRating];
           const hasSourcedNotes = !!INITIAL_STAGE_NOTES[c.id];
           return (
             <Card key={c.id}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <span style={{ fontWeight: 700, fontSize: 15 }}>{c.name}</span>
-                  <CategoryBadge category={c.category} />
-                  {hasSourcedNotes && (
-                    <span style={{ fontSize: 10, color: '#14B8A6', background: '#14B8A618', border: '1px solid #14B8A640', borderRadius: 3, padding: '1px 6px', fontWeight: 500 }}>
-                      Sourced
-                    </span>
-                  )}
-                </div>
-                <span
-                  style={{
-                    padding: '2px 10px',
-                    borderRadius: 3,
-                    fontSize: 11,
-                    fontWeight: 600,
-                    color: frictionColor,
-                    background: `${frictionColor}18`,
-                    border: `1px solid ${frictionColor}40`,
-                  }}
-                >
-                  {c.experience.frictionRating} Friction
-                </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+                <span style={{ fontWeight: 700, fontSize: 15 }}>{c.name}</span>
+                <CategoryBadge category={c.category} />
+                {hasSourcedNotes && (
+                  <span style={{ fontSize: 10, color: '#14B8A6', background: '#14B8A618', border: '1px solid #14B8A640', borderRadius: 3, padding: '1px 6px', fontWeight: 500 }}>
+                    Sourced
+                  </span>
+                )}
               </div>
 
               {/* Pipeline */}
