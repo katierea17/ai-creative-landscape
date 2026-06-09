@@ -328,8 +328,8 @@ export function CustomerSentiment() {
       <SectionDivider label="Competitor Rankings" />
 
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 24 }}>
-        <SourceChip label="Q7 · Best overall · GenAI Tracker n=128" />
-        <SourceChip label="Adobe score = Photoshop 5% + Firefly 3% + Premiere 3% + Express 2% + Other Adobe 2% (rolled up)" />
+        <SourceChip label="Q7 · User Survey · GenAI Tracker · Q2 2026 · fielded May 2026 · n=128 · US students 18–24 considering a paid creative tool" />
+        <SourceChip label="Adobe score = Photoshop 5% + Firefly 3% + Premiere 3% + Express 2% + Other Adobe 2% (rolled up from Q7)" />
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 16 }}>
