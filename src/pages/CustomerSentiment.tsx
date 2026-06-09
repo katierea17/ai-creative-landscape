@@ -46,42 +46,6 @@ const FINDINGS: FindingItem[] = [
   },
   {
     rank: 2,
-    headline: 'AI threatens the "why" of creative work — not just the how',
-    finding: 'The most-discussed topic across both studies. The core creativity anxiety isn\'t about tools or features — it\'s about meaning. Students fear AI outputs "replicate at scale" rather than generate something new, flattening originality and making creative culture feel like "slop." Many accept AI for production tasks (cleanup, ideation, drafts) but resist it on anything that touches authorship, process, or personal style.',
-    adobeImplication: "Adobe's framing of Firefly as ethically trained and commercially safe addresses copyright concerns but not the deeper anxiety about authenticity. Student messaging that positions AI as a starting point the human directs — not a finishing point — would resonate more than capability-first messaging.",
-    quotes: [
-      { text: 'Critical Thinking Skills are a major part of what makes an artist an Artist, and giving people too easy a way to "do art" without understanding why it\'s considered Art will weaken the industry as a whole.', source: 'NPS Survey · Illustrator · United States · Mar 2026' },
-      { text: 'What if we don\'t have to choose between AI and Humans... I think the truth and future is way more nuanced. What if the truth lies somewhere in the middle?', source: 'Reddit · r/generativeAI · Mar 2026' },
-      { text: 'There needs to be an AI-free subscription model so people aren\'t paying more in order to lose their jobs.', source: 'NPS Survey · InDesign · United States · May 2026' },
-    ],
-    studyLabel: 'Both studies · 83 mentions',
-  },
-  {
-    rank: 3,
-    headline: 'The credit model reads as a tax on learning',
-    finding: 'The second most-discussed topic across both studies. Students describe being "double charged" — paying a subscription and then being metered per AI generation. For learners who iterate constantly, credits run out fast and create anxiety rather than creative freedom. Non-rollover credits compound the frustration — students with project-based, irregular usage patterns lose whatever they didn\'t spend each month.',
-    adobeImplication: 'CC for Students has a real opening to differentiate by offering credit transparency and a student experience sized for iteration — or framing what each plan\'s credits actually cover in plain language. Being the clearest subscription on cost-per-action would address the single biggest pain point in this data.',
-    quotes: [
-      { text: 'I accept different levels of credits at higher price points, but for the credits not to roll over is unacceptable. I\'m so unhappy about this decision I\'m thinking of choosing different software after having used Adobe for almost 30 years.', source: 'NPS Survey · Lightroom · Canada · Apr 2026' },
-      { text: 'Make better, more affordable options for students. The AI capabilities are below average yet pushed into every product and make the service more expensive even if you don\'t use them.', source: 'NPS Survey · Illustrator · Eastern Europe · Feb 2026' },
-      { text: 'Is there an alternative AI program for image/video that doesn\'t require you to buy credits? Getting into learning about how to make AI videos and every site has the same business model. That is ridiculous — having to purchase credits to use the system.', source: 'Reddit · r/artificial · May 2026' },
-    ],
-    studyLabel: 'AI Credits & Tokens study · ~58 mentions',
-  },
-  {
-    rank: 4,
-    headline: 'Entry-level creative careers already feel threatened',
-    finding: 'Students and early-career creatives describe strong anxiety about job displacement — illustration, design, and production tasks that can now be generated cheaply. Several note a split forming: "verified human-made" work becoming a niche premium while production roles shrink. Critically, 0 of 41 mentions were positive — the highest-consensus-negative topic in the dataset.',
-    adobeImplication: 'Messaging that frames Creative Cloud as building real, lasting skills — not shortcuts — could be a direct differentiator from pure-AI tools. The argument that human creative skill makes you a better director of AI tools is both true and actionable as student positioning.',
-    quotes: [
-      { text: 'Is it genuinely impossible to become a graphic designer without using genAI now? I find myself more and more discouraged with the current state of the industry.', source: 'Reddit · r/graphic_design · Apr 2026' },
-      { text: 'In almost a few years AI will replace/can do at least 60–70% of the designers\' work. Social media design is over. Illustrators are out of the game already.', source: 'Discord · Illustrator · #chat · Apr 2026' },
-      { text: 'The problem isn\'t AI, but how companies value creativity. I\'ve been feeling the pressure of AI and feeling down lately because of the constant bullying of those whose talents are being reproduced. It\'s tiring to think about.', source: 'Reddit · r/graphic_design · May 2026' },
-    ],
-    studyLabel: 'GenAI & Creativity study · 41 mentions',
-  },
-  {
-    rank: 5,
     headline: "Students use AI to unlock ideation and cut 'glue work' — taste and final judgment stay human",
     finding: [
       "Rapid ideation & concept visualization: students use AI to generate directions and moodboards for a concept already in mind — not outsourcing the whole design",
@@ -104,7 +68,19 @@ const FINDINGS: FindingItem[] = [
     studyLabel: 'TAO Report · Jun 9, 2026',
   },
   {
-    rank: 6,
+    rank: 3,
+    headline: 'AI threatens the "why" of creative work — not just the how',
+    finding: 'The most-discussed topic across both studies. The core creativity anxiety isn\'t about tools or features — it\'s about meaning. Students fear AI outputs "replicate at scale" rather than generate something new, flattening originality and making creative culture feel like "slop." Many accept AI for production tasks (cleanup, ideation, drafts) but resist it on anything that touches authorship, process, or personal style.',
+    adobeImplication: "Adobe's framing of Firefly as ethically trained and commercially safe addresses copyright concerns but not the deeper anxiety about authenticity. Student messaging that positions AI as a starting point the human directs — not a finishing point — would resonate more than capability-first messaging.",
+    quotes: [
+      { text: 'Critical Thinking Skills are a major part of what makes an artist an Artist, and giving people too easy a way to "do art" without understanding why it\'s considered Art will weaken the industry as a whole.', source: 'NPS Survey · Illustrator · United States · Mar 2026' },
+      { text: 'What if we don\'t have to choose between AI and Humans... I think the truth and future is way more nuanced. What if the truth lies somewhere in the middle?', source: 'Reddit · r/generativeAI · Mar 2026' },
+      { text: 'There needs to be an AI-free subscription model so people aren\'t paying more in order to lose their jobs.', source: 'NPS Survey · InDesign · United States · May 2026' },
+    ],
+    studyLabel: 'Both studies · 83 mentions',
+  },
+  {
+    rank: 4,
     headline: 'Adobe is named as the execution layer — where AI-generated work gets finished and made professional',
     finding: [
       'Students describe a consistent two-step pipeline: AI tools (Midjourney, Runway, ChatGPT) generate the raw material; Adobe tools (Photoshop, Premiere, Illustrator) do the finishing',
@@ -125,7 +101,19 @@ const FINDINGS: FindingItem[] = [
     studyLabel: 'TAO Report · Jun 9, 2026',
   },
   {
-    rank: 7,
+    rank: 5,
+    headline: 'The credit model reads as a tax on learning',
+    finding: 'The second most-discussed topic across both studies. Students describe being "double charged" — paying a subscription and then being metered per AI generation. For learners who iterate constantly, credits run out fast and create anxiety rather than creative freedom. Non-rollover credits compound the frustration — students with project-based, irregular usage patterns lose whatever they didn\'t spend each month.',
+    adobeImplication: 'CC for Students has a real opening to differentiate by offering credit transparency and a student experience sized for iteration — or framing what each plan\'s credits actually cover in plain language. Being the clearest subscription on cost-per-action would address the single biggest pain point in this data.',
+    quotes: [
+      { text: 'I accept different levels of credits at higher price points, but for the credits not to roll over is unacceptable. I\'m so unhappy about this decision I\'m thinking of choosing different software after having used Adobe for almost 30 years.', source: 'NPS Survey · Lightroom · Canada · Apr 2026' },
+      { text: 'Make better, more affordable options for students. The AI capabilities are below average yet pushed into every product and make the service more expensive even if you don\'t use them.', source: 'NPS Survey · Illustrator · Eastern Europe · Feb 2026' },
+      { text: 'Is there an alternative AI program for image/video that doesn\'t require you to buy credits? Getting into learning about how to make AI videos and every site has the same business model. That is ridiculous — having to purchase credits to use the system.', source: 'Reddit · r/artificial · May 2026' },
+    ],
+    studyLabel: 'AI Credits & Tokens study · ~58 mentions',
+  },
+  {
+    rank: 6,
     headline: 'Four friction points consistently cap how deep students will push AI into creative work',
     finding: [
       "Skill atrophy fear: over-reliance is seen as a risk to foundational creative development — students prefer AI as mentor or critique partner, not a decision-maker",
@@ -144,6 +132,18 @@ const FINDINGS: FindingItem[] = [
       { text: 'ai replacing the pipeline. the creative act was never the bottleneck', source: 'Reddit · r/artificial · Jun 2026' },
     ],
     studyLabel: 'TAO Report · Jun 9, 2026',
+  },
+  {
+    rank: 7,
+    headline: 'Entry-level creative careers already feel threatened',
+    finding: 'Students and early-career creatives describe strong anxiety about job displacement — illustration, design, and production tasks that can now be generated cheaply. Several note a split forming: "verified human-made" work becoming a niche premium while production roles shrink. Critically, 0 of 41 mentions were positive — the highest-consensus-negative topic in the dataset.',
+    adobeImplication: 'Messaging that frames Creative Cloud as building real, lasting skills — not shortcuts — could be a direct differentiator from pure-AI tools. The argument that human creative skill makes you a better director of AI tools is both true and actionable as student positioning.',
+    quotes: [
+      { text: 'Is it genuinely impossible to become a graphic designer without using genAI now? I find myself more and more discouraged with the current state of the industry.', source: 'Reddit · r/graphic_design · Apr 2026' },
+      { text: 'In almost a few years AI will replace/can do at least 60–70% of the designers\' work. Social media design is over. Illustrators are out of the game already.', source: 'Discord · Illustrator · #chat · Apr 2026' },
+      { text: 'The problem isn\'t AI, but how companies value creativity. I\'ve been feeling the pressure of AI and feeling down lately because of the constant bullying of those whose talents are being reproduced. It\'s tiring to think about.', source: 'Reddit · r/graphic_design · May 2026' },
+    ],
+    studyLabel: 'GenAI & Creativity study · 41 mentions',
   },
 ];
 
