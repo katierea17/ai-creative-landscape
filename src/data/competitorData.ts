@@ -168,7 +168,7 @@ export const competitors: Competitor[] = [
     aiLevel: 'Open',
     coreValueProp: 'Google\'s all-in-one AI assistant — deeply embedded in the apps people already use every day (Search, Photos, Gmail, Docs, Maps)',
     genAiMessaging: 'Get more access to our most accurate model Gemini 3 Pro. The best model in the world for multimodal understanding — whether you\'re uploading a photo of your homework or transcribing notes from a lecture you missed.',
-    studentMessaging: 'Your AI study buddy. Personalize your learning, get unlimited homework help, and ace your exams with Gemini.',
+    studentMessaging: 'Your AI study buddy — personalized learning, unlimited homework help, and exam prep.',
     studentPromo: null,
     pricing: {
       free: true,
@@ -207,7 +207,7 @@ export const competitors: Competitor[] = [
     aiLevel: 'Open',
     coreValueProp: 'General-purpose AI assistant for text, images, and code via conversational interface.',
     genAiMessaging: 'Get the most out of college with ChatGPT. Meet your always-available study partner, career counselor, and personal assistant. Use ChatGPT to help you learn faster, plan smarter, and get more done in everyday life.',
-    studentMessaging: 'Build a Study Plan in ChatGPT — Study Smarter with ChatGPT. Get personalized tutoring help for math, science, writing, language and more from ChatGPT.',
+    studentMessaging: 'Study smarter. Get personalized tutoring for math, science, writing, and more.',
     studentPromo: null,
     pricing: {
       free: true,
@@ -232,7 +232,7 @@ export const competitors: Competitor[] = [
       onboarding: 'Email signup; immediate access to GPT-4o on free tier',
     },
     sentiment: {
-      score: 36,
+      score: 38,
       trend: 'Flat',
       praised: ['Ease of use & simple setup', 'Prompt accuracy & versatility', 'Image generation'],
       complaints: ['Too expensive for AI features (Q9)'],
@@ -284,8 +284,8 @@ export const competitors: Competitor[] = [
     mau: '220M+',
     aiLevel: 'Extend',
     coreValueProp: '\'Design for everyone\' through massive template libraries',
-    genAiMessaging: 'AI-powered productivity: Generate eye-catching visuals and resize designs in a click with AI-powered design tools.',
-    studentMessaging: 'Free Design and Presentation Tool for Students. Create amazing designs, documents and presentations in minutes for all your creative projects and studying needs.',
+    genAiMessaging: 'Power your creative work with Magic Studio. Generate visuals, erase objects, resize for any format, and write copy — all powered by Magic Studio credits. Every plan includes credits; Pro unlocks 500/mo.',
+    studentMessaging: 'Free design and presentation tool for students. Create for your projects and studying needs in minutes.',
     studentPromo: 'Pro is free for students ($18/mo value)',
     pricing: {
       free: true,
@@ -310,7 +310,7 @@ export const competitors: Competitor[] = [
       onboarding: 'Template-first onboarding; instant value with drag-and-drop',
     },
     sentiment: {
-      score: 15,
+      score: 13,
       trend: 'Flat',
       praised: ['Multipurpose utility', 'Ease of use', 'AI prompt-based design generation'],
       complaints: ['Too expensive for AI features (Q9)'],
@@ -363,7 +363,7 @@ export const competitors: Competitor[] = [
     aiLevel: 'Extend',
     coreValueProp: 'Creative expression via filters, stickers, and quick edits',
     genAiMessaging: 'Ignite your creative potential with Picsart — the all-in-one AI photo editor, AI video editor, and design studio that\'s free and easy to use. From business designs to AI art, go from inspiration to creation fast.',
-    studentMessaging: 'Create Standout Projects Free. Make your school projects impossible to ignore. Picsart gives students free AI tools to create presentations, posters, social graphics, and more.',
+    studentMessaging: 'Make your school projects impossible to ignore. Free AI tools for presentations, posters, and social graphics.',
     studentPromo: null,
     pricing: {
       free: true,
@@ -441,7 +441,7 @@ export const competitors: Competitor[] = [
     aiLevel: 'Enhance',
     coreValueProp: 'Fast, magnetic timeline editing optimized for Apple hardware',
     genAiMessaging: 'Powerful AI features that build on Apple Intelligence, right in your workflow.',
-    studentMessaging: 'Professional apps. Student budget. $2.99 a month. Introducing incredible student pricing on our full collection of creativity and productivity apps.',
+    studentMessaging: 'Professional apps. Student budget. $2.99/mo for the full creativity and productivity collection.',
     studentPromo: '$2.99/mo as part of Apple Creator Studio',
     pricing: {
       free: false,
@@ -483,13 +483,13 @@ export const competitors: Competitor[] = [
     studentMessaging: null,
     studentPromo: null,
     pricing: {
-      free: false,
+      free: true,
       premiumSubscription: null,
-      oneTimePurchase: '£89.99 (Universal V2 License)',
+      oneTimePurchase: null,
       aiCredits: false,
       studentPrice: null,
       studentPromo: null,
-      notableChange: 'Canva acquisition completed — future pricing model under review',
+      notableChange: 'Now fully free — Canva acquisition made Affinity V2 free for all users',
     },
     creditDetail: null,
     aiFeatures: {
@@ -519,7 +519,7 @@ export const competitors: Competitor[] = [
     aiLevel: 'Extend',
     coreValueProp: 'The dominant collaborative UI/UX design and prototyping tool for modern product teams',
     genAiMessaging: 'Figma AI is your creative collaborator. From prompting prototypes to speeding up workflows, Figma AI helps teams bring their best ideas to life.',
-    studentMessaging: 'Learn valuable skills in design, UX, content, marketing and engineering that can take students\' careers to the next level with a free Figma for Education plan.',
+    studentMessaging: 'Learn design, UX, and engineering skills that advance your career. Free for education.',
     studentPromo: 'Free (Figma for Education)',
     pricing: {
       free: true,
@@ -558,7 +558,7 @@ export const competitors: Competitor[] = [
     aiLevel: 'Open',
     coreValueProp: 'AI-native platform for generative video creation and cinematic visual effects',
     genAiMessaging: 'A real-time video agent API that lets you build fully custom conversational characters.',
-    studentMessaging: 'Runway for Educators brings cutting-edge generative technology directly into classrooms, empowering both teachers and students to explore creative possibilities through hands-on learning.',
+    studentMessaging: 'Cutting-edge generative AI for classrooms — empowering students and teachers to explore creative possibilities.',
     studentPromo: '25% discount + 100K credits via Student Ambassador Program',
     pricing: {
       free: true,

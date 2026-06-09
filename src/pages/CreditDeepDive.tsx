@@ -98,6 +98,15 @@ const CREDIT_NAMES: Record<string, string> = {
   runway: 'Credits',
 };
 
+const CREDIT_LANGUAGE: Record<string, { name: string; pitch: string }> = {
+  'canva':      { name: 'Magic Studio Credits', pitch: '"Power your creative work" — credits unlock Magic Media, Magic Eraser, Magic Write, and other AI tools. Free tier gets 50/mo; Pro gets 500/mo. Scarcity framing encourages upgrade.' },
+  'capcut':     { name: 'AI Credits', pitch: 'Credits gate premium AI features like AI text-to-video and AI avatars. Free tier: 150/wk. Pro: 1,200/mo. Positioned as "unlock the full power of CapCut AI."' },
+  'picsart':    { name: 'AI Credits', pitch: 'Credits give access to 130+ AI models across image, video, and audio. Pro tier: 500/mo. Marketed as "the fuel for your creative AI workflow."' },
+  'midjourney': { name: 'Fast GPU Hours', pitch: '"Your time to create at full speed." GPU hours are compute time for image generation — Basic gets 3.3 fast hrs/mo (~200 images). Highly technical framing that signals quality over convenience.' },
+  'figma':      { name: 'AI Credits', pitch: '"Credits enable Figma AI features across your workflow." Professional seats get 3,000/mo. Positioned as a professional resource tied to seat type, not a consumer upsell.' },
+  'runway':     { name: 'Credits', pitch: '"5–10 credits per second of video." Runway is the only competitor to market credits by the output second, making cost feel transparent and tied directly to creative output quality.' },
+};
+
 export function CreditDeepDive() {
   const { activeCategories } = useFilter();
   const creditCompetitors = competitors.filter(
@@ -240,6 +249,40 @@ export function CreditDeepDive() {
         </div>
       </div>
 
+      {/* Estimated student usage */}
+      <div style={{ marginBottom: 40 }}>
+        <div className="section-label" style={{ marginBottom: 4 }}>Estimated Free-Tier Usage — Typical Student</div>
+        <p style={{ color: '#555', fontSize: 11, marginBottom: 16, fontStyle: 'italic' }}>
+          Rough estimates based on Q5 survey data (most students use AI for 11–50% of creative work), typical task credit costs per platform, and ~2–3 AI-assisted sessions per week. Bars show estimated % of free tier consumed monthly. Not hard data — directional only.
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {[
+            { id: 'canva',      pct: 48, label: '~48%',  color: '#14B8A6', note: '~24 credits/mo — 2 sessions/wk, ~3 credits each (1 image gen + 1 edit). Close to limit; upgrade pressure is real.' },
+            { id: 'picsart',    pct: 90, label: '~90%+', color: '#F97316', note: 'Only 5 credits/wk free (~20/mo). Even light use — 1–2 AI image gens/week — nearly exhausts the free tier.' },
+            { id: 'capcut',     pct: 20, label: '~20%',  color: '#14B8A6', note: '~120 credits/mo of 600 free. Auto Caption + AI Remix on 1–2 videos/wk. Plenty of headroom.' },
+            { id: 'figma',      pct: 5,  label: '~5%',   color: '#14B8A6', note: '~25 credits/mo of 500 free. AI in Figma is incidental to design work for most students.' },
+            { id: 'midjourney', pct: 0,  label: 'N/A',   color: '#555',    note: 'No free tier. The paywall self-selects — students who use Midjourney have already paid and tend to be heavy users.' },
+            { id: 'runway',     pct: 0,  label: 'N/A',   color: '#555',    note: '125 one-time free credits. A single 5-second video costs 25–50 credits — a student exhausts the free tier in 2–5 projects, then hits a hard wall.' },
+          ].filter(row => creditCompetitors.find(c => c.id === row.id)).map(row => {
+            const comp = creditCompetitors.find(c => c.id === row.id)!;
+            return (
+              <div key={row.id}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 4 }}>
+                  <div style={{ width: 100, fontSize: 12, color: '#A0A0A0', textAlign: 'right', flexShrink: 0 }}>{comp.name}</div>
+                  <div style={{ flex: 1, background: '#2a2a2a', borderRadius: 2, height: 22, overflow: 'hidden' }}>
+                    {row.pct > 0 && (
+                      <div style={{ width: `${Math.min(row.pct, 100)}%`, height: '100%', background: row.color, borderRadius: 2, opacity: 0.85 }} />
+                    )}
+                  </div>
+                  <div style={{ width: 44, fontSize: 12, fontWeight: 600, color: row.color, flexShrink: 0 }}>{row.label}</div>
+                </div>
+                <div style={{ marginLeft: 112, fontSize: 11, color: '#555', lineHeight: 1.4, marginBottom: 2 }}>{row.note}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 16 }}>
         {creditCompetitors.map(c => (
@@ -326,6 +369,22 @@ export function CreditDeepDive() {
                   <ExternalLink size={8} />
                   {OVERAGE_SOURCES[c.id].name}
                 </a>
+              </div>
+            )}
+            {CREDIT_LANGUAGE[c.id] && (
+              <div style={{ marginTop: 12, paddingTop: 10, borderTop: '1px solid #2a2a2a' }}>
+                <div className="section-label" style={{ marginBottom: 6 }}>Credit / Token Marketing</div>
+                <span style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 6,
+                  padding: '2px 8px', borderRadius: 3,
+                  background: '#1e1e1e', border: '1px solid #3a3a3a',
+                  color: '#fff', fontSize: 11, fontWeight: 600, marginBottom: 6,
+                }}>
+                  {CREDIT_LANGUAGE[c.id].name}
+                </span>
+                <p style={{ color: '#A0A0A0', fontSize: 12, lineHeight: 1.6, margin: 0 }}>
+                  {CREDIT_LANGUAGE[c.id].pitch}
+                </p>
               </div>
             )}
           </Card>

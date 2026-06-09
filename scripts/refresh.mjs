@@ -116,7 +116,7 @@ const COMPETITORS = [
   {
     id: 'affinity',
     name: 'Affinity',
-    pricing: '£89.99 universal license (V2). Now free with a free Canva account.',
+    pricing: 'Free — Affinity V2 is now fully free for all users following the Canva acquisition.',
     notable: 'Canva acquisition completed — future pricing model under review',
     studentPromo: null,
     messaging: 'Professional Adobe alternative. "Professional creative software." Post-Canva acquisition, messaging in flux.',

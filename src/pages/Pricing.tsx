@@ -1,5 +1,23 @@
+import { ExternalLink } from 'lucide-react';
 import { useFilter } from '../context/FilterContext';
 import { competitors } from '../data/competitorData';
+
+const PRICING_SOURCES: Record<string, { url: string; label: string }> = {
+  'google-photos':   { url: 'https://one.google.com/about/plans',               label: 'one.google.com' },
+  'instagram-edits': { url: 'https://about.instagram.com/features/edits',        label: 'about.instagram.com' },
+  'imovie':          { url: 'https://www.apple.com/imovie/',                      label: 'apple.com/imovie' },
+  'gemini':          { url: 'https://one.google.com/about/ai',                    label: 'one.google.com/ai' },
+  'chatgpt':         { url: 'https://openai.com/chatgpt/pricing',                 label: 'openai.com/pricing' },
+  'claude':          { url: 'https://www.anthropic.com/pricing',                  label: 'anthropic.com/pricing' },
+  'canva':           { url: 'https://www.canva.com/pricing/',                     label: 'canva.com/pricing' },
+  'capcut':          { url: 'https://www.capcut.com/help/how-much-does-capcut-pro-cost', label: 'capcut.com/pricing' },
+  'picsart':         { url: 'https://picsart.com/pricing/',                       label: 'picsart.com/pricing' },
+  'midjourney':      { url: 'https://docs.midjourney.com/docs/plans',                       label: 'docs.midjourney.com/plans' },
+  'final-cut-pro':   { url: 'https://www.apple.com/final-cut-pro/',               label: 'apple.com/fcp' },
+  'affinity':        { url: 'https://affinity.serif.com/en-us/',                  label: 'affinity.serif.com' },
+  'figma':           { url: 'https://www.figma.com/pricing/',                     label: 'figma.com/pricing' },
+  'runway':          { url: 'https://runwayml.com/pricing',                       label: 'runwayml.com/pricing' },
+};
 
 function Cell({ value, amber }: { value: string | null | boolean; amber?: boolean }) {
   if (value === null || value === undefined) {
@@ -80,6 +98,28 @@ export function Pricing() {
               </tr>
             ))}
           </tbody>
+          <tfoot>
+            <tr>
+              <td style={{ color: '#444', fontSize: 10, background: '#1A1A1A', position: 'sticky', left: 0, zIndex: 1, borderRight: '1px solid #333', borderTop: '1px solid #333', fontWeight: 600, paddingTop: 10 }}>
+                Source
+              </td>
+              {filtered.map(c => {
+                const src = PRICING_SOURCES[c.id];
+                return (
+                  <td key={c.id} style={{ textAlign: 'center', borderTop: '1px solid #333', paddingTop: 10 }}>
+                    {src ? (
+                      <a href={src.url} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 3, padding: '1px 5px', borderRadius: 3, background: '#1e1e1e', border: '1px solid #2a2a2a', color: '#555', fontSize: 9, fontWeight: 500, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+                        <ExternalLink size={7} />
+                        {src.label}
+                      </a>
+                    ) : (
+                      <span style={{ color: '#C0C0C0', fontSize: 9 }}>—</span>
+                    )}
+                  </td>
+                );
+              })}
+            </tr>
+          </tfoot>
         </table>
       </div>
     </div>

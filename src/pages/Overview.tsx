@@ -258,13 +258,13 @@ export function Overview() {
                     <div style={{
                       width: 24,
                       height: 2,
-                      background: '#333',
+                      background: '#333333',
                       flexShrink: 0,
                       marginTop: 17,
                     }} />
                     <div style={{
                       flex: 1,
-                      background: '#242424',
+                      background: '#111',
                       border: '1px solid #333',
                       borderLeft: `3px solid ${dotColor}`,
                       borderRadius: 4,

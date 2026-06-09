@@ -461,7 +461,7 @@ export function FeaturePlayground() {
                           {src.label}
                         </a>
                       ) : (
-                        <span style={{ color: '#333', fontSize: 9 }}>—</span>
+                        <span style={{ color: '#C0C0C0', fontSize: 9 }}>—</span>
                       )}
                     </td>
                   );
@@ -574,7 +574,7 @@ export function FeaturePlayground() {
                     const entry = TASK_SUPPORT[c.id]?.[task.key];
                     return (
                       <td key={c.id} style={TD}>
-                        {entry ? <SupportDot value={entry.s} note={entry.note} /> : <span style={{ color: '#333' }}>—</span>}
+                        {entry ? <SupportDot value={entry.s} note={entry.note} /> : <span style={{ color: '#C0C0C0' }}>—</span>}
                       </td>
                     );
                   })}
@@ -618,7 +618,7 @@ export function FeaturePlayground() {
                     const val = SPECS[c.id]?.[row.key];
                     const isEmpty = !val || val === '—';
                     return (
-                      <td key={c.id} style={{ ...TD, fontSize: 10, color: isEmpty ? '#333' : '#C0C0C0' }}>
+                      <td key={c.id} style={{ ...TD, fontSize: 10, color: isEmpty ? '#333333' : '#C0C0C0' }}>
                         {val ?? '—'}
                       </td>
                     );

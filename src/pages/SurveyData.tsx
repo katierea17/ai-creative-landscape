@@ -315,7 +315,7 @@ function OECard({ qNum, question, note, color, themes, quotes, source }: {
               <p style={{ fontSize: 12, color: '#A0A0A0', margin: 0, lineHeight: 1.6, fontStyle: 'italic' }}>{q.text}</p>
               {q.platform && (
                 <div style={{ marginTop: 8 }}>
-                  <span style={{ fontSize: 9, fontWeight: 700, color: '#555', background: '#222', padding: '1px 6px', borderRadius: 3 }}>
+                  <span style={{ fontSize: 9, fontWeight: 700, color: '#555', background: '#111', padding: '1px 6px', borderRadius: 3 }}>
                     re: {q.platform}
                   </span>
                 </div>

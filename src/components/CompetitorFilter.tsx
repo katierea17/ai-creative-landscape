@@ -20,27 +20,27 @@ export function CompetitorFilter() {
   const { activeCategories, toggleCategory, allCategories } = useFilter();
   const location = useLocation();
   const visibleCategories = ROUTE_CATEGORIES[location.pathname] ?? allCategories;
+  const isLight = location.pathname === '/may-2026' || location.pathname === '/student-messaging';
 
   return (
     <div
       style={{
         padding: '8px 24px',
-        borderBottom: '1px solid #333',
-        background: '#1A1A1A',
+        borderBottom: `1px solid ${isLight ? '#e0e0e0' : '#333'}`,
+        background: isLight ? '#f8f8f8' : '#1A1A1A',
         display: 'flex',
         gap: 8,
         alignItems: 'center',
         flexWrap: 'wrap',
       }}
     >
-      <span style={{ fontSize: 11, color: '#A0A0A0', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600, marginRight: 4 }}>
+      <span style={{ fontSize: 11, color: isLight ? '#777777' : '#A0A0A0', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600, marginRight: 4 }}>
         Filter
       </span>
       {visibleCategories.map(cat => {
         const count = competitors.filter(c => c.category === cat).length;
         const active = activeCategories.includes(cat);
         const accentColor = CATEGORY_COLORS[cat];
-        // Hide "Other" on pages where it has no relevant content (count === 0 and not on may-2026)
         if (count === 0 && location.pathname !== '/may-2026') return null;
         return (
           <button
@@ -52,9 +52,9 @@ export function CompetitorFilter() {
               gap: 6,
               padding: '4px 12px',
               borderRadius: 99,
-              border: `1px solid ${active ? accentColor : '#444'}`,
+              border: `1px solid ${active ? accentColor : (isLight ? '#d0d0d0' : '#444')}`,
               background: active ? `${accentColor}22` : 'transparent',
-              color: active ? accentColor : '#A0A0A0',
+              color: active ? accentColor : (isLight ? '#555555' : '#A0A0A0'),
               fontSize: 12,
               fontWeight: 600,
               cursor: 'pointer',
@@ -70,8 +70,8 @@ export function CompetitorFilter() {
                 width: 18,
                 height: 18,
                 borderRadius: 99,
-                background: active ? accentColor : '#333',
-                color: active ? '#fff' : '#666',
+                background: active ? accentColor : (isLight ? '#e0e0e0' : '#333333'),
+                color: active ? '#fff' : (isLight ? '#555555' : '#666'),
                 fontSize: 10,
                 fontWeight: 700,
               }}

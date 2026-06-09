@@ -27,6 +27,8 @@ const TONE_COLORS: Record<Tone, string> = {
   Professional: '#EC4899',
 };
 
+// How each competitor names and markets their AI credits / usage units
+
 export function AiMessaging() {
   const { activeCategories } = useFilter();
   const filtered = competitors.filter(c => activeCategories.includes(c.category));

@@ -9,8 +9,8 @@ export function TopBar() {
     <div
       style={{
         height: 56,
-        background: '#1A1A1A',
-        borderBottom: '1px solid #333',
+        background: '#f8f8f8',
+        borderBottom: '1px solid #e0e0e0',
         padding: '0 24px',
         display: 'flex',
         alignItems: 'center',
@@ -22,7 +22,7 @@ export function TopBar() {
         zIndex: 9,
       }}
     >
-      <span style={{ fontWeight: 700, fontSize: 15, letterSpacing: '-0.01em', color: '#fff' }}>
+      <span style={{ fontWeight: 700, fontSize: 15, letterSpacing: '-0.01em', color: '#111111' }}>
         AI Creative Market Landscape
       </span>
       {editing ? (
@@ -35,7 +35,7 @@ export function TopBar() {
             background: 'transparent',
             border: 'none',
             borderBottom: '1px solid #EB1000',
-            color: '#A0A0A0',
+            color: '#777777',
             fontSize: 12,
             outline: 'none',
             fontFamily: 'inherit',
@@ -48,7 +48,7 @@ export function TopBar() {
           onClick={() => setEditing(true)}
           title="Click to edit"
           style={{
-            color: '#A0A0A0',
+            color: '#777777',
             fontSize: 12,
             cursor: 'text',
             borderBottom: '1px solid transparent',
