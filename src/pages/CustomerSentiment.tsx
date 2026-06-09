@@ -37,7 +37,11 @@ const FINDINGS: FindingItem[] = [
       'The competitive comparison has shifted from price to cognitive load — a different frame that current CC positioning doesn\'t address',
       'Portfolio transparency ("show what was AI vs. yours") is an emerging student need no tool currently owns',
     ],
-    quotes: [],
+    quotes: [
+      { text: 'removal of AI features. Theyre annoying and intrusive to my workflow, and I never want or plan on using them.', source: 'NPS Survey · InDesign · United States · May 31, 2026' },
+      { text: 'Stop pushing the generative AI! I will never recommend a program that obsessively tries to get me to use AI! Other than that it\'s great and I would absolutely recommend to my friends if the AI was less prominent, or in a perfect world, not a part of the program at all.', source: 'NPS Survey · Premiere Pro · United States · Jun 6, 2026' },
+      { text: 'Difficult to recommend to new users to be honest, as the usage of photoshop is very complicated to learn where there are many new AI tools nowadays, ppl don\'t afford to spend so much time to learn how to use photoshop if AI tools can help them.', source: 'NPS Survey · Photoshop · Australia/New Zealand · Jun 4, 2026' },
+    ],
     studyLabel: 'TAO Weekly · week-over-week shift · Jun 2–8, 2026',
   },
   {
