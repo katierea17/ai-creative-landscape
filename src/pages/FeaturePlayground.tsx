@@ -13,7 +13,7 @@ const ADOBE_FEATURE_STUB = {
   name: 'Adobe CC (Students)',
   category: 'Professional Tools' as Category,
   aiFeatures: {
-    ideate: false,
+    ideate: 'Firefly — text-to-image concept generation, style exploration, variations; Firefly web app purpose-built for generative ideation',
     creativeEditing: 'Generative Fill, Generative Expand, Generative Recolor, Remove Tool',
     imageGeneration: 'Firefly Text to Image (4,000 credits/mo on CC All Apps)',
     videoGeneration: 'AI-enhanced editing in Premiere Pro (auto-reframe, speech cleanup)',
