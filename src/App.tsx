@@ -10,7 +10,6 @@ import { CustomerSentiment } from './pages/CustomerSentiment';
 import { SurveyData } from './pages/SurveyData';
 import { CreditDeepDive } from './pages/CreditDeepDive';
 import { CoreValueProp } from './pages/CoreValueProp';
-import { EndToEndExperience } from './pages/EndToEndExperience';
 import { May2026Updates } from './pages/May2026Updates';
 import { FeaturePlayground } from './pages/FeaturePlayground';
 
@@ -75,7 +74,6 @@ function App() {
             <Route path="/survey-data" element={<SurveyData />} />
             <Route path="/credit-deep-dive" element={<CreditDeepDive />} />
             <Route path="/core-value-prop" element={<CoreValueProp />} />
-            <Route path="/e2e-experience" element={<EndToEndExperience />} />
             <Route path="/may-2026" element={<May2026Updates />} />
             <Route path="/feature-playground" element={<FeaturePlayground />} />
           </Routes>

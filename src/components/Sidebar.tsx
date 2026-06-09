@@ -10,7 +10,6 @@ const NAV_ITEMS = [
   { path: '/survey-data', label: 'Gen AI Survey Data' },
   { path: '/core-value-prop', label: 'Core Value Props' },
   { path: '/feature-playground', label: '🧪 Feature Overview Playground' },
-  { path: '/e2e-experience', label: 'End-to-End Experience' },
   // { path: '/', label: 'Overview' },  ← hidden for now
 ];
 

@@ -1,30 +1,4 @@
 import { useState } from 'react';
-import { Card } from '../components/Card';
-import { CategoryBadge } from '../components/CategoryBadge';
-import { useFilter } from '../context/FilterContext';
-import { competitors } from '../data/competitorData';
-import type { Category } from '../data/competitorData';
-
-// ── Adobe rolled-up stub (Q7: Photoshop 5% + Firefly 3% + Premiere 3% + Express 2% + Other Adobe 2% = 15%) ──
-const ADOBE_SENTIMENT_STUB = {
-  id: 'adobe',
-  name: 'Adobe (all tools)',
-  category: 'Professional Tools' as Category,
-  sentiment: {
-    score: 15,
-    trend: 'Flat' as const,
-    praised: [
-      'Professional depth & industry-standard tooling',
-      'Suite breadth — Photoshop, Premiere, Illustrator, Firefly, Express',
-      'Firefly AI tightly integrated across existing workflows',
-    ],
-    complaints: [
-      'AI features feel intrusive or unprofessional (Illustrator & InDesign NPS)',
-      'CC cost increasingly benchmarked against simpler AI-first tools',
-      'Subscription fatigue at $39.99–$69.99/mo',
-    ],
-  },
-};
 
 // ── Types ─────────────────────────────────────────────────────────────────
 
@@ -259,17 +233,11 @@ function FindingsCarousel({ items }: { items: FindingItem[] }) {
 // ── Main Page ────────────────────────────────────────────────────────────
 
 export function CustomerSentiment() {
-  const { activeCategories } = useFilter();
-  const filtered = [
-    ...(activeCategories.includes('Professional Tools') ? [ADOBE_SENTIMENT_STUB as typeof competitors[0]] : []),
-    ...competitors.filter(c => activeCategories.includes(c.category)),
-  ].sort((a, b) => b.sentiment.score - a.sentiment.score);
-
   return (
     <div style={{ color: '#111111' }}>
       <h1 style={{ fontSize: 22, fontWeight: 700, marginBottom: 4, color: '#111111' }}>Customer Sentiment</h1>
       <p style={{ fontSize: 13, color: '#111111', marginBottom: 24 }}>
-        Student attitudes toward generative AI and creative tools — plus competitive standings from the GenAI Tracker survey.
+        Student attitudes toward generative AI and creative tools.
       </p>
 
       {/* ── Section 1: Student Voice ── */}
@@ -324,61 +292,6 @@ export function CustomerSentiment() {
         })}
       </div>
 
-      {/* ── Section 2: Competitor Rankings ── */}
-      <SectionDivider label="Competitor Rankings" />
-
-      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 24 }}>
-        <SourceChip label="Q7 · User Survey · GenAI Tracker · Q2 2026 · fielded May 2026 · n=128 · US students 18–24 considering a paid creative tool" />
-        <SourceChip label="Adobe score = Photoshop 5% + Firefly 3% + Premiere 3% + Express 2% + Other Adobe 2% (rolled up from Q7)" />
-      </div>
-
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 16 }}>
-        {filtered.map(c => {
-          const praised = c.sentiment.praised.filter(x => !x.includes('Q9'));
-          const hasQ7 = c.sentiment.score > 0;
-
-          return (
-            <Card key={c.id} light>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 4, color: '#111111' }}>{c.name}</div>
-                  <CategoryBadge category={c.category} />
-                </div>
-              </div>
-
-              <div style={{ marginBottom: 14 }}>
-                <div className="section-label" style={{ marginBottom: 6, color: '#111111' }}>Q7 · Named Best Overall</div>
-                {hasQ7 ? (
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-                    <span style={{ fontSize: 32, fontWeight: 800, color: '#EB1000', lineHeight: 1 }}>
-                      {c.sentiment.score}%
-                    </span>
-                    <span style={{ fontSize: 11, color: '#111111' }}>of 128 respondents</span>
-                  </div>
-                ) : (
-                  <span style={{ fontSize: 13, color: '#111111', fontStyle: 'italic' }}>
-                    Not named in Q7 responses
-                  </span>
-                )}
-              </div>
-
-              {praised.length > 0 && (
-                <div>
-                  <div className="section-label" style={{ marginBottom: 6, color: '#111111' }}>Why Respondents Prefer It</div>
-                  <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
-                    {praised.map(p => (
-                      <li key={p} style={{ fontSize: 12, color: '#111111', display: 'flex', alignItems: 'flex-start', gap: 6, marginBottom: 3 }}>
-                        <span style={{ color: '#14B8A6', marginTop: 2 }}>•</span>
-                        {p}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </Card>
-          );
-        })}
-      </div>
     </div>
   );
 }
