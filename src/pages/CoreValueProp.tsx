@@ -2,10 +2,22 @@ import { Card } from '../components/Card';
 import { CategoryBadge } from '../components/CategoryBadge';
 import { useFilter } from '../context/FilterContext';
 import { competitors } from '../data/competitorData';
+import type { Category } from '../data/competitorData';
+
+const ADOBE_CVP_STUB = {
+  id: 'adobe',
+  name: 'Adobe CC (Students)',
+  category: 'Professional Tools' as Category,
+  mau: '30M+ (CC subscribers)',
+  coreValueProp: 'Industry-standard creative suite — Photoshop, Illustrator, Premiere Pro, InDesign, Firefly, and more — with AI built in at the tool level. Students get 4,000 Generative Credits/mo at $19.99/mo introductory rate, powering Firefly features (Generative Fill, Text to Image, Generative Expand, Recolor) across the entire suite.',
+};
 
 export function CoreValueProp() {
   const { activeCategories } = useFilter();
-  const filtered = competitors.filter(c => activeCategories.includes(c.category));
+  const filtered = [
+    ...(activeCategories.includes('Professional Tools') ? [ADOBE_CVP_STUB as typeof competitors[0]] : []),
+    ...competitors.filter(c => activeCategories.includes(c.category)),
+  ];
 
   return (
     <div>

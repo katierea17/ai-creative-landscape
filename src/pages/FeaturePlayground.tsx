@@ -6,6 +6,25 @@ import { ExternalLink } from 'lucide-react';
 import { CapabilityDot } from '../components/CapabilityDot';
 import { useFilter } from '../context/FilterContext';
 import { competitors } from '../data/competitorData';
+import type { Category } from '../data/competitorData';
+
+const ADOBE_FEATURE_STUB = {
+  id: 'adobe',
+  name: 'Adobe CC (Students)',
+  category: 'Professional Tools' as Category,
+  aiFeatures: {
+    ideate: false,
+    creativeEditing: 'Generative Fill, Generative Expand, Generative Recolor, Remove Tool',
+    imageGeneration: 'Firefly Text to Image (4,000 credits/mo on CC All Apps)',
+    videoGeneration: 'AI-enhanced editing in Premiere Pro (auto-reframe, speech cleanup)',
+  },
+  experience: {
+    certification: 'Adobe Certified Professional (Photoshop, Illustrator, Premiere Pro, and more)',
+  },
+  pricing: {
+    studentPrice: '$19.99/mo intro (yr 1), $39.99/mo after',
+  },
+};
 
 // ── Custom tooltip ─────────────────────────────────────────────────────────
 
@@ -64,6 +83,7 @@ const FEATURE_SOURCES: Record<string, { url: string; label: string }> = {
   'affinity':        { url: 'https://affinity.serif.com/en-us/',                   label: 'affinity.serif.com' },
   'figma':           { url: 'https://www.figma.com/features/',                     label: 'figma.com/features' },
   'runway':          { url: 'https://runwayml.com/features',                       label: 'runwayml.com/features' },
+  'adobe':           { url: 'https://www.adobe.com/products/firefly.html',         label: 'adobe.com/firefly' },
 };
 
 const FEATURE_ROWS = [
@@ -209,6 +229,16 @@ const TASK_SUPPORT: Record<string, Record<TaskKey, { s: Support; note?: string }
     translate:    { s: 'no' },
     resize:       { s: 'yes',     note: 'Smart Conform for different aspect ratios' },
   },
+  adobe: {
+    bgRemove:     { s: 'yes',     note: 'Select Subject + Remove Tool / Generative Fill (Photoshop)' },
+    objRemove:    { s: 'yes',     note: 'Generative Fill + Content-Aware Fill (Photoshop)' },
+    imageGen:     { s: 'yes',     note: 'Firefly Text to Image — 4,000 credits/mo on CC All Apps Students' },
+    videoGen:     { s: 'partial', note: 'AI-enhanced editing in Premiere (speech cleanup, auto-reframe) — not text-to-video generation' },
+    captions:     { s: 'yes',     note: 'Auto-transcription + captions in Premiere Pro' },
+    presentation: { s: 'no' },
+    translate:    { s: 'partial', note: 'No native AI translate across suite; limited via Express or third-party plugins' },
+    resize:       { s: 'yes',     note: 'Generative Expand (Photoshop); Artboard resize (Illustrator)' },
+  },
 };
 
 // ── Section 2: Actual spec values ─────────────────────────────────────────
@@ -235,6 +265,7 @@ const SPECS: Record<string, Record<SpecKey, string>> = {
   figma:         { freeCredits: '500 / mo', paidCredits: '3,000 / mo (Full seat)', paidPrice: '$12/mo', imageRes: 'N/A (design tool)', videoSupport: '—', cert: 'Figma Certified Professional' },
   runway:        { freeCredits: '125 (one-time)', paidCredits: '625 / mo (Standard)', paidPrice: '$12/mo', imageRes: 'Up to 4K (video)', videoSupport: 'Full — core product. Runway Agent', cert: 'Runway Certified Creator' },
   'final-cut-pro': { freeCredits: 'N/A', paidCredits: 'N/A', paidPrice: '$4.99/mo', imageRes: 'Up to 8K', videoSupport: 'Full — core product', cert: 'Apple Certified Pro' },
+  adobe:           { freeCredits: 'None', paidCredits: '4,000/mo (CC All Apps)', paidPrice: '$19.99/mo (students yr 1)', imageRes: 'Up to 4096×4096 (Photoshop/Firefly)', videoSupport: 'AI-enhanced (Premiere) — not text-to-video', cert: 'Adobe Certified Professional' },
 };
 
 // ── Section 3: Feature count by category ──────────────────────────────────
@@ -313,6 +344,13 @@ const FEATURE_NAMES: Record<string, Record<FeatureCat, string[]>> = {
     'Editing Tools':   ['Auto captions', 'Audio enhancement AI', 'Color wheels', 'Motion effects', 'Object tracker'],
     'Export & Publish':['Compressor export', 'YouTube direct', 'Vimeo direct'],
   },
+  adobe: {
+    'Image Gen':       ['Firefly Text to Image', 'Generative Fill (Photoshop)', 'Generative Expand', 'Text to Vector (Illustrator)', 'Generative Recolor'],
+    'Video Gen':       ['Auto Reframe (Premiere)', 'AI Speech Enhancement', 'Scene Edit Detection'],
+    'Text & Writing':  ['AI content generation (Express)'],
+    'Editing Tools':   ['Remove Tool', 'Content-Aware Fill', 'Object Selection AI', 'Neural Filters', 'AI Masking', 'Smart Portrait', 'Sky Replacement (Photoshop)'],
+    'Export & Publish':['Behance publish', 'Creative Cloud Libraries', 'Adobe Portfolio', 'Multi-format export'],
+  },
 };
 
 const CAT_COLORS: Record<FeatureCat, string> = {
@@ -363,9 +401,11 @@ const TD_LABEL: React.CSSProperties = {
 
 export function FeaturePlayground() {
   const { activeCategories } = useFilter();
-  const filtered = competitors.filter(c =>
-    activeCategories.includes(c.category) && TASK_SUPPORT[c.id]
-  );
+  const adobeActive = activeCategories.includes('Professional Tools');
+  const filtered = [
+    ...(adobeActive ? [ADOBE_FEATURE_STUB as typeof competitors[0]] : []),
+    ...competitors.filter(c => activeCategories.includes(c.category) && TASK_SUPPORT[c.id]),
+  ];
 
   return (
     <div>

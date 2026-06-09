@@ -4,6 +4,18 @@ import { CategoryBadge } from '../components/CategoryBadge';
 import { EditableField } from '../components/EditableField';
 import { useFilter } from '../context/FilterContext';
 import { competitors } from '../data/competitorData';
+import type { Category } from '../data/competitorData';
+
+const ADOBE_E2E_STUB = {
+  id: 'adobe',
+  name: 'Adobe CC (Students)',
+  category: 'Professional Tools' as Category,
+  experience: {
+    frictionRating: 'High' as const,
+    onboarding: 'Adobe account required; install Creative Cloud desktop app; individual app downloads (Photoshop ~4GB, Premiere ~6GB); steepest setup overhead among compared platforms — offset by extensive tutorials, YouTube community, and Behance ecosystem',
+    certification: 'Adobe Certified Professional — programs for Photoshop, Illustrator, Premiere Pro, and more',
+  },
+};
 
 const STAGES = ['Discover', 'Onboard', 'Create', 'Share/Export', 'Retain'];
 
@@ -21,6 +33,7 @@ const CARD_SOURCES: Record<string, string> = {
   canva:   'Slide 11 · GenAI Competitive Landscape Assessment, May 2026 · canva.com',
   chatgpt: 'Slide 10 · GenAI Competitive Landscape Assessment, May 2026 · openai.com',
   capcut:  'Slide 14 · GenAI Competitive Landscape Assessment, May 2026 · capcut.com',
+  adobe:   'adobe.com/creativecloud/plans.html · helpx.adobe.com/creative-cloud',
 };
 const INITIAL_STAGE_NOTES: Record<string, Record<string, string>> = {
   canva: {
@@ -59,21 +72,34 @@ const INITIAL_STAGE_NOTES: Record<string, Record<string, string>> = {
     Retain:
       'CapCut watermark on exports creates viral loop; AI credit limits (150/wk) and watermark-free export drive Pro ($7.99/mo) upgrade',
   },
+  adobe: {
+    Discover:
+      'Industry-standard status drives aspirational pull — students enter creative fields expecting to learn CC; Behance portfolio community; campus/university partnerships; "Adobe for Education" outreach; brand synonymous with professional creative work',
+    Onboard:
+      'Adobe account creation required; install Creative Cloud desktop app (~800MB); individual app downloads 2–6GB each (Photoshop, Premiere, Illustrator); first-launch tutorials built in; Firefly AI accessible from within apps immediately — no separate setup',
+    Create:
+      '4,000 Generative Credits/mo power Firefly across the suite: Generative Fill + Expand (Photoshop); Text to Image, Generative Recolor, Text to Vector (Illustrator/Firefly); AI speech cleanup + auto-reframe (Premiere); credits shared across all apps in the subscription',
+    'Share/Export':
+      'Export to all professional formats (PDF, PNG, SVG, EPS, MP4, etc.); Behance publish directly from apps; Creative Cloud Libraries sync assets across devices; Adobe Portfolio for student showcase sites; Share for Review collaboration',
+    Retain:
+      'Industry-standard file format lock-in (.psd, .ai, .prproj); Behance portfolio social graph; certification programs; CC intro price increase yr 2 ($19.99→$39.99/mo) raises switching cost; integration across suite (assets, libraries, fonts) deepens dependency',
+  },
 };
 
 export function EndToEndExperience() {
   const { activeCategories } = useFilter();
   const PRIORITY_ORDER = ['canva', 'capcut', 'chatgpt'];
-  const filtered = competitors
-    .filter(c => activeCategories.includes(c.category))
-    .sort((a, b) => {
-      const ai = PRIORITY_ORDER.indexOf(a.id);
-      const bi = PRIORITY_ORDER.indexOf(b.id);
-      if (ai !== -1 && bi !== -1) return ai - bi;
-      if (ai !== -1) return -1;
-      if (bi !== -1) return 1;
-      return 0;
-    });
+  const filtered = [
+    ...(activeCategories.includes('Professional Tools') ? [ADOBE_E2E_STUB as typeof competitors[0]] : []),
+    ...competitors.filter(c => activeCategories.includes(c.category)),
+  ].sort((a, b) => {
+    const ai = PRIORITY_ORDER.indexOf(a.id);
+    const bi = PRIORITY_ORDER.indexOf(b.id);
+    if (ai !== -1 && bi !== -1) return ai - bi;
+    if (ai !== -1) return -1;
+    if (bi !== -1) return 1;
+    return 0;
+  });
   const [stageNotes, setStageNotes] = useState<Record<string, Record<string, string>>>(INITIAL_STAGE_NOTES);
 
   function setNote(competitorId: string, stage: string, val: string) {
