@@ -425,7 +425,7 @@ export function FeaturePlayground() {
                   </td>
                   {filtered.map(c => (
                     <td key={c.id} style={{ textAlign: 'center' }}>
-                      <CapabilityDot value={c.aiFeatures[row.key]} partial />
+                      <CapabilityDot value={c.aiFeatures[row.key]} partial={row.key !== 'creativeEditing'} />
                     </td>
                   ))}
                 </tr>
