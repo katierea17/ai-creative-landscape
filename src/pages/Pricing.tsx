@@ -24,7 +24,6 @@ const UNVERIFIED_NOTES: Record<string, string[]> = {
   midjourney: ['docs.midjourney.com returned 403', 'Basic $10/mo consistent with all prior sources'],
   capcut:     ['Official help page states pricing varies by region, device, and promotion', 'No canonical price listed — $19.99/mo is the US list price but may not apply globally'],
   affinity:   ['affinity.serif.com redirects to Canva — original domain no longer accessible', 'Free status documented from Canva acquisition announcement (Oct 2025)'],
-  adobe:      ['Individual intro promo ($34.99/mo first 3 mo) not available to education customers — students use the separate Students & Teachers plan', 'Both prices confirmed from official Adobe T&C: individual standard $69.99/mo; student intro $19.99/mo (yr 1), $39.99/mo after'],
 };
 
 function UnverifiedFlag({ notes }: { notes: string[] }) {
