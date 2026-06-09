@@ -9,7 +9,7 @@ const ADOBE_CVP_STUB = {
   name: 'Adobe CC (Students)',
   category: 'Professional Tools' as Category,
   mau: '30M+ (CC subscribers)',
-  coreValueProp: 'Industry-standard creative suite — Photoshop, Illustrator, Premiere Pro, InDesign, Firefly, and more — with AI built in at the tool level. Students get 4,000 Generative Credits/mo at $19.99/mo introductory rate, powering Firefly features (Generative Fill, Text to Image, Generative Expand, Recolor) across the entire suite.',
+  coreValueProp: 'Industry-standard creative suite — Photoshop, Illustrator, Premiere Pro, InDesign, Firefly, and more — with AI built in at the tool level.',
 };
 
 export function CoreValueProp() {
