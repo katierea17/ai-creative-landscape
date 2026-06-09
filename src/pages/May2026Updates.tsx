@@ -1,5 +1,39 @@
 import { useState } from 'react';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+
+function ImageCarousel({ images, caption }: { images: string[]; caption?: string }) {
+  const [idx, setIdx] = useState(0);
+  return (
+    <div style={{ marginTop: 12 }}>
+      <div style={{ position: 'relative', borderRadius: 4, overflow: 'hidden', background: '#f0f0f0', lineHeight: 0 }}>
+        <img
+          src={images[idx]}
+          alt={`Screenshot ${idx + 1} of ${images.length}`}
+          style={{ width: '100%', display: 'block', height: '100%', objectFit: 'contain', background: '#eeeeee' }}
+          onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+        />
+        {images.length > 1 && (
+          <>
+            <button onClick={() => setIdx(i => (i - 1 + images.length) % images.length)}
+              style={{ position: 'absolute', left: 8, top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.55)', border: '1.5px solid rgba(255,255,255,0.4)', color: '#ffffff', borderRadius: 99, width: 30, height: 30, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <ChevronLeft size={16} />
+            </button>
+            <button onClick={() => setIdx(i => (i + 1) % images.length)}
+              style={{ position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.55)', border: '1.5px solid rgba(255,255,255,0.4)', color: '#ffffff', borderRadius: 99, width: 30, height: 30, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <ChevronRight size={16} />
+            </button>
+            <div style={{ position: 'absolute', bottom: 9, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 6 }}>
+              {images.map((_, i) => (
+                <div key={i} onClick={() => setIdx(i)} style={{ width: 7, height: 7, borderRadius: '50%', background: i === idx ? '#ffffff' : 'rgba(255,255,255,0.4)', cursor: 'pointer', boxShadow: '0 1px 3px rgba(0,0,0,0.4)' }} />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+      {caption && <div style={{ fontSize: 9, color: '#111111', marginTop: 5, fontStyle: 'italic', lineHeight: 1.4 }}>{caption}</div>}
+    </div>
+  );
+}
 import { useFilter } from '../context/FilterContext';
 import { competitors } from '../data/competitorData';
 import type { Category } from '../data/competitorData';
@@ -71,15 +105,6 @@ const UPDATES: Update[] = [
     sourceName: 'figma.com/blog',
   },
   {
-    platform: 'Canva',
-    fourP: 'Pricing',
-    headline: 'Canva Pro raised to $18/mo — up from $12.99/mo',
-    detail: 'Canva Pro is now priced at $18/month. This reflects a continued step-up from $12.99/mo (pre-2025) and the prior $15/mo tier. Teams pricing runs $20/user/month ($10/user/month billed annually, 3-seat minimum).',
-    date: 'Ongoing — price current as of May 2026',
-    sourceUrl: 'https://www.canva.com/pricing/',
-    sourceName: 'canva.com/pricing',
-  },
-  {
     platform: 'Claude (Anthropic)',
     fourP: 'Pricing',
     headline: 'Claude subscriptions split into two usage buckets — effective June 15',
@@ -121,8 +146,8 @@ const UPDATES: Update[] = [
   {
     platform: 'Canva',
     fourP: 'Partnerships',
-    headline: 'Canva integrates with Google Gemini via MCP',
-    detail: 'Canva launched a Gemini integration using its MCP Server, letting users generate, edit, repurpose, and brand-align designs directly inside Gemini. Accessible via the @Canva prompt, users can browse and search Canva content, turn generated images into editable layouts with Magic Layers, and rewrite, update, or translate copy — all without leaving Gemini. Both Canva and Adobe have MCP integrations — Canva with Gemini, Adobe Firefly with Claude. The distinction is that Gemini\'s 900M users and Google Workspace embedding means Canva reaches students where they already work, while Adobe Firefly\'s MCP integration with Claude skews toward professional and developer audiences.',
+    headline: 'Canva is now usable directly inside Google Gemini',
+    detail: 'Canva launched a direct integration with Google Gemini, letting users generate, edit, repurpose, and brand-align designs without leaving Gemini. Accessible via the @Canva prompt, users can browse and search Canva content, turn generated images into editable layouts with Magic Layers, and rewrite, update, or translate copy — all inside the chat. Both Canva and Adobe Firefly are now usable inside AI assistants — Canva inside Gemini, Firefly inside Claude. The distinction is that Gemini\'s 900M users and Google Workspace embedding means Canva reaches students where they already work, while Firefly\'s integration with Claude skews toward professional and developer audiences.',
     date: 'May 19, 2026',
     sourceUrl: 'https://www.canva.com/newsroom/news/whats-new-may-2026/',
     sourceName: 'canva.com/newsroom',
@@ -180,6 +205,109 @@ const UPDATES: Update[] = [
   },
 ];
 
+function ImplicationsCarousel({ items }: { items: any[] }) {
+  const [idx, setIdx] = useState(0);
+  if (items.length === 0) return null;
+  const item = items[idx];
+  return (
+    <div style={{ marginBottom: 28 }}>
+      <div style={{ fontSize: 10, fontWeight: 700, color: '#F59E0B', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10 }}>
+        Implications for Creative Cloud for Students
+      </div>
+
+      {/* Card */}
+      <div style={{ border: '1px solid #e8e8e8', borderRadius: 4, overflow: 'hidden', background: '#f8f8f8' }}>
+        {/* Card body — fixed height so navigation buttons never shift */}
+        <div style={{ display: 'grid', gridTemplateColumns: (item.images?.length || item.videoEmbed || item.videoUrl) ? '1fr 1fr' : '1fr', height: 460 }}>
+          {/* Left: update + implication stacked */}
+          <div style={{ padding: '16px 18px', borderRight: (item.images?.length || item.videoEmbed || item.videoUrl) ? '1px solid #e8e8e8' : 'none', overflowY: 'auto', height: '100%', boxSizing: 'border-box' }}>
+            {/* Update section */}
+            <div style={{ marginBottom: 14, paddingBottom: 14, borderBottom: '1px solid #f0f0f0' }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>Industry Update</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
+                {PLATFORM_DOMAIN[item.platform] && (
+                  <img src={`https://www.google.com/s2/favicons?domain=${PLATFORM_DOMAIN[item.platform]}&sz=64`} alt={item.platform} style={{ width: 14, height: 14, borderRadius: 3, flexShrink: 0 }} onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                )}
+                <span style={{ fontSize: 11, fontWeight: 700, color: item.color, background: `${item.color}18`, border: `1px solid ${item.color}40`, padding: '1px 5px', borderRadius: 3, flexShrink: 0 }}>{item.platform}</span>
+                <span style={{ fontSize: 11, color: '#111111' }}>{item.date}</span>
+              </div>
+              <p style={{ fontSize: 14, fontWeight: 600, color: '#111111', margin: '0 0 6px', lineHeight: 1.5, display: 'flex', alignItems: 'baseline', gap: 6 }}>
+                <span style={{ fontSize: 12, flexShrink: 0 }}>{inferUpdateIcon(item.headline, item.summary)}</span>
+                <span>{item.headline}</span>
+              </p>
+              {item.rankRationale && (
+                <p style={{ fontSize: 12, color: '#111111', margin: 0, lineHeight: 1.5, fontStyle: 'italic' }}>{item.rankRationale}</p>
+              )}
+            </div>
+            {/* Implication section */}
+            <div>
+              <div style={{ fontSize: 9, fontWeight: 700, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>Implication for CC Students</div>
+              <p style={{ fontSize: 12, color: '#111111', margin: '0 0 8px', lineHeight: 1.6 }}>{item.adobeImplication}</p>
+              {item.implicationSource && (
+                <span style={{ fontSize: 10, color: '#111111', fontStyle: 'italic' }}>{item.implicationSource}</span>
+              )}
+            </div>
+          </div>
+
+          {/* Right: image carousel or video — fills full column height */}
+          {item.images?.length > 0 && (
+            <div style={{ padding: '16px 18px', display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box' }}>
+              <div style={{ flex: 1, overflow: 'hidden', borderRadius: 4, background: '#f0f0f0', minHeight: 0 }}>
+                <ImageCarousel images={item.images} caption={undefined} />
+              </div>
+              {item.imageCaption && <div style={{ fontSize: 9, color: '#888888', marginTop: 5, flexShrink: 0, fontStyle: 'italic' }}>{item.imageCaption}</div>}
+            </div>
+          )}
+          {!item.images?.length && item.videoUrl && (
+            <div style={{ padding: '16px 18px', display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box' }}>
+              <div style={{ flex: 1, borderRadius: 4, overflow: 'hidden', background: '#f0f0f0', minHeight: 0 }}>
+                <video src={item.videoUrl} controls style={{ width: '100%', height: '100%', display: 'block', objectFit: 'contain' }} />
+              </div>
+              {item.videoCaption && <div style={{ fontSize: 9, color: '#888888', marginTop: 5, flexShrink: 0, fontStyle: 'italic' }}>{item.videoCaption}</div>}
+            </div>
+          )}
+          {!item.images?.length && !item.videoUrl && item.videoEmbed && (
+            <div style={{ padding: '16px 18px', display: 'flex', flexDirection: 'column', height: '100%', boxSizing: 'border-box' }}>
+              <div style={{ flex: 1, borderRadius: 4, overflow: 'hidden', background: '#f0f0f0', position: 'relative', minHeight: 0 }}>
+                <iframe
+                  src={item.videoEmbed}
+                  title="Video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+                />
+              </div>
+              <div style={{ fontSize: 9, color: '#888888', marginTop: 5, flexShrink: 0, fontStyle: 'italic' }}>YouTube · 2026 graduates boo commencement speeches on AI</div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 10 }}>
+        <button
+          onClick={() => setIdx(i => (i - 1 + items.length) % items.length)}
+          style={{ background: 'none', border: '1px solid #e8e8e8', color: '#111111', borderRadius: 3, padding: '4px 12px', cursor: 'pointer', fontSize: 12 }}
+        >
+          ← Prev
+        </button>
+        <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+          {items.map((_, i) => (
+            <div key={i} onClick={() => setIdx(i)} style={{ width: 6, height: 6, borderRadius: '50%', background: i === idx ? '#F59E0B' : '#d0d0d0', cursor: 'pointer', transition: 'background 0.15s' }} />
+          ))}
+          <span style={{ fontSize: 10, color: '#111111', marginLeft: 6 }}>{idx + 1} of {items.length}</span>
+        </div>
+        <button
+          onClick={() => setIdx(i => (i + 1) % items.length)}
+          style={{ background: 'none', border: '1px solid #e8e8e8', color: '#111111', borderRadius: 3, padding: '4px 12px', cursor: 'pointer', fontSize: 12 }}
+        >
+          Next →
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function May2026Updates() {
   const { activeCategories } = useFilter();
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
@@ -219,92 +347,20 @@ export function May2026Updates() {
 
   return (
     <div>
-      {/* Amber banner */}
-      <div style={{
-        background: '#1a1400',
-        border: '1px solid #F59E0B',
-        borderRadius: 4,
-        padding: '12px 16px',
-        marginBottom: 24,
-        display: 'flex',
-        alignItems: 'center',
-        gap: 10,
-      }}>
-        <span style={{ fontSize: 16 }}>⚡</span>
-        <div>
-          <span style={{ color: '#F59E0B', fontWeight: 700, fontSize: 13 }}>New intel — not yet integrated into the main dashboard.</span>
-        </div>
-      </div>
-
-      <h1 style={{ fontSize: 22, fontWeight: 700, marginBottom: 24, color: '#fff' }}>Monthly Updates</h1>
-
       {/* ── Industry Briefings ─────────────────────────────────────── */}
       <div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, paddingBottom: 12, borderBottom: '1px solid #2a2a2a' }}>
-          <span style={{ fontSize: 18, fontWeight: 800, color: '#fff', letterSpacing: '-0.01em' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, paddingBottom: 12, borderBottom: '1px solid #e8e8e8' }}>
+          <span style={{ fontSize: 18, fontWeight: 800, color: '#111111', letterSpacing: '-0.01em' }}>
             📋 Industry Briefings
           </span>
-          <span style={{ fontSize: 12, color: '#555' }}>Apr 30 – May 29, 2026 · Adobe internal competitive intelligence</span>
+          <span style={{ fontSize: 12, color: '#111111' }}>May 10 – Jun 5, 2026 · Adobe internal competitive intelligence</span>
         </div>
 
-        {/* ── Implications table ── */}
-        {(() => {
-          const flagged = filteredBriefItems
-            .filter(i => i.highlight && i.adobeImplication)
-            .sort((a, b) => (a.rank ?? 99) - (b.rank ?? 99));
-          if (flagged.length === 0) return null;
-          return (
-            <div style={{ marginBottom: 28 }}>
-              <div style={{ fontSize: 10, fontWeight: 700, color: '#F59E0B', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10 }}>
-                Implications for Creative Cloud for Students
-              </div>
-              <div style={{ border: '1px solid #2a2a2a', borderRadius: 4, overflow: 'hidden' }}>
-                {/* Header row */}
-                <div style={{ display: 'grid', gridTemplateColumns: '32% 32px 1fr', background: '#161616', borderBottom: '1px solid #2a2a2a', padding: '7px 14px' }}>
-                  <span style={{ fontSize: 10, fontWeight: 700, color: '#555', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Industry Update</span>
-                  <span />
-                  <span style={{ fontSize: 10, fontWeight: 700, color: '#555', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Implication for CC Students</span>
-                </div>
-                {flagged.map((item, i) => (
-                  <div key={i} style={{
-                    display: 'grid',
-                    gridTemplateColumns: '32% 32px 1fr',
-                    borderBottom: i < flagged.length - 1 ? '1px solid #1e1e1e' : 'none',
-                    background: i % 2 === 0 ? '#1a1a1a' : '#171717',
-                  }}>
-                    <div style={{ padding: '10px 14px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
-                        <span style={{
-                          fontSize: 10, fontWeight: 700, color: item.color,
-                          background: `${item.color}18`, border: `1px solid ${item.color}40`,
-                          padding: '1px 5px', borderRadius: 3, flexShrink: 0,
-                        }}>{item.platform}</span>
-                        <span style={{ fontSize: 10, color: '#444' }}>{item.date}</span>
-                      </div>
-                      <p style={{ fontSize: 12, fontWeight: 600, color: '#C0C0C0', margin: '0 0 5px', lineHeight: 1.5 }}>{item.headline}</p>
-                      {item.rankRationale && (
-                        <p style={{ fontSize: 10, color: '#555', margin: 0, lineHeight: 1.5, fontStyle: 'italic' }}>{item.rankRationale}</p>
-                      )}
-                    </div>
-                    {/* Subtle arrow */}
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2e2e2e', fontSize: 20, userSelect: 'none' }}>
-                      →
-                    </div>
-                    <div style={{ padding: '10px 14px', paddingTop: 22 }}>
-                      <p style={{ fontSize: 12, color: '#A0A0A0', margin: '0 0 8px', lineHeight: 1.6 }}>{item.adobeImplication}</p>
-                      {item.implicationSource && (
-                        <span style={{ fontSize: 10, color: '#444', fontStyle: 'italic' }}>{item.implicationSource}</span>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          );
-        })()}
+        {/* ── Implications carousel ── */}
+        <ImplicationsCarousel items={filteredBriefItems.filter(i => i.highlight && i.adobeImplication).sort((a, b) => (a.rank ?? 99) - (b.rank ?? 99))} />
 
         {/* ── Remaining briefings (non-flagged) ── */}
-        <div style={{ fontSize: 10, fontWeight: 700, color: '#555', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10 }}>
+        <div style={{ fontSize: 10, fontWeight: 700, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10 }}>
           Other Updates
         </div>
         {(() => {
@@ -319,16 +375,24 @@ export function May2026Updates() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
               {grouped.map(({ platform, color, items }) => (
                 <div key={platform} style={{
-                  background: '#1a1a1a', border: '1px solid #2a2a2a',
+                  background: '#ffffff', border: '1px solid #e0e0e0', boxShadow: '0 1px 4px rgba(0,0,0,0.07)',
                   borderLeft: `3px solid ${color}`, borderRadius: 3, padding: '10px 12px',
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
+                    {PLATFORM_DOMAIN[platform] && (
+                      <img
+                        src={`https://www.google.com/s2/favicons?domain=${PLATFORM_DOMAIN[platform]}&sz=64`}
+                        alt={platform}
+                        style={{ width: 14, height: 14, borderRadius: 3, flexShrink: 0 }}
+                        onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                      />
+                    )}
                     <span style={{
                       fontSize: 9, fontWeight: 700, color,
                       background: `${color}18`, border: `1px solid ${color}40`,
                       padding: '1px 6px', borderRadius: 3,
                     }}>{platform}</span>
-                    <span style={{ fontSize: 9, color: '#444', marginLeft: 'auto' }}>
+                    <span style={{ fontSize: 9, color: '#111111', marginLeft: 'auto' }}>
                       {items.length} update{items.length !== 1 ? 's' : ''}
                     </span>
                   </div>
@@ -336,20 +400,20 @@ export function May2026Updates() {
                     {items.map((item, i) => (
                       <div key={i} style={{
                         paddingBottom: i < items.length - 1 ? 8 : 0,
-                        borderBottom: i < items.length - 1 ? '1px solid #242424' : 'none',
+                        borderBottom: i < items.length - 1 ? '1px solid #f0f0f0' : 'none',
                       }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 8, marginBottom: 2 }}>
                           {item.sourceUrl ? (
-                            <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: 11, fontWeight: 600, color: '#C0C0C0', lineHeight: 1.4, textDecoration: 'none' }}
-                              onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
-                              onMouseLeave={e => (e.currentTarget.style.color = '#C0C0C0')}
+                            <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: 11, fontWeight: 600, color: '#111111', lineHeight: 1.4, textDecoration: 'none' }}
+                              onMouseEnter={e => (e.currentTarget.style.color = '#555')}
+                              onMouseLeave={e => (e.currentTarget.style.color = '#111111')}
                             >{item.headline} <ExternalLink size={9} style={{ display: 'inline', verticalAlign: 'middle', opacity: 0.4 }} /></a>
                           ) : (
-                            <span style={{ fontSize: 11, fontWeight: 600, color: '#C0C0C0', lineHeight: 1.4 }}>{item.headline}</span>
+                            <span style={{ fontSize: 11, fontWeight: 600, color: '#111111', lineHeight: 1.4 }}>{item.headline}</span>
                           )}
-                          <span style={{ fontSize: 9, color: '#444', flexShrink: 0 }}>{item.date}</span>
+                          <span style={{ fontSize: 9, color: '#111111', flexShrink: 0 }}>{item.date}</span>
                         </div>
-                        <p style={{ fontSize: 11, color: '#666', margin: 0, lineHeight: 1.5 }}>{item.summary}</p>
+                        <p style={{ fontSize: 11, color: '#111111', margin: 0, lineHeight: 1.5 }}>{item.summary}</p>
                       </div>
                     ))}
                   </div>
@@ -360,30 +424,41 @@ export function May2026Updates() {
         })()}
       </div>
 
-      {/* ── Curated updates (Product / Pricing / Partnerships / Promotion) ── */}
-      <div style={{ marginTop: 40 }}>
-        <div style={{ fontSize: 10, fontWeight: 700, color: '#555', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 4 }}>
+      {/* ── Curated updates — hidden, stories rolled up into Other Updates ── */}
+      {false && <div style={{ marginTop: 40 }}>
+        <div style={{ fontSize: 10, fontWeight: 700, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 4 }}>
           Curated Updates
         </div>
-        <p style={{ color: '#A0A0A0', fontSize: 13, marginBottom: 16 }}>
+        <p style={{ color: '#111111', fontSize: 13, marginBottom: 16 }}>
           {filteredUpdates.length} competitive development{filteredUpdates.length !== 1 ? 's' : ''} detected · Sourced from public announcements, press coverage, and Adobe internal competitive intelligence
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
           {byFourP.map(({ p, updates }) => {
             const color = FOURP_COLORS[p];
             return (
-              <div key={p} style={{ background: '#1e1e1e', border: '1px solid #333', borderTop: `3px solid ${color}`, borderRadius: 4, padding: '20px', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14, paddingBottom: 12, borderBottom: '1px solid #2a2a2a' }}>
+              <div key={p} style={{ background: '#ffffff', border: '1px solid #e0e0e0', boxShadow: '0 1px 4px rgba(0,0,0,0.07)', borderTop: `3px solid ${color}`, borderRadius: 4, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                {QUADRANT_HERO[p] && (
+                  <div style={{ height: 120, overflow: 'hidden', background: '#f0f0f0' }}>
+                    <img
+                      src={QUADRANT_HERO[p]}
+                      alt={p}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                      onError={e => { (e.target as HTMLImageElement).parentElement!.style.display = 'none'; }}
+                    />
+                  </div>
+                )}
+                <div style={{ padding: '16px 20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14, paddingBottom: 12, borderBottom: '1px solid #e8e8e8' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <span style={{ width: 8, height: 8, borderRadius: '50%', background: color, display: 'inline-block', flexShrink: 0 }} />
                     <span style={{ fontSize: 11, fontWeight: 700, color, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{p}</span>
                   </div>
-                  <span style={{ fontSize: 10, color: '#555', background: '#2a2a2a', padding: '2px 8px', borderRadius: 3 }}>
+                  <span style={{ fontSize: 10, color: '#111111', background: '#e8e8e8', padding: '2px 8px', borderRadius: 3 }}>
                     {updates.length} update{updates.length !== 1 ? 's' : ''}
                   </span>
                 </div>
                 {updates.length === 0 ? (
-                  <p style={{ fontSize: 12, color: '#444', fontStyle: 'italic', margin: 0, textAlign: 'center', paddingTop: 8 }}>No updates detected this month</p>
+                  <p style={{ fontSize: 12, color: '#111111', fontStyle: 'italic', margin: 0, textAlign: 'center', paddingTop: 8 }}>No updates detected this month</p>
                 ) : (
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
                     {updates.map((u) => {
@@ -392,16 +467,16 @@ export function May2026Updates() {
                       const isSub = subExpanded[gi];
                       const hasSub = u.explanation && u.explanation.length > 0;
                       return (
-                        <div key={gi} style={{ borderBottom: '1px solid #2a2a2a' }}>
+                        <div key={gi} style={{ borderBottom: '1px solid #e8e8e8' }}>
                           <button onClick={() => toggleUpdate(gi)} style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '10px 0', textAlign: 'left', display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                            <span style={{ fontSize: 10, fontWeight: 700, color: '#fff', background: '#2e2e2e', padding: '2px 7px', borderRadius: 3, flexShrink: 0, marginTop: 2, whiteSpace: 'nowrap' }}>{u.platform}</span>
-                            <span style={{ fontSize: 12, fontWeight: 600, color: isExp ? '#fff' : '#D0D0D0', lineHeight: 1.4, flex: 1 }}>{u.headline}</span>
-                            <span style={{ color: '#555', flexShrink: 0, fontSize: 11, marginTop: 2 }}>{isExp ? '▲' : '▼'}</span>
+                            <span style={{ fontSize: 10, fontWeight: 700, color: '#111111', background: '#f0f0f0', border: '1px solid #e0e0e0', padding: '2px 7px', borderRadius: 3, flexShrink: 0, marginTop: 2, whiteSpace: 'nowrap' }}>{u.platform}</span>
+                            <span style={{ fontSize: 12, fontWeight: 600, color: isExp ? '#000000' : '#333333', lineHeight: 1.4, flex: 1 }}>{u.headline}</span>
+                            <span style={{ color: '#111111', flexShrink: 0, fontSize: 11, marginTop: 2 }}>{isExp ? '▲' : '▼'}</span>
                           </button>
                           {isExp && (
                             <div style={{ paddingBottom: 12 }}>
                               {u.effectiveDate && <span style={{ display: 'inline-block', fontSize: 9, fontWeight: 600, color: '#EB1000', background: '#EB100018', border: '1px solid #EB100040', padding: '1px 6px', borderRadius: 3, marginBottom: 8 }}>Effective {u.effectiveDate}</span>}
-                              <p style={{ fontSize: 12, color: '#A0A0A0', margin: '0 0 10px 0', lineHeight: 1.7 }}>{u.detail}</p>
+                              <p style={{ fontSize: 12, color: '#111111', margin: '0 0 10px 0', lineHeight: 1.7 }}>{u.detail}</p>
                               {hasSub && (
                                 <>
                                   <button onClick={() => toggleSub(gi)} style={{ color, background: 'none', border: 'none', cursor: 'pointer', fontSize: 11, padding: '3px 0', fontWeight: 600 }}>
@@ -410,9 +485,9 @@ export function May2026Updates() {
                                   {isSub && (
                                     <div style={{ marginTop: 8, display: 'flex', flexDirection: 'column', gap: 8 }}>
                                       {u.explanation!.map((block, bi) => (
-                                        <div key={bi} style={{ background: '#161616', border: '1px solid #2a2a2a', borderRadius: 3, padding: '8px 10px' }}>
+                                        <div key={bi} style={{ background: '#f0f1f3', border: '1px solid #e8e8e8', borderRadius: 3, padding: '8px 10px' }}>
                                           <div style={{ fontSize: 9, fontWeight: 700, color, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 4 }}>{block.label}</div>
-                                          <p style={{ fontSize: 11, color: '#A0A0A0', margin: 0, lineHeight: 1.7, whiteSpace: 'pre-line' }}>{block.content}</p>
+                                          <p style={{ fontSize: 11, color: '#111111', margin: 0, lineHeight: 1.7, whiteSpace: 'pre-line' }}>{block.content}</p>
                                         </div>
                                       ))}
                                     </div>
@@ -420,8 +495,8 @@ export function May2026Updates() {
                                 </>
                               )}
                               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 10 }}>
-                                <span style={{ fontSize: 10, color: '#444' }}>{u.date}</span>
-                                <a href={u.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 3, padding: '1px 6px', borderRadius: 3, background: '#242424', border: '1px solid #3a3a3a', color: '#06B6D4', fontSize: 9, fontWeight: 500, textDecoration: 'none', marginLeft: 'auto' }}>
+                                <span style={{ fontSize: 10, color: '#111111' }}>{u.date}</span>
+                                <a href={u.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 3, padding: '1px 6px', borderRadius: 3, background: '#f0f0f0', border: '1px solid #dddddd', color: '#06B6D4', fontSize: 9, fontWeight: 500, textDecoration: 'none', marginLeft: 'auto' }}>
                                   <ExternalLink size={8} />{u.sourceName}
                                 </a>
                               </div>
@@ -432,30 +507,134 @@ export function May2026Updates() {
                     })}
                   </div>
                 )}
+                </div>{/* end padding wrapper */}
               </div>
             );
           })}
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
 
+// ── Update type icon inference ────────────────────────────────────────────
+function inferUpdateIcon(headline: string, summary: string): string {
+  const text = (headline + ' ' + summary).toLowerCase();
+  if (text.includes('boo') || text.includes('commencement') || text.includes('protest') || text.includes('sentiment') || text.includes('anxiety') || text.includes('frustrat')) return '🙅‍♀️';
+  // Product check first — catches "agent/marketplace/model" before "brand" triggers campaign
+  if (text.includes('agent') || text.includes('marketplace') || text.includes('model') || text.includes('studio') || text.includes('editor 2.0')) return '🛠';
+  if (text.includes('price') || text.includes('pricing') || text.includes('$') || text.includes('/mo') || text.includes('valuation') || text.includes('raise') || text.includes('funding') || text.includes(' arr ') || text.includes('tier')) return '💰';
+  if (text.includes('partner') || text.includes('integrat') || text.includes('inside chatgpt') || text.includes('inside claude') || text.includes('inside gemini') || text.includes('usable directly') || text.includes('mcp') || text.includes('connect')) return '🤝';
+  if (text.includes('campaign') || text.includes('ads') || text.includes('adverti') || text.includes('brand') || text.includes('event') || text.includes('community') || text.includes('tour') || text.includes('squirrel')) return '📣';
+  return '🛠';
+}
+
+// ── Platform favicon domains ──────────────────────────────────────────────
+
+const PLATFORM_DOMAIN: Record<string, string> = {
+  'Canva': 'canva.com',
+  'Claude': 'claude.ai',
+  'Gemini': 'google.com',
+  'ChatGPT': 'openai.com',
+  'CapCut': 'capcut.com',
+  'Picsart': 'picsart.com',
+  'Runway': 'runwayml.com',
+  'YouTube': 'youtube.com',
+  'Figma': 'figma.com',
+  'Meta Edits': 'instagram.com',
+  'Stability AI': 'stability.ai',
+  'Leonardo.AI': 'leonardo.ai',
+  'Google Workspace': 'workspace.google.com',
+  'Gamma': 'gamma.app',
+  'IBM': 'ibm.com',
+};
+
+// ── Quadrant hero images ───────────────────────────────────────────────────
+const QUADRANT_HERO: Partial<Record<FourP, string>> = {
+  Product:      'https://d3phaj0sisr2ct.cloudfront.net/site/assets/agent-launch_blog-thumb-1.webp',
+  Partnerships: 'https://images.fonearena.com/blog/wp-content/uploads/2026/05/Canva-x-Google-Gemini-1024x576.jpg',
+};
+
 // ── Briefing data — flat, sorted newest first ─────────────────────────────
 
 const BRIEF_ITEMS = [
+  // ── Jun 3–5 (Canva/ChatGPT carousel + Perplexity; Gemini Utah; ChatGPT memory + jobs; IBM) ──
+  {
+    platform: 'Canva', color: '#22C55E', date: 'Jun 3', sortDate: '2026-06-03',
+    headline: 'Canva deepens ChatGPT integration — bulk deck editing and Codex support added',
+    summary: 'New on top of the existing year-old Canva-in-ChatGPT integration: edit text across an entire presentation in one chat command, Brand Kits apply automatically, and Canva is now inside Codex. Rolling out to Free, Plus, and Pro ChatGPT users outside EU.',
+    sourceUrl: 'https://www.canva.com/newsroom/news/deep-research-integration-mcp-server/',
+  },
+  {
+    platform: 'Canva', color: '#22C55E', date: 'Jun 3', sortDate: '2026-06-03',
+    headline: 'Canva is the exclusive design layer inside Perplexity',
+    summary: 'Research and strategy generated in Perplexity converts directly into editable Canva designs — presentations, social assets, and infographics. Canva is the exclusive design integration inside Perplexity Computer, used by small and growing businesses. Available to paid users across eleven languages.',
+    sourceUrl: 'https://www.canva.com/newsroom/',
+  },
+  {
+    platform: 'Gemini', color: '#A78BFA', date: 'Jun 4', sortDate: '2026-06-04',
+    headline: 'Google provides Gemini for Education to all Utah K–12 schools',
+    summary: 'Statewide deal covers 700,000+ students and educators starting 2026–27. Bundles Gemini for Education, AI literacy training, Google Career Certificates, and educator training — securing AI adoption at the school system level rather than the classroom level.',
+    sourceUrl: 'https://blog.google/outreach-initiatives/education/',
+  },
+  {
+    platform: 'ChatGPT', color: '#A78BFA', date: 'Jun 4', sortDate: '2026-06-04',
+    headline: 'ChatGPT memory auto-updates — capacity doubled for paid users',
+    summary: 'Memory now updates automatically rather than requiring manual saves; stale and contradictory memories are reduced. Plus and Pro users get double the memory capacity. The more ChatGPT knows a user, the harder it becomes to switch — personalization is becoming a key retention lever across all major AI platforms.',
+    sourceUrl: 'https://openai.com/chatgpt',
+  },
+  {
+    platform: 'ChatGPT', color: '#A78BFA', date: 'May 2026', sortDate: '2026-05-30',
+    headline: 'ChatGPT adds job search and resume builder',
+    summary: 'Live roles and freelance opportunities from Indeed, Upwork, and Appcast, personalized to user goals. Resume upload, tailoring to a specific role, and download also added. Job search U.S. only; resume globally available. Another specialized workflow absorbed into a single chat interface.',
+    sourceUrl: 'https://openai.com/chatgpt',
+  },
+  {
+    platform: 'IBM', color: '#2563EB', date: 'Jun 5', sortDate: '2026-06-05',
+    headline: 'IBM opens free AI dev tools to 20,000 universities — $15K student prize pool',
+    summary: 'Students get free access to IBM Bob (AI-powered development partner) via IBM SkillsBuild, plus mentorship and competition. IBM is embedding its AI ecosystem in student projects and workforce preparation programs across 20,000 post-secondary institutions worldwide.',
+    sourceUrl: 'https://skillsbuild.org/',
+  },
+  // ── May 21 (CapCut+Gemini, Canva integrations) ──
+  {
+    platform: 'CapCut', color: '#22C55E', date: 'May 21', sortDate: '2026-05-21',
+    headline: 'CapCut integrating into Gemini app — editing inside the AI interface',
+    summary: "CapCut's video and image editing tools coming directly inside Gemini. Users edit media without leaving the Gemini interface. CapCut joins Adobe and Canva as creative tool partners embedded in Gemini.",
+    sourceUrl: 'https://9to5google.com/2026/05/21/capcut-announces-partnership-with-gemini-app/',
+  },
+  // ── May 20 (Figma AI Agent, Gemini AI Ultra) ──
+  {
+    platform: 'Figma', color: '#F59E0B', date: 'May 20', sortDate: '2026-05-20',
+    headline: 'Figma AI Agent — native design agent on the canvas',
+    summary: 'Native AI agent embedded directly in the collaborative canvas — generates and edits designs using your actual design system components and tokens. Free in rolling beta; available to Full seat users on paid plans post-GA.',
+    sourceUrl: 'https://www.figma.com/blog/the-figma-agent-is-here/',
+  },
+  {
+    platform: 'Gemini', color: '#A78BFA', date: 'May 20', sortDate: '2026-05-20',
+    headline: 'Google overhauls AI subscriptions — new AI Ultra tier at $99.99/mo',
+    summary: 'At Google I/O: AI Premium renamed AI Pro ($19.99/mo), new AI Ultra entry tier ($99.99/mo), top Ultra tier ($199.99/mo). Gemini Spark (24/7 personal agent) and Gemini Omni announced.',
+    sourceUrl: 'https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/',
+  },
+  // ── May 14 (Claude billing split) ──
+  {
+    platform: 'Claude', color: '#A78BFA', date: 'May 14', sortDate: '2026-05-14',
+    headline: 'Claude subscriptions split into two usage buckets — effective June 15',
+    summary: 'Direct Claude.ai use (unchanged) vs. third-party/agent integrations (new separate credit pool). Credits are non-rollover; once exhausted, usage stops or bills at full API rates.',
+    sourceUrl: 'https://the-decoder.com/claude-subscriptions-get-separate-budgets-for-programmatic-use-billed-at-full-api-prices/',
+  },
+  // ── May 13 (Runway Agent) ──
+  {
+    platform: 'Runway', color: '#F59E0B', date: 'May 13', sortDate: '2026-05-13',
+    headline: 'Runway Agent — text prompt to finished multi-scene video',
+    summary: 'Takes a single text prompt to a ready-to-publish multi-scene video in one session — handling concept, story structure, scene generation, voiceover, dialogue, and music. Aimed at brand teams, agencies, and filmmakers.',
+    sourceUrl: 'https://runwayml.com/news/introducing-runway-agent',
+  },
   // ── May 28 ──
   {
     platform: 'Claude', color: '#A78BFA', date: 'May 28', sortDate: '2026-05-28',
     headline: 'Opus 4.8 ships 41 days after 4.7; ARR jumps from $9B to $47B',
     summary: 'Unusually fast release driven by competitive pressure and 4.7 backlash; $65B Series H at $965B valuation makes Anthropic the most valued AI startup, surpassing OpenAI.',
     sourceUrl: 'https://www.anthropic.com/news/claude-opus-4-8',
-  },
-  {
-    platform: 'Canva', color: '#22C55E', date: 'May 28', sortDate: '2026-05-28',
-    headline: 'Image to Video now supports human faces',
-    summary: 'Animating people realistically fills a key gap for brands whose content centers on people rather than products; Magic Eraser also updated for cleaner, shadow-free removals.',
-    sourceUrl: 'https://www.canva.com/newsroom/news/whats-new-may-2026/',
   },
   // ── May 27 ──
   {
@@ -466,15 +645,7 @@ const BRIEF_ITEMS = [
   },
   // ── May 26 ──
   {
-    platform: 'Canva', color: '#22C55E', date: 'May 21–26', sortDate: '2026-05-26',
-    highlight: true, rank: 5, rankRationale: 'An opportunity for Adobe rather than a threat — users are actively looking for alternatives and Adobe has a window to capture them.',
-    headline: 'Video Editor 2.0 frustration continues; two outages reported',
-    summary: 'Six months post-launch, users still request the old editor back; outages on May 21 and 26 spiked complaints on Downdetector, particularly in Asia and North America.',
-    adobeImplication: 'With Canva\'s video editor frustrating users six months post-launch, Premiere and Premiere Mobile have a real window — particularly against CapCut, where Premiere Mobile is a well-suited competitor. Firefly-powered video features — auto-caption, generative fill in video, AI B-roll — could be the decisive differentiator if Adobe can reach these students before CapCut does.',
-    implicationSource: 'Canva Design Community · Downdetector · Adobe Internal Briefing · May 21–26, 2026',
-  },
-  {
-    platform: 'Students', color: '#A0A0A0', date: 'May 26', sortDate: '2026-05-26',
+    platform: 'Students', color: '#111111', date: 'May 26', sortDate: '2026-05-26',
     highlight: true, rank: 2,
     rankRationale: 'Student sentiment is a direct signal about the audience CC needs to win, and a positioning opportunity Adobe can act on now.',
     headline: 'Graduates booing AI optimism at commencement speeches',
@@ -482,6 +653,7 @@ const BRIEF_ITEMS = [
     sourceUrl: 'https://www.socialmediatoday.com/news/students-booing-ai-commencement-2026',
     adobeImplication: 'Students are expressing fear and anxiety about AI\'s impact on their creative futures — the exact audience CC needs to win. Positioning Firefly and Creative Cloud as tools that amplify human creativity rather than replace it could be a meaningful differentiator at a moment when the industry\'s standard AI messaging is landing poorly.',
     implicationSource: 'Social Media Today · Adobe Internal Briefing · May 26, 2026',
+    videoEmbed: 'https://www.youtube.com/embed/rgC874ARnX8',
   },
   // ── May 25 ──
   {
@@ -508,11 +680,16 @@ const BRIEF_ITEMS = [
     platform: 'Picsart', color: '#22C55E', date: 'May 21', sortDate: '2026-05-21',
     highlight: true, rank: 3,
     rankRationale: 'Picsart\'s agent suite spans the full creative workflow — brand, content, localization, video — at a price point that significantly undercuts Creative Cloud.',
-    headline: '16 AI agents launched across creative workflows',
-    summary: 'A 3-system workflow spans brand identity, content creation, localization, and video production — routing each task to the most relevant agent before generating.',
-    sourceUrl: 'https://picsart.com/blog/ai-agents',
-    adobeImplication: 'Picsart\'s 16-agent system covers brand identity, content creation, localization, and video production in a coordinated workflow — scope that starts to rival Creative Cloud\'s suite breadth, and notably mirrors a direction Adobe is likely ultimately heading itself. At $10.50/mo, students can access what amounts to an AI creative team spanning functions that would otherwise require multiple CC apps.',
+    headline: 'Picsart AI Agents Marketplace — 16 named creative specialists you can hire',
+    summary: 'Each agent is a named specialist with a distinct role: Zoe (AI influencer), Marc (video director), Mira (brand designer), Maya (deck architect), Lina (film director), and 11 more. Users "hire" agents for specific tasks; each learns their style over time.',
+    sourceUrl: 'https://picsart.com/ai-agent/',
+    adobeImplication: 'Picsart has reframed AI tools as a hireable creative team — brand designer, video director, film director, deck architect, content strategist — scope that starts to rival Creative Cloud\'s suite breadth, and notably mirrors a direction Adobe is likely ultimately heading itself. At $10.50/mo, students can access the equivalent of a full creative department.',
     implicationSource: 'Picsart · Adobe Internal Briefing · May 21, 2026',
+    images: [
+      'https://cdnblog.picsart.com/2026/05/PicsartAIAgents_Blog_1200x800.png',
+      'https://cdnblog.picsart.com/2026/05/Screenshot-2026-05-21-at-11.58.29.png',
+    ],
+    imageCaption: 'Source: picsart.com/ai-agent · picsart.com/blog/meet-the-new-ai-agents',
   },
   {
     platform: 'Runway', color: '#F59E0B', date: 'May 21', sortDate: '2026-05-21',
@@ -535,33 +712,21 @@ const BRIEF_ITEMS = [
     sourceUrl: 'https://blog.google/products/gemini/google-io-2026/',
   },
   {
-    platform: 'Gemini', color: '#A78BFA', date: 'May 19', sortDate: '2026-05-19',
-    headline: 'Pics: Workspace-native AI design app',
-    summary: 'Generates and edits visuals from conversational prompts inside Google Workspace; limited Trusted Tester rollout, coming to AI Pro/Ultra this summer.',
-    sourceUrl: 'https://blog.google/products/workspace/google-io-2026/',
-  },
-  {
     platform: 'Canva', color: '#22C55E', date: 'May 19', sortDate: '2026-05-19',
-    highlight: true, rank: 1, rankRationale: 'Distribution threat at the largest scale — Gemini has 900M users. Design habits forming inside Gemini bypass Creative Cloud entirely.',
-    headline: 'Canva integrates with Gemini via MCP',
-    summary: 'Users can generate, edit, repurpose, and brand-align Canva designs directly inside Gemini using @Canva — including Magic Layers and translate.',
+    highlight: true, rank: 1, rankRationale: 'Distribution threat at the largest scale — Gemini has 900M users (Google I/O, May 19, 2026). Design habits forming inside Gemini bypass Creative Cloud entirely.',
+    headline: 'Canva is now usable directly inside Google Gemini',
+    summary: 'Users can generate, edit, repurpose, and brand-align Canva designs without leaving Gemini — accessible via @Canva, including Magic Layers and translate.',
     sourceUrl: 'https://www.canva.com/newsroom/news/whats-new-may-2026/',
-    adobeImplication: 'Both Canva and Adobe Firefly are now usable directly inside AI assistants — Canva inside Gemini, Firefly inside Claude. The difference is which assistant: Gemini has 900M users and is built into Google Workspace, where students already write papers, build slide decks, and collaborate. Firefly\'s integration with Claude reaches a more professional and developer audience. The student exposure gap is real even if the capability parity isn\'t.',
-    implicationSource: 'canva.com · Adobe Internal Briefing · May 19, 2026',
+    images: [
+      'https://images.fonearena.com/blog/wp-content/uploads/2026/05/Canva-x-Google-Gemini-1024x576.jpg',
+      'https://images.fonearena.com/blog/wp-content/uploads/2026/05/Canva-Gemini-Image-Generation.jpg',
+      'https://images.fonearena.com/blog/wp-content/uploads/2026/05/Canva-Brand-Kit-in-a-prompt.jpg',
+    ],
+    imageCaption: 'Source: fonearena.com · May 2026',
+    adobeImplication: 'Both Canva and Adobe Firefly are now usable directly inside AI assistants — Canva inside Gemini, Firefly inside Claude. The difference is which assistant: Gemini has 900M users (announced Google I/O, May 19, 2026) and is built into Google Workspace, where students already write papers, build slide decks, and collaborate. Firefly\'s integration with Claude reaches a more professional and developer audience. The student exposure gap is real even if the capability parity isn\'t.',
+    implicationSource: 'canva.com · Adobe Internal Briefing · May 19, 2026 · Ramp AI Index May 2026 (techcrunch.com/2026/05/13)',
   },
   // ── May 18 ──
-  {
-    platform: 'Canva', color: '#22C55E', date: 'May 18', sortDate: '2026-05-18',
-    headline: '4 senior leaders depart amid AI pivot and pre-IPO pressure',
-    summary: 'CTO Brendan Humphreys plus Head of Design, Sr. Engineering Director, and an 8-year design lead all exited as Canva accelerates its AI-first restructuring.',
-    sourceUrl: 'https://www.theaustralian.com.au/business/technology/canva-senior-exits',
-  },
-  {
-    platform: 'Runway', color: '#F59E0B', date: 'May 18', sortDate: '2026-05-18',
-    headline: 'Runway Characters can now take actions, not just speak',
-    summary: 'Characters can call on tools and interact with other apps — expanding into eCommerce, customer support, onboarding, and gaming.',
-    sourceUrl: 'https://runwayml.com/blog/runway-characters-actions',
-  },
   {
     platform: 'Figma', color: '#F59E0B', date: 'May 18', sortDate: '2026-05-18',
     headline: 'Sections added to Figma Slides',
@@ -595,53 +760,5 @@ const BRIEF_ITEMS = [
     headline: 'AI Stylist: outfit generation + full retouching from one photo',
     summary: 'Generates complete outfits from a single photo and style direction, then layers in AI retouching (skin tone, hair, features) — full styling workflow inside Picsart.',
     sourceUrl: 'https://picsart.com/blog/ai-stylist',
-  },
-  {
-    platform: 'Claude', color: '#A78BFA', date: 'May 7', sortDate: '2026-05-07',
-    headline: 'Claude now works across Excel, PowerPoint, Word, and Outlook',
-    summary: 'Full context carried across Microsoft 365 apps — draft emails, update spreadsheets, and build decks in one session; Outlook integration remains in beta.',
-    sourceUrl: 'https://www.anthropic.com/news/claude-microsoft-365',
-  },
-  {
-    platform: 'Picsart', color: '#22C55E', date: 'May 7', sortDate: '2026-05-07',
-    highlight: true, rank: 4, rankRationale: 'Picsart is a direct Firefly competitor at a fraction of CC\'s price, now embedded in AI chat — but lower brand recognition than Canva limits its immediate threat.',
-    headline: 'Picsart MCP: 140+ AI models accessible via ChatGPT and Claude',
-    summary: 'A single integration gives AI assistants access to Picsart\'s full model library for image, video, and audio — following similar MCP launches by Canva and Adobe Express.',
-    sourceUrl: 'https://picsart.com/blog/picsart-mcp',
-    adobeImplication: 'Picsart is now usable directly inside ChatGPT and Claude, putting 140+ AI image, video, and audio tools one prompt away — and at $10.50 a month, it competes directly with Firefly\'s generative capabilities. This is particularly relevant to the creator audience.',
-    implicationSource: 'picsart.com · Adobe Internal Briefing · May 7, 2026',
-  },
-  // ── May 6 ──
-  {
-    platform: 'Meta Edits', color: '#60A5FA', date: 'May 6', sortDate: '2026-05-06',
-    headline: 'Caption profanity controls and improved image blending',
-    summary: 'Edits continues adding CapCut feature parity — profanity replacement in captions, enhanced image blending effects, and a custom Met Gala font.',
-    sourceUrl: 'https://www.socialmediatoday.com/news/meta-edits-updates-may-2026',
-  },
-  // ── May 3–4 ──
-  {
-    platform: 'Canva', color: '#22C55E', date: 'May 4', sortDate: '2026-05-04',
-    headline: '"The Thing That Makes Anything A Thing" — new U.S. brand campaign',
-    summary: 'Spans experiential, OOH, social, influencer, digital, and audio; centers Canva as the creative partner for turning any idea into reality.',
-    sourceUrl: 'https://www.canva.com/newsroom/news/',
-  },
-  {
-    platform: 'Gemini', color: '#A78BFA', date: 'May 4', sortDate: '2026-05-04',
-    headline: 'Custom tone, style, and formatting instructions in Google Docs',
-    summary: 'Persistent Gemini instructions (up to 1,000 characters) auto-apply preferences on every document — deepening Google ecosystem lock-in.',
-    sourceUrl: 'https://workspace.google.com/blog/gemini-docs-custom-instructions',
-  },
-  {
-    platform: 'YouTube', color: '#60A5FA', date: 'May 3', sortDate: '2026-05-03',
-    headline: 'AI music generation replaces copyrighted songs in existing videos',
-    summary: 'Creators can swap flagged audio with AI-generated royalty-free instrumental tracks in YouTube Studio — resolving copyright issues without removing videos.',
-    sourceUrl: 'https://www.socialmediatoday.com/news/youtube-ai-music-generation',
-  },
-  // ── Apr 30 ──
-  {
-    platform: 'Meta Edits', color: '#60A5FA', date: 'Apr 30', sortDate: '2026-04-30',
-    headline: 'AI ad connectors pipe Meta data into ChatGPT and Claude',
-    summary: 'Brands can now query campaign performance in their AI assistant of choice via natural language — no APIs or developer credentials required.',
-    sourceUrl: 'https://www.socialmediatoday.com/news/meta-ai-ad-connectors',
   },
 ];
