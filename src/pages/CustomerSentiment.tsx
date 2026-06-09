@@ -3,6 +3,28 @@ import { Card } from '../components/Card';
 import { CategoryBadge } from '../components/CategoryBadge';
 import { useFilter } from '../context/FilterContext';
 import { competitors } from '../data/competitorData';
+import type { Category } from '../data/competitorData';
+
+// ── Adobe rolled-up stub (Q7: Photoshop 5% + Firefly 3% + Premiere 3% + Express 2% + Other Adobe 2% = 15%) ──
+const ADOBE_SENTIMENT_STUB = {
+  id: 'adobe',
+  name: 'Adobe (all tools)',
+  category: 'Professional Tools' as Category,
+  sentiment: {
+    score: 15,
+    trend: 'Flat' as const,
+    praised: [
+      'Professional depth & industry-standard tooling',
+      'Suite breadth — Photoshop, Premiere, Illustrator, Firefly, Express',
+      'Firefly AI tightly integrated across existing workflows',
+    ],
+    complaints: [
+      'AI features feel intrusive or unprofessional (Illustrator & InDesign NPS)',
+      'CC cost increasingly benchmarked against simpler AI-first tools',
+      'Subscription fatigue at $39.99–$54.99/mo',
+    ],
+  },
+};
 
 // ── Types ─────────────────────────────────────────────────────────────────
 
@@ -238,9 +260,10 @@ function FindingsCarousel({ items }: { items: FindingItem[] }) {
 
 export function CustomerSentiment() {
   const { activeCategories } = useFilter();
-  const filtered = competitors
-    .filter(c => activeCategories.includes(c.category))
-    .sort((a, b) => b.sentiment.score - a.sentiment.score);
+  const filtered = [
+    ...(activeCategories.includes('Professional Tools') ? [ADOBE_SENTIMENT_STUB as typeof competitors[0]] : []),
+    ...competitors.filter(c => activeCategories.includes(c.category)),
+  ].sort((a, b) => b.sentiment.score - a.sentiment.score);
 
   return (
     <div style={{ color: '#111111' }}>
@@ -304,8 +327,9 @@ export function CustomerSentiment() {
       {/* ── Section 2: Competitor Rankings ── */}
       <SectionDivider label="Competitor Rankings" />
 
-      <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 24 }}>
         <SourceChip label="Q7 · Best overall · GenAI Tracker n=128" />
+        <SourceChip label="Adobe score = Photoshop 5% + Firefly 3% + Premiere 3% + Express 2% + Other Adobe 2% (rolled up)" />
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 16 }}>

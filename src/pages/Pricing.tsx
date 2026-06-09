@@ -1,6 +1,72 @@
+import { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 import { useFilter } from '../context/FilterContext';
 import { competitors } from '../data/competitorData';
+import type { Category } from '../data/competitorData';
+
+const ADOBE_PRICING_STUB = {
+  id: 'adobe',
+  name: 'Adobe CC (Students)',
+  category: 'Professional Tools' as Category,
+  pricing: {
+    free: false as boolean,
+    premiumSubscription: 'CC All Apps $54.99/mo (annual, standard individual)',
+    oneTimePurchase: null as null,
+    aiCredits: true as boolean,
+    studentPrice: '$19.99/mo intro (yr 1), $39.99/mo after',
+    studentPromo: 'Students & Teachers: ~50% off standard rate after intro year',
+    notableChange: '4,000 Generative Credits/mo included; Firefly AI across suite — Generative Fill, Text to Image, Expand, Recolor',
+  },
+};
+
+const UNVERIFIED_NOTES: Record<string, string[]> = {
+  chatgpt:    ['openai.com/chatgpt/pricing returned 403', 'Plus $20/mo, Pro $200/mo consistent with all prior sources'],
+  midjourney: ['docs.midjourney.com returned 403', 'Basic $10/mo consistent with all prior sources'],
+  capcut:     ['Official help page states pricing varies by region, device, and promotion', 'No canonical price listed — $19.99/mo is the US list price but may not apply globally'],
+  affinity:   ['affinity.serif.com redirects to Canva — original domain no longer accessible', 'Free status documented from Canva acquisition announcement (Oct 2025)'],
+  adobe:      ['Standard individual annual price ($54.99/mo) not directly verified this session', 'Student T&C confirmed: $19.99/mo intro (yr 1), $39.99/mo standard — source: adobe.com T&C'],
+};
+
+function UnverifiedFlag({ notes }: { notes: string[] }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <span
+      style={{ position: 'relative', display: 'inline-block', marginLeft: 5 }}
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <span style={{
+        fontSize: 9, fontWeight: 700, color: '#F97316',
+        background: '#F9731618', border: '1px solid #F9731640',
+        borderRadius: 3, padding: '1px 5px', cursor: 'default', letterSpacing: '0.03em',
+      }}>
+        ⚠ unverified
+      </span>
+      {open && (
+        <div style={{
+          position: 'absolute', top: '100%', left: '50%', transform: 'translateX(-50%)',
+          marginTop: 6, zIndex: 50, width: 260,
+          background: '#1a1a1a', border: '1px solid #3a3a3a',
+          borderRadius: 4, padding: '10px 12px',
+          boxShadow: '0 4px 16px rgba(0,0,0,0.5)',
+          pointerEvents: 'none',
+        }}>
+          <div style={{ fontSize: 10, fontWeight: 700, color: '#F97316', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            Could not verify directly
+          </div>
+          <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 5 }}>
+            {notes.map((n, i) => (
+              <li key={i} style={{ fontSize: 11, color: '#A0A0A0', lineHeight: 1.4, display: 'flex', gap: 6 }}>
+                <span style={{ color: '#F97316', flexShrink: 0 }}>•</span>
+                <span>{n}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </span>
+  );
+}
 
 const PRICING_SOURCES: Record<string, { url: string; label: string }> = {
   'google-photos':   { url: 'https://one.google.com/about/plans',               label: 'one.google.com' },
@@ -17,6 +83,7 @@ const PRICING_SOURCES: Record<string, { url: string; label: string }> = {
   'affinity':        { url: 'https://affinity.serif.com/en-us/',                  label: 'affinity.serif.com' },
   'figma':           { url: 'https://www.figma.com/pricing/',                     label: 'figma.com/pricing' },
   'runway':          { url: 'https://runwayml.com/pricing',                       label: 'runwayml.com/pricing' },
+  'adobe':           { url: 'https://www.adobe.com/creativecloud/plans.html',     label: 'adobe.com/cc/plans' },
 };
 
 function Cell({ value, amber }: { value: string | null | boolean; amber?: boolean }) {
@@ -43,7 +110,10 @@ const ROWS = [
 
 export function Pricing() {
   const { activeCategories } = useFilter();
-  const filtered = competitors.filter(c => activeCategories.includes(c.category));
+  const filtered = [
+    ...(activeCategories.includes('Professional Tools') ? [ADOBE_PRICING_STUB as typeof competitors[0]] : []),
+    ...competitors.filter(c => activeCategories.includes(c.category)),
+  ];
 
   return (
     <div>
@@ -61,7 +131,10 @@ export function Pricing() {
               </th>
               {filtered.map(c => (
                 <th key={c.id} style={{ minWidth: 160, color: '#fff', fontWeight: 700, fontSize: 13 }}>
-                  <div>{c.name}</div>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4, flexWrap: 'wrap' }}>
+                    {c.name}
+                    {UNVERIFIED_NOTES[c.id] && <UnverifiedFlag notes={UNVERIFIED_NOTES[c.id]} />}
+                  </div>
                   <div style={{ fontSize: 10, color: '#666', fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>
                     {c.category}
                   </div>
