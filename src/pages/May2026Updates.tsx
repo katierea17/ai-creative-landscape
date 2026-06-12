@@ -353,8 +353,8 @@ export function May2026Updates() {
           <span style={{ fontSize: 18, fontWeight: 800, color: '#111111', letterSpacing: '-0.01em' }}>
             📋 Industry Briefings
           </span>
-          <span style={{ fontSize: 12, color: '#111111' }}>May 13 – Jun 11, 2026 · Adobe internal competitive intelligence</span>
-          <span style={{ fontSize: 10, color: '#888888', marginLeft: 4 }}>Sources: company newsrooms, TechCrunch, 9to5Google, The Verge, Social Media Today, official release notes &amp; public web</span>
+          <span style={{ fontSize: 12, color: '#111111' }}>May 13 – Jun 11, 2026</span>
+          <span style={{ fontSize: 10, color: '#888888', marginLeft: 4 }}>Sources: company newsrooms, TechCrunch, 9to5Google, The Verge, Social Media Today, official release notes &amp; public web · Adobe internal competitive intelligence</span>
         </div>
 
         {/* ── Implications carousel ── */}
