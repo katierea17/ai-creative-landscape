@@ -730,12 +730,6 @@ const BRIEF_ITEMS = [
   },
   // ── May 19 ──
   {
-    platform: 'Google', color: '#A78BFA', date: 'May 19', sortDate: '2026-05-19',
-    headline: 'Gemini Omni Flash: photorealistic video from any input',
-    summary: 'New model generates physics-aware video from text, images, or YouTube Shorts — rolling out to AI Plus, Pro, and Ultra this week.',
-    sourceUrl: 'https://blog.google/products/gemini/google-io-2026/',
-  },
-  {
     platform: 'Canva', color: '#22C55E', date: 'May 19', sortDate: '2026-05-19',
     highlight: true, rank: 1, rankRationale: 'Distribution threat at the largest scale — Gemini has 900M users (Google I/O, May 19, 2026). Design habits forming inside Gemini bypass Creative Cloud entirely.',
     headline: 'Canva is now usable directly inside Google Gemini',
