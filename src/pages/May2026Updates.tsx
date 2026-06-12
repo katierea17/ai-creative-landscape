@@ -575,9 +575,9 @@ const BRIEF_ITEMS = [
     sourceUrl: 'https://9to5google.com/2026/06/08/google-ai-plus-price-drop/',
     images: [
       'https://www.digitaltrends.com/tachyon/2026/06/Google-AI-Plus-banner.jpg',
-      'https://9to5google.com/wp-content/uploads/sites/4/2026/01/Google-AI-Plus-cover-us.jpg',
+      '/google-ai-pricing-jun2026.png',
     ],
-    imageCaption: 'Source: digitaltrends.com · 9to5google.com · Jun 2026',
+    imageCaption: 'Source: digitaltrends.com · Google AI plans page · Jun 2026',
     adobeImplication: "At $4.99/mo, Google AI Plus undercuts every paid AI tool in this landscape — and students already in the Google ecosystem (Gmail, Docs, Drive, Slides) get video generation, an AI agent, and deep research included. This sets a psychological price anchor: students will expect AI for $5 or less. Adobe CC for Students starts at $19.99/mo intro. The gap is no longer just about features — it's about what AI 'should' cost.",
     implicationSource: '9to5google.com · Jun 9, 2026',
   },
