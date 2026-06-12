@@ -25,27 +25,6 @@ interface TopicItem {
 const FINDINGS: FindingItem[] = [
   {
     rank: 1,
-    headline: 'This week: student sentiment shifted from "AI as values debate" to "AI as workflow intrusion"',
-    finding: [
-      'AI features in Adobe tools called out directly as annoying, intrusive, and unprofessional — the clearest student-specific signal this week, showing up in Illustrator and InDesign NPS',
-      'Price/value switching intent rising: CC cost increasingly benchmarked against simpler, faster AI-first tools — not just cheaper suites',
-      '"AI as learning accelerator" still present but less dominant than prior weeks',
-      'Stable: students still accept AI for pipeline and grunt-work tasks; "taste and judgment matter" narrative holds',
-    ],
-    adobeImplication: [
-      'Students naming AI features as intrusive won\'t respond to capability messaging — the opening is opt-in control (AI out of the way until invoked)',
-      'The competitive comparison has shifted from price to cognitive load — a different frame that current CC positioning doesn\'t address',
-      'Portfolio transparency ("show what was AI vs. yours") is an emerging student need no tool currently owns',
-    ],
-    quotes: [
-      { text: 'AI stuff is dumb and makes everything wonky… doesn\'t feel professional anymore.', source: 'NPS Survey · Illustrator · Brazil · Jun 2, 2026' },
-      { text: 'Stop pushing the generative AI! I will never recommend a program that obsessively tries to get me to use AI! Other than that it\'s great and I would absolutely recommend to my friends if the AI was less prominent, or in a perfect world, not a part of the program at all.', source: 'NPS Survey · Premiere Pro · United States · Jun 6, 2026' },
-      { text: 'Difficult to recommend to new users to be honest, as the usage of photoshop is very complicated to learn where there are many new AI tools nowadays, ppl don\'t afford to spend so much time to learn how to use photoshop if AI tools can help them.', source: 'NPS Survey · Photoshop · Australia/New Zealand · Jun 4, 2026' },
-    ],
-    studyLabel: 'TAO Weekly · week-over-week shift · Jun 2–8, 2026',
-  },
-  {
-    rank: 2,
     headline: "Students use AI to unlock ideation and cut 'glue work' — taste and final judgment stay human",
     finding: [
       "Rapid ideation & concept visualization: students use AI to generate directions and moodboards for a concept already in mind — not outsourcing the whole design",
@@ -68,7 +47,7 @@ const FINDINGS: FindingItem[] = [
     studyLabel: 'TAO Report · Jun 9, 2026',
   },
   {
-    rank: 3,
+    rank: 2,
     headline: 'AI threatens the "why" of creative work — not just the how',
     finding: 'The most-discussed topic across both studies. The core creativity anxiety isn\'t about tools or features — it\'s about meaning. Students fear AI outputs "replicate at scale" rather than generate something new, flattening originality and making creative culture feel like "slop." Many accept AI for production tasks (cleanup, ideation, drafts) but resist it on anything that touches authorship, process, or personal style.',
     adobeImplication: "Adobe's framing of Firefly as ethically trained and commercially safe addresses copyright concerns but not the deeper anxiety about authenticity. Student messaging that positions AI as a starting point the human directs — not a finishing point — would resonate more than capability-first messaging.",
@@ -80,7 +59,7 @@ const FINDINGS: FindingItem[] = [
     studyLabel: 'Both studies · 83 mentions',
   },
   {
-    rank: 4,
+    rank: 3,
     headline: 'Adobe is named as the execution layer — where AI-generated work gets finished and made professional',
     finding: [
       'Students describe a consistent two-step pipeline: AI tools (Midjourney, Runway, ChatGPT) generate the raw material; Adobe tools (Photoshop, Premiere, Illustrator) do the finishing',
@@ -101,7 +80,7 @@ const FINDINGS: FindingItem[] = [
     studyLabel: 'TAO Report · Jun 9, 2026',
   },
   {
-    rank: 5,
+    rank: 4,
     headline: 'The credit model reads as a tax on learning',
     finding: 'The second most-discussed topic across both studies. Students describe being "double charged" — paying a subscription and then being metered per AI generation. For learners who iterate constantly, credits run out fast and create anxiety rather than creative freedom. Non-rollover credits compound the frustration — students with project-based, irregular usage patterns lose whatever they didn\'t spend each month.',
     adobeImplication: 'CC for Students has a real opening to differentiate by offering credit transparency and a student experience sized for iteration — or framing what each plan\'s credits actually cover in plain language. Being the clearest subscription on cost-per-action would address the single biggest pain point in this data.',
@@ -113,7 +92,7 @@ const FINDINGS: FindingItem[] = [
     studyLabel: 'AI Credits & Tokens study · ~58 mentions',
   },
   {
-    rank: 6,
+    rank: 5,
     headline: 'Four friction points consistently cap how deep students will push AI into creative work',
     finding: [
       "Skill atrophy fear: over-reliance is seen as a risk to foundational creative development — students prefer AI as mentor or critique partner, not a decision-maker",
@@ -134,7 +113,7 @@ const FINDINGS: FindingItem[] = [
     studyLabel: 'TAO Report · Jun 9, 2026',
   },
   {
-    rank: 7,
+    rank: 6,
     headline: 'Entry-level creative careers already feel threatened',
     finding: 'Students and early-career creatives describe strong anxiety about job displacement — illustration, design, and production tasks that can now be generated cheaply. Several note a split forming: "verified human-made" work becoming a niche premium while production roles shrink. Critically, 0 of 41 mentions were positive — the highest-consensus-negative topic in the dataset.',
     adobeImplication: 'Messaging that frames Creative Cloud as building real, lasting skills — not shortcuts — could be a direct differentiator from pure-AI tools. The argument that human creative skill makes you a better director of AI tools is both true and actionable as student positioning.',
