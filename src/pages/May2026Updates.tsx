@@ -365,7 +365,12 @@ export function May2026Updates() {
         </div>
         {(() => {
           const rest = filteredBriefItems.filter(i => !i.highlight);
-          const platforms = [...new Set(rest.map(i => i.platform))];
+          const PLATFORM_ORDER = ['Canva', 'Affinity', 'Runway', 'Google', 'Meta Edits', 'ChatGPT'];
+          const allPlatforms = [...new Set(rest.map(i => i.platform))];
+          const platforms = [
+            ...PLATFORM_ORDER.filter(p => allPlatforms.includes(p)),
+            ...allPlatforms.filter(p => !PLATFORM_ORDER.includes(p)),
+          ];
           const grouped = platforms.map(p => ({
             platform: p,
             color: rest.find(i => i.platform === p)!.color,
