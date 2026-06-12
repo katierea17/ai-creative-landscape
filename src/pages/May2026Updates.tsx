@@ -353,7 +353,7 @@ export function May2026Updates() {
           <span style={{ fontSize: 18, fontWeight: 800, color: '#111111', letterSpacing: '-0.01em' }}>
             📋 Industry Briefings
           </span>
-          <span style={{ fontSize: 12, color: '#111111' }}>May 10 – Jun 5, 2026 · Adobe internal competitive intelligence</span>
+          <span style={{ fontSize: 12, color: '#111111' }}>May 13 – Jun 11, 2026 · Adobe internal competitive intelligence</span>
         </div>
 
         {/* ── Implications carousel ── */}
@@ -547,6 +547,8 @@ const PLATFORM_DOMAIN: Record<string, string> = {
   'Google Workspace': 'workspace.google.com',
   'Gamma': 'gamma.app',
   'IBM': 'ibm.com',
+  'NotebookLM': 'notebooklm.google.com',
+  'Microsoft Copilot': 'copilot.microsoft.com',
 };
 
 // ── Quadrant hero images ───────────────────────────────────────────────────
@@ -558,6 +560,35 @@ const QUADRANT_HERO: Partial<Record<FourP, string>> = {
 // ── Briefing data — flat, sorted newest first ─────────────────────────────
 
 const BRIEF_ITEMS = [
+  // ── Jun 6–12 ──
+  {
+    platform: 'Microsoft Copilot', color: '#0078D4', date: 'Jun 11', sortDate: '2026-06-11',
+    highlight: true, rank: 4,
+    rankRationale: 'Direct distribution move to all M365 Education users — embeds AI study tools in the same platform students already use for papers, slides, and collaboration.',
+    headline: 'Microsoft Copilot Notebooks + Study Guide shipped to all M365 Education users',
+    summary: 'Students upload PDFs, slides, and notes; Copilot generates study guides, mind maps, flashcards, quizzes, and fill-in-the-blank exercises — all grounded in source materials with citations. Word, Excel, and PowerPoint generation from Notebooks coming soon.',
+    sourceUrl: 'https://techcommunity.microsoft.com/blog/educationblog/copilot-notebooks-and-study-guide-now-available-to-copilot-chat-users/4527320',
+    adobeImplication: "Microsoft is embedding AI into the exact study workflows students use every day — course PDFs, lecture slides, and notes — with citations back to source material. As AI learning companions become standard in M365 Education (which most students already have access to), the bar for what counts as a useful student AI tool rises. Adobe's opportunity is in the creative completion layer that Copilot doesn't own.",
+    implicationSource: 'techcommunity.microsoft.com · Jun 11, 2026',
+  },
+  {
+    platform: 'NotebookLM', color: '#4285F4', date: 'Jun 8', sortDate: '2026-06-08',
+    headline: 'NotebookLM adds agentic research and full document output generation',
+    summary: 'Google upgraded NotebookLM with agentic capabilities and support for generating PDFs, data visualizations, spreadsheets, presentations, and images from source materials. Rolling out to AI Ultra and Workspace Business customers first.',
+    sourceUrl: 'https://blog.google/innovation-and-ai/products/notebooklm/better-research-notebooklm/',
+  },
+  {
+    platform: 'ChatGPT', color: '#A78BFA', date: 'Jun 8', sortDate: '2026-06-08',
+    headline: 'ChatGPT adds interactive charts — bar, line, pie, and scatter in conversation',
+    summary: 'Charts appear automatically when ChatGPT determines one would help, or on request. Available on web, iOS, and Android. Users move from a data question to a visual answer without exporting to a separate tool.',
+    sourceUrl: 'https://help.openai.com/en/articles/6825453-chatgpt-release-notes',
+  },
+  {
+    platform: 'Canva', color: '#22C55E', date: 'Jun 7', sortDate: '2026-06-07',
+    headline: 'Canva Magic Layers now inside Gemini and ChatGPT — AI images become editable designs',
+    summary: 'AI-generated images from Gemini and ChatGPT convert into fully editable, layered Canva designs without leaving the assistant. Available globally to all users across both platforms.',
+    sourceUrl: 'https://www.canva.com/newsroom/news/magic-layers-ai-assistants/',
+  },
   // ── Jun 3–5 (Canva/ChatGPT carousel + Perplexity; Gemini Utah; ChatGPT memory + jobs; IBM) ──
   {
     platform: 'Canva', color: '#22C55E', date: 'Jun 3', sortDate: '2026-06-03',
@@ -753,12 +784,5 @@ const BRIEF_ITEMS = [
     summary: 'Anthropic\'s new SMB package puts Claude inside everyday tools (QuickBooks, Google Workspace, HubSpot); Canva is specifically named as the creative AI layer for design tasks.',
     sourceUrl: 'https://www.anthropic.com/news/claude-for-small-business',
   },
-  // ── May 12 ──
-  // ── May 7–10 ──
-  {
-    platform: 'Picsart', color: '#22C55E', date: 'May 2026', sortDate: '2026-05-10',
-    headline: 'AI Stylist: outfit generation + full retouching from one photo',
-    summary: 'Generates complete outfits from a single photo and style direction, then layers in AI retouching (skin tone, hair, features) — full styling workflow inside Picsart.',
-    sourceUrl: 'https://picsart.com/blog/ai-stylist',
-  },
+  // ── May 13 ──
 ];
