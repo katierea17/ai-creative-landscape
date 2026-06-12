@@ -7,9 +7,9 @@ const NAV_ITEMS = [
   { path: '/customer-sentiment', label: 'Customer Sentiment' },
   { path: '/pricing', label: 'Pricing' },
   { path: '/credit-deep-dive', label: 'AI Credit Deep Dive' },
-  { path: '/survey-data', label: 'Gen AI Survey Data' },
-  { path: '/core-value-prop', label: 'Core Value Props' },
-  { path: '/feature-playground', label: '🧪 Feature Overview Playground' },
+  // { path: '/survey-data', label: 'Gen AI Survey Data' },      ← hidden
+  // { path: '/core-value-prop', label: 'Core Value Props' },     ← hidden
+  // { path: '/feature-playground', label: '🧪 Feature Overview Playground' },  ← hidden
   // { path: '/', label: 'Overview' },  ← hidden for now
 ];
 
