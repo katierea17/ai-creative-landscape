@@ -692,12 +692,6 @@ const BRIEF_ITEMS = [
     summary: 'Recognises synthetic grain and AI textures to repair rather than distort; may foreshadow native Canva availability.',
     sourceUrl: 'https://leonardo.ai/news/pro-upscaler',
   },
-  {
-    platform: 'ChatGPT', color: '#A78BFA', date: 'May 2026', sortDate: '2026-05-25',
-    headline: 'GPT-5.5 Instant updated; Canvas mode retired',
-    summary: 'More conversational, less bullet-heavy output; Canvas writing and coding moves into a unified chat surface, removing a dedicated workspace mode.',
-    sourceUrl: 'https://openai.com/blog/gpt-5-5-instant-update',
-  },
   // ── May 22 ──
   {
     platform: 'Figma', color: '#F59E0B', date: 'May 22', sortDate: '2026-05-22',
