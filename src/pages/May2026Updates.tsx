@@ -534,7 +534,7 @@ function inferUpdateIcon(headline: string, summary: string): string {
 const PLATFORM_DOMAIN: Record<string, string> = {
   'Canva': 'canva.com',
   'Claude': 'claude.ai',
-  'Gemini': 'google.com',
+  'Google': 'google.com',
   'ChatGPT': 'openai.com',
   'CapCut': 'capcut.com',
   'Picsart': 'picsart.com',
@@ -547,7 +547,6 @@ const PLATFORM_DOMAIN: Record<string, string> = {
   'Google Workspace': 'workspace.google.com',
   'Gamma': 'gamma.app',
   'IBM': 'ibm.com',
-  'NotebookLM': 'notebooklm.google.com',
   'Microsoft Copilot': 'copilot.microsoft.com',
 };
 
@@ -572,7 +571,7 @@ const BRIEF_ITEMS = [
     implicationSource: 'techcommunity.microsoft.com · Jun 11, 2026',
   },
   {
-    platform: 'NotebookLM', color: '#4285F4', date: 'Jun 8', sortDate: '2026-06-08',
+    platform: 'Google', color: '#A78BFA', date: 'Jun 8', sortDate: '2026-06-08',
     headline: 'NotebookLM adds agentic research and full document output generation',
     summary: 'Google upgraded NotebookLM with agentic capabilities and support for generating PDFs, data visualizations, spreadsheets, presentations, and images from source materials. Rolling out to AI Ultra and Workspace Business customers first.',
     sourceUrl: 'https://blog.google/innovation-and-ai/products/notebooklm/better-research-notebooklm/',
@@ -603,7 +602,7 @@ const BRIEF_ITEMS = [
     sourceUrl: 'https://www.canva.com/newsroom/',
   },
   {
-    platform: 'Gemini', color: '#A78BFA', date: 'Jun 4', sortDate: '2026-06-04',
+    platform: 'Google', color: '#A78BFA', date: 'Jun 4', sortDate: '2026-06-04',
     headline: 'Google provides Gemini for Education to all Utah K–12 schools',
     summary: 'Statewide deal covers 700,000+ students and educators starting 2026–27. Bundles Gemini for Education, AI literacy training, Google Career Certificates, and educator training — securing AI adoption at the school system level rather than the classroom level.',
     sourceUrl: 'https://blog.google/outreach-initiatives/education/',
@@ -641,7 +640,7 @@ const BRIEF_ITEMS = [
     sourceUrl: 'https://www.figma.com/blog/the-figma-agent-is-here/',
   },
   {
-    platform: 'Gemini', color: '#A78BFA', date: 'May 20', sortDate: '2026-05-20',
+    platform: 'Google', color: '#A78BFA', date: 'May 20', sortDate: '2026-05-20',
     headline: 'Google overhauls AI subscriptions — new AI Ultra tier at $99.99/mo',
     summary: 'At Google I/O: AI Premium renamed AI Pro ($19.99/mo), new AI Ultra entry tier ($99.99/mo), top Ultra tier ($199.99/mo). Gemini Spark (24/7 personal agent) and Gemini Omni announced.',
     sourceUrl: 'https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/',
@@ -737,7 +736,7 @@ const BRIEF_ITEMS = [
   },
   // ── May 19 ──
   {
-    platform: 'Gemini', color: '#A78BFA', date: 'May 19', sortDate: '2026-05-19',
+    platform: 'Google', color: '#A78BFA', date: 'May 19', sortDate: '2026-05-19',
     headline: 'Gemini Omni Flash: photorealistic video from any input',
     summary: 'New model generates physics-aware video from text, images, or YouTube Shorts — rolling out to AI Plus, Pro, and Ultra this week.',
     sourceUrl: 'https://blog.google/products/gemini/google-io-2026/',
