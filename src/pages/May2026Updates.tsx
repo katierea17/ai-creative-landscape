@@ -561,14 +561,20 @@ const QUADRANT_HERO: Partial<Record<FourP, string>> = {
 const BRIEF_ITEMS = [
   // ── Jun 6–12 ──
   {
-    platform: 'Microsoft Copilot', color: '#0078D4', date: 'Jun 11', sortDate: '2026-06-11',
+    platform: 'Google', color: '#4285F4', date: 'Jun 9', sortDate: '2026-06-09',
     highlight: true, rank: 4,
-    rankRationale: 'Direct distribution move to all M365 Education users — embeds AI study tools in the same platform students already use for papers, slides, and collaboration.',
+    rankRationale: 'Google cut AI Plus to $4.99/mo — now the cheapest paid AI subscription in the US, undercutting every competitor and setting a new price anchor for what students expect from AI tools.',
+    headline: 'Google cuts AI Plus to $4.99/mo — now cheaper than a Spotify student plan',
+    summary: 'Effective June 9, Google AI Plus dropped from $7.99 to $4.99/month while doubling storage to 400GB. Includes Gemini Pro access, Gemini Omni video generation, and the new Daily Brief agent. Part of a widening AI subscription price war now spreading to the US market.',
+    sourceUrl: 'https://9to5google.com/2026/06/08/google-ai-plus-price-drop/',
+    adobeImplication: "At $4.99/mo, Google AI Plus undercuts every paid AI tool in this landscape — and students already in the Google ecosystem (Gmail, Docs, Drive, Slides) get video generation, an AI agent, and deep research included. This sets a psychological price anchor: students will expect AI for $5 or less. Adobe CC for Students starts at $19.99/mo intro. The gap is no longer just about features — it's about what AI 'should' cost.",
+    implicationSource: '9to5google.com · Jun 9, 2026',
+  },
+  {
+    platform: 'Microsoft Copilot', color: '#0078D4', date: 'Jun 11', sortDate: '2026-06-11',
     headline: 'Microsoft Copilot Notebooks + Study Guide shipped to all M365 Education users',
     summary: 'Students upload PDFs, slides, and notes; Copilot generates study guides, mind maps, flashcards, quizzes, and fill-in-the-blank exercises — all grounded in source materials with citations. Word, Excel, and PowerPoint generation from Notebooks coming soon.',
     sourceUrl: 'https://techcommunity.microsoft.com/blog/educationblog/copilot-notebooks-and-study-guide-now-available-to-copilot-chat-users/4527320',
-    adobeImplication: "Microsoft is embedding AI into the exact study workflows students use every day — course PDFs, lecture slides, and notes — with citations back to source material. As AI learning companions become standard in M365 Education (which most students already have access to), the bar for what counts as a useful student AI tool rises. Adobe's opportunity is in the creative completion layer that Copilot doesn't own.",
-    implicationSource: 'techcommunity.microsoft.com · Jun 11, 2026',
   },
   {
     platform: 'Google', color: '#A78BFA', date: 'Jun 8', sortDate: '2026-06-08',
@@ -587,6 +593,24 @@ const BRIEF_ITEMS = [
     headline: 'Canva Magic Layers now inside Gemini and ChatGPT — AI images become editable designs',
     summary: 'AI-generated images from Gemini and ChatGPT convert into fully editable, layered Canva designs without leaving the assistant. Available globally to all users across both platforms.',
     sourceUrl: 'https://www.canva.com/newsroom/news/magic-layers-ai-assistants/',
+  },
+  {
+    platform: 'Affinity', color: '#14B8A6', date: 'Jun 2026', sortDate: '2026-06-06',
+    headline: 'Affinity gets Canva Brand System integration and free Cavalry motion tool',
+    summary: 'Designers can now build brand elements inside Affinity and publish directly to their Canva Brand Kit. Cavalry, a professional motion design tool, is now free for all Canva users. A Claude AI connector automates batch scripting tasks (image editing, print prep, bulk color balance) with a single description.',
+    sourceUrl: 'https://www.affinity.studio/blog/affinity-update-april-2026',
+  },
+  {
+    platform: 'Meta Edits', color: '#60A5FA', date: 'Jun 2026', sortDate: '2026-06-05',
+    headline: 'Instagram Edits June drop: 15 new effects, Project Versions, Beta tab',
+    summary: 'Major feature update adds 15 in-and-out animation effects (iOS), Project Versions for testing multiple creative directions, Reels search in the Inspiration tab, item-to-item alignment snapping, and a Beta tab for early-access features.',
+    sourceUrl: 'https://www.socialmediatoday.com/news/edits-gets-ig-links-weekly-ideas-and-new-video-effects-features/809644/',
+  },
+  {
+    platform: 'Runway', color: '#F59E0B', date: 'Jun 2026', sortDate: '2026-06-04',
+    headline: 'Runway becomes a multi-model marketplace — one sub covers Veo, Kling, FLUX, Seedance',
+    summary: 'A single Runway subscription now gives access to Google Veo, Kling, Seedance, FLUX, and Seedream alongside Runway\'s own Gen-4 models. Positions Runway as a model hub rather than a single-vendor video tool.',
+    sourceUrl: 'https://www.eesel.ai/blog/runway-ai-pricing',
   },
   // ── Jun 3–5 (Canva/ChatGPT carousel + Perplexity; Gemini Utah; ChatGPT memory + jobs; IBM) ──
   {
@@ -652,13 +676,7 @@ const BRIEF_ITEMS = [
     summary: 'Direct Claude.ai use (unchanged) vs. third-party/agent integrations (new separate credit pool). Credits are non-rollover; once exhausted, usage stops or bills at full API rates.',
     sourceUrl: 'https://the-decoder.com/claude-subscriptions-get-separate-budgets-for-programmatic-use-billed-at-full-api-prices/',
   },
-  // ── May 13 (Runway Agent) ──
-  {
-    platform: 'Runway', color: '#F59E0B', date: 'May 13', sortDate: '2026-05-13',
-    headline: 'Runway Agent — text prompt to finished multi-scene video',
-    summary: 'Takes a single text prompt to a ready-to-publish multi-scene video in one session — handling concept, story structure, scene generation, voiceover, dialogue, and music. Aimed at brand teams, agencies, and filmmakers.',
-    sourceUrl: 'https://runwayml.com/news/introducing-runway-agent',
-  },
+  // ── May 13 ──
   // ── May 28 ──
   {
     platform: 'Claude', color: '#A78BFA', date: 'May 28', sortDate: '2026-05-28',

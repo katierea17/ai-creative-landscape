@@ -172,12 +172,12 @@ export const competitors: Competitor[] = [
     studentPromo: null,
     pricing: {
       free: true,
-      premiumSubscription: 'Google One AI Premium $19.99/mo',
+      premiumSubscription: 'AI Plus $4.99/mo · AI Pro $19.99/mo · AI Ultra $99.99/mo',
       oneTimePurchase: null,
       aiCredits: false,
-      studentPrice: '$9.99/mo (50% off for verified students)',
+      studentPrice: '$9.99/mo (50% off AI Pro for verified students)',
       studentPromo: null,
-      notableChange: 'Gemini 2.0 Flash launched Feb 2026 — free for all users',
+      notableChange: 'AI Plus cut to $4.99/mo + 400GB storage (Jun 9, 2026) — cheapest paid AI subscription in the US',
     },
     creditDetail: null,
     aiFeatures: {
@@ -211,12 +211,12 @@ export const competitors: Competitor[] = [
     studentPromo: null,
     pricing: {
       free: true,
-      premiumSubscription: 'Plus $20/mo, Pro $200/mo',
+      premiumSubscription: 'Go $8/mo · Plus $20/mo · Pro $200/mo',
       oneTimePurchase: null,
       aiCredits: false,
       studentPrice: null,
       studentPromo: null,
-      notableChange: 'GPT Image 2 launched Apr 2026 — raised bar for AI imagery quality',
+      notableChange: 'New Go tier at $8/mo (Jan 2026); GPT-5.5 launched Apr 2026; interactive charts Jun 2026',
     },
     creditDetail: null,
     aiFeatures: {
@@ -411,7 +411,7 @@ export const competitors: Competitor[] = [
       aiCredits: true,
       studentPrice: null,
       studentPromo: null,
-      notableChange: 'V7 model released Mar 2026; image-to-video launched 2025–2026; no free tier since 2023',
+      notableChange: 'V8 default as of Jun 10, 2026 (5× faster, native 2K, improved text rendering); no free tier since 2023',
     },
     creditDetail: 'Basic: ~200 images/mo (3.3hr GPU). Standard: ~900 images/mo (15hr GPU). Pro: unlimited relaxed + 30hr fast. Credits = GPU compute time.',
     aiFeatures: {
