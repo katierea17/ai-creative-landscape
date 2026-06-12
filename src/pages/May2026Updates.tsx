@@ -573,6 +573,11 @@ const BRIEF_ITEMS = [
     headline: 'Google cuts AI Plus to $4.99/mo — now cheaper than a Spotify student plan',
     summary: 'Effective June 9, Google AI Plus dropped from $7.99 to $4.99/month while doubling storage to 400GB. Includes Gemini Pro access, Gemini Omni video generation, and the new Daily Brief agent. Part of a widening AI subscription price war now spreading to the US market.',
     sourceUrl: 'https://9to5google.com/2026/06/08/google-ai-plus-price-drop/',
+    images: [
+      'https://www.digitaltrends.com/tachyon/2026/06/Google-AI-Plus-banner.jpg',
+      'https://9to5google.com/wp-content/uploads/sites/4/2026/01/Google-AI-Plus-cover-us.jpg',
+    ],
+    imageCaption: 'Source: digitaltrends.com · 9to5google.com · Jun 2026',
     adobeImplication: "At $4.99/mo, Google AI Plus undercuts every paid AI tool in this landscape — and students already in the Google ecosystem (Gmail, Docs, Drive, Slides) get video generation, an AI agent, and deep research included. This sets a psychological price anchor: students will expect AI for $5 or less. Adobe CC for Students starts at $19.99/mo intro. The gap is no longer just about features — it's about what AI 'should' cost.",
     implicationSource: '9to5google.com · Jun 9, 2026',
   },
