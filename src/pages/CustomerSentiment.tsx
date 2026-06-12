@@ -25,23 +25,6 @@ interface TopicItem {
 const FINDINGS: FindingItem[] = [
   {
     rank: 1,
-    headline: "Student feedback shifted from 'AI is unethical' to 'AI is making Adobe harder and less worth it'",
-    finding: [
-      "More 'AI change velocity' → teaching/learning friction: AI is creating constant UI/tool changes hard for classes to keep up with, driving student resistance to using Adobe at all — especially in Illustrator",
-      "Stronger student linkage of AI to price hikes: recent feedback explicitly attributes subscription pain to AI bundling, with students asking for AI as a paid add-on rather than included in the base plan — more direct than earlier complaints which skewed toward values and switching intent",
-      "Sharper product-level dismissal: student language now includes blunt quality criticism (AI 'dumb,' 'wonky,' 'doesn't feel professional') alongside frustration that 'old problems never get solved' while AI ships",
-      "Emerging 'Adobe AI is weaker than competitors' framing: newer student feedback frames Adobe's AI quality as behind competing tools — a performance-based evaluation replacing older 'should AI exist at all' critiques",
-    ],
-    adobeImplication: [
-      "The shift from ethics to product experience means responsible-AI messaging won't land — students are now asking 'why is AI making this worse and more expensive,' not 'should AI exist'",
-      "Teaching/learning friction from rapid UI changes is an overlooked churn driver: students who can't keep up in class drop the tool, not just the subscription",
-      "The AI-cost bundling complaint points to a positioning gap: no competitor currently offers a credible 'AI as opt-in add-on' framing that students are explicitly asking for",
-    ],
-    quotes: [],
-    studyLabel: 'TAO · NPS + social listening · last 30 days vs. prior · directional only',
-  },
-  {
-    rank: 2,
     headline: "Students use AI to unlock ideation and cut 'glue work' — taste and final judgment stay human",
     finding: [
       "Rapid ideation & concept visualization: students use AI to generate directions and moodboards for a concept already in mind — not outsourcing the whole design",
@@ -64,7 +47,7 @@ const FINDINGS: FindingItem[] = [
     studyLabel: 'TAO Report · Jun 9, 2026',
   },
   {
-    rank: 3,
+    rank: 2,
     headline: 'AI threatens the "why" of creative work — not just the how',
     finding: 'The most-discussed topic across both studies. The core creativity anxiety isn\'t about tools or features — it\'s about meaning. Students fear AI outputs "replicate at scale" rather than generate something new, flattening originality and making creative culture feel like "slop." Many accept AI for production tasks (cleanup, ideation, drafts) but resist it on anything that touches authorship, process, or personal style.',
     adobeImplication: "Adobe's framing of Firefly as ethically trained and commercially safe addresses copyright concerns but not the deeper anxiety about authenticity. Student messaging that positions AI as a starting point the human directs — not a finishing point — would resonate more than capability-first messaging.",
@@ -76,7 +59,7 @@ const FINDINGS: FindingItem[] = [
     studyLabel: 'Both studies · 83 mentions',
   },
   {
-    rank: 4,
+    rank: 3,
     headline: 'Adobe is named as the execution layer — where AI-generated work gets finished and made professional',
     finding: [
       'Students describe a consistent two-step pipeline: AI tools (Midjourney, Runway, ChatGPT) generate the raw material; Adobe tools (Photoshop, Premiere, Illustrator) do the finishing',
@@ -97,7 +80,7 @@ const FINDINGS: FindingItem[] = [
     studyLabel: 'TAO Report · Jun 9, 2026',
   },
   {
-    rank: 5,
+    rank: 4,
     headline: 'The credit model reads as a tax on learning',
     finding: 'The second most-discussed topic across both studies. Students describe being "double charged" — paying a subscription and then being metered per AI generation. For learners who iterate constantly, credits run out fast and create anxiety rather than creative freedom. Non-rollover credits compound the frustration — students with project-based, irregular usage patterns lose whatever they didn\'t spend each month.',
     adobeImplication: 'CC for Students has a real opening to differentiate by offering credit transparency and a student experience sized for iteration — or framing what each plan\'s credits actually cover in plain language. Being the clearest subscription on cost-per-action would address the single biggest pain point in this data.',
@@ -109,7 +92,7 @@ const FINDINGS: FindingItem[] = [
     studyLabel: 'AI Credits & Tokens study · ~58 mentions',
   },
   {
-    rank: 6,
+    rank: 5,
     headline: 'Four friction points consistently cap how deep students will push AI into creative work',
     finding: [
       "Skill atrophy fear: over-reliance is seen as a risk to foundational creative development — students prefer AI as mentor or critique partner, not a decision-maker",
@@ -130,7 +113,7 @@ const FINDINGS: FindingItem[] = [
     studyLabel: 'TAO Report · Jun 9, 2026',
   },
   {
-    rank: 7,
+    rank: 6,
     headline: 'Entry-level creative careers already feel threatened',
     finding: 'Students and early-career creatives describe strong anxiety about job displacement — illustration, design, and production tasks that can now be generated cheaply. Several note a split forming: "verified human-made" work becoming a niche premium while production roles shrink. Critically, 0 of 41 mentions were positive — the highest-consensus-negative topic in the dataset.',
     adobeImplication: 'Messaging that frames Creative Cloud as building real, lasting skills — not shortcuts — could be a direct differentiator from pure-AI tools. The argument that human creative skill makes you a better director of AI tools is both true and actionable as student positioning.',
