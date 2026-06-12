@@ -578,7 +578,7 @@ const BRIEF_ITEMS = [
       '/google-ai-pricing-jun2026.png',
     ],
     imageCaption: 'Source: digitaltrends.com · Google AI plans page · Jun 2026',
-    adobeImplication: "At $4.99/mo, Google AI Plus undercuts every paid AI tool in this landscape — and students already in the Google ecosystem (Gmail, Docs, Drive, Slides) get video generation, an AI agent, and deep research included. This sets a psychological price anchor: students will expect AI for $5 or less. Adobe CC for Students starts at $19.99/mo intro. The gap is no longer just about features — it's about what AI 'should' cost.",
+    adobeImplication: "At $4.99/mo, Google AI Plus undercuts every paid AI tool in this landscape — and students already in the Google ecosystem (Gmail, Docs, Drive, Slides) get video generation, an AI agent, and deep research included. This sets a psychological price anchor: students will expect AI for $5 or less.",
     implicationSource: '9to5google.com · Jun 9, 2026',
   },
   {
