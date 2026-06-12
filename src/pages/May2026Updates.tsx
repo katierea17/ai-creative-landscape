@@ -568,7 +568,7 @@ const BRIEF_ITEMS = [
   // ── Jun 6–12 ──
   {
     platform: 'Google', color: '#4285F4', date: 'Jun 9', sortDate: '2026-06-09',
-    highlight: true, rank: 4,
+    highlight: true, rank: 1,
     rankRationale: 'Google cut AI Plus to $4.99/mo — now the cheapest paid AI subscription in the US, undercutting every competitor and setting a new price anchor for what students expect from AI tools.',
     headline: 'Google cuts AI Plus to $4.99/mo — now cheaper than a Spotify student plan',
     summary: 'Effective June 9, Google AI Plus dropped from $7.99 to $4.99/month while doubling storage to 400GB. Includes Gemini Pro access, Gemini Omni video generation, and the new Daily Brief agent. Part of a widening AI subscription price war now spreading to the US market.',
@@ -705,7 +705,7 @@ const BRIEF_ITEMS = [
   // ── May 26 ──
   {
     platform: 'Students', color: '#111111', date: 'May 26', sortDate: '2026-05-26',
-    highlight: true, rank: 2,
+    highlight: true, rank: 3,
     rankRationale: 'Student sentiment is a direct signal about the audience CC needs to win, and a positioning opportunity Adobe can act on now.',
     headline: 'Graduates booing AI optimism at commencement speeches',
     summary: 'Students at multiple graduations protested speakers celebrating AI, citing fears about skills disruption — a growing gap between AI narratives and student confidence.',
@@ -731,7 +731,7 @@ const BRIEF_ITEMS = [
   // ── May 21 ──
   {
     platform: 'Picsart', color: '#22C55E', date: 'May 21', sortDate: '2026-05-21',
-    highlight: true, rank: 3,
+    highlight: true, rank: 4,
     rankRationale: 'Picsart\'s agent suite spans the full creative workflow — brand, content, localization, video — at a price point that significantly undercuts Creative Cloud.',
     headline: 'Picsart AI Agents Marketplace — 16 named creative specialists you can hire',
     summary: 'Each agent is a named specialist with a distinct role: Zoe (AI influencer), Marc (video director), Mira (brand designer), Maya (deck architect), Lina (film director), and 11 more. Users "hire" agents for specific tasks; each learns their style over time.',
@@ -760,7 +760,7 @@ const BRIEF_ITEMS = [
   // ── May 19 ──
   {
     platform: 'Canva', color: '#22C55E', date: 'May 19', sortDate: '2026-05-19',
-    highlight: true, rank: 1, rankRationale: 'Distribution threat at the largest scale — Gemini has 900M users (Google I/O, May 19, 2026). Design habits forming inside Gemini bypass Creative Cloud entirely.',
+    highlight: true, rank: 2, rankRationale: 'Distribution threat at the largest scale — Gemini has 900M users (Google I/O, May 19, 2026). Design habits forming inside Gemini bypass Creative Cloud entirely.',
     headline: 'Canva is now usable directly inside Google Gemini',
     summary: 'Users can generate, edit, repurpose, and brand-align Canva designs without leaving Gemini — accessible via @Canva, including Magic Layers and translate.',
     sourceUrl: 'https://www.canva.com/newsroom/news/whats-new-may-2026/',
