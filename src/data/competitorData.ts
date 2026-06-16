@@ -411,7 +411,7 @@ export const competitors: Competitor[] = [
       aiCredits: true,
       studentPrice: null,
       studentPromo: null,
-      notableChange: 'V8 default as of Jun 10, 2026 (5× faster, native 2K, improved text rendering); no free tier since 2023',
+      notableChange: 'V8.1 default as of Jun 11, 2026 (smarter prompt adherence, better text rendering, HD mode at 2× size / 4× resolution); no free tier since 2023',
     },
     creditDetail: 'Basic: ~200 images/mo (3.3hr GPU). Standard: ~900 images/mo (15hr GPU). Pro: unlimited relaxed + 30hr fast. Credits = GPU compute time.',
     aiFeatures: {

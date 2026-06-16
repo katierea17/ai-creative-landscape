@@ -72,7 +72,7 @@ const COMPETITORS = [
     id: 'midjourney',
     name: 'Midjourney',
     pricing: 'No free tier. Basic: $10/mo (~200 images/mo). Standard: $30/mo. Pro: $60/mo.',
-    notable: 'V8 default as of Jun 10, 2026 (5× faster, native 2K, improved text rendering)',
+    notable: 'V8.1 default as of Jun 11, 2026 (smarter prompt adherence, better text rendering, HD mode at 2× size / 4× resolution)',
     studentPromo: null,
     messaging: '"Imagine." Minimalist, art-community-focused brand. Discord-first culture.',
     campaigns: null,
