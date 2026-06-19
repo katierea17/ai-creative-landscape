@@ -353,7 +353,7 @@ export function May2026Updates() {
           <span style={{ fontSize: 18, fontWeight: 800, color: '#111111', letterSpacing: '-0.01em' }}>
             📋 Industry Briefings
           </span>
-          <span style={{ fontSize: 12, color: '#111111' }}>May 13 – Jun 18, 2026</span>
+          <span style={{ fontSize: 12, color: '#111111' }}>May 20 – Jun 18, 2026</span>
           <span style={{ fontSize: 10, color: '#888888', marginLeft: 4 }}>Sources: company newsrooms, TechCrunch, 9to5Google, The Verge, Social Media Today, official release notes &amp; public web · Adobe internal competitive intelligence</span>
         </div>
 
@@ -569,7 +569,7 @@ const BRIEF_ITEMS = [
   // ── Jun 13–19 ──
   {
     platform: 'Adobe', color: '#EB1000', date: 'Jun 18', sortDate: '2026-06-18',
-    highlight: true, rank: 5,
+    highlight: true, rank: 4,
     rankRationale: "Adobe's AI agent expansion across all CC apps and into ChatGPT, Claude, Gemini, and Copilot is the company's most direct competitive response — meeting students in the tools they already use.",
     headline: 'Adobe AI agents now inside ChatGPT, Claude, Gemini, and Copilot — everywhere students already work',
     summary: 'Adobe expanded AI agents across Photoshop, Premiere, Illustrator, InDesign, and Frame.io, then integrated them into ChatGPT, Claude, Copilot, Gemini, and Slack. Students can now invoke Firefly, auto-organize Premiere assets, batch-edit in Photoshop, and manage Illustrator layers without leaving their AI assistant.',
@@ -710,14 +710,6 @@ const BRIEF_ITEMS = [
     summary: 'At Google I/O: AI Premium renamed AI Pro ($19.99/mo), new AI Ultra entry tier ($99.99/mo), top Ultra tier ($199.99/mo). Gemini Spark (24/7 personal agent) and Gemini Omni announced.',
     sourceUrl: 'https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/',
   },
-  // ── May 14 (Claude billing split) ──
-  {
-    platform: 'Claude', color: '#A78BFA', date: 'May 14', sortDate: '2026-05-14',
-    headline: 'Claude subscriptions split into two usage buckets — effective June 15',
-    summary: 'Direct Claude.ai use (unchanged) vs. third-party/agent integrations (new separate credit pool). Credits are non-rollover; once exhausted, usage stops or bills at full API rates.',
-    sourceUrl: 'https://the-decoder.com/claude-subscriptions-get-separate-budgets-for-programmatic-use-billed-at-full-api-prices/',
-  },
-  // ── May 13 ──
   // ── May 28 ──
   {
     platform: 'Claude', color: '#A78BFA', date: 'May 28', sortDate: '2026-05-28',
@@ -735,7 +727,7 @@ const BRIEF_ITEMS = [
   // ── May 26 ──
   {
     platform: 'Students', color: '#111111', date: 'May 26', sortDate: '2026-05-26',
-    highlight: true, rank: 3,
+    highlight: true, rank: 2,
     rankRationale: 'Student sentiment is a direct signal about the audience CC needs to win, and a positioning opportunity Adobe can act on now.',
     headline: 'Graduates booing AI optimism at commencement speeches',
     summary: 'Students at multiple graduations protested speakers celebrating AI, citing fears about skills disruption — a growing gap between AI narratives and student confidence.',
@@ -761,7 +753,7 @@ const BRIEF_ITEMS = [
   // ── May 21 ──
   {
     platform: 'Picsart', color: '#22C55E', date: 'May 21', sortDate: '2026-05-21',
-    highlight: true, rank: 4,
+    highlight: true, rank: 3,
     rankRationale: 'Picsart\'s agent suite spans the full creative workflow — brand, content, localization, video — at a price point that significantly undercuts Creative Cloud.',
     headline: 'Picsart AI Agents Marketplace — 16 named creative specialists you can hire',
     summary: 'Each agent is a named specialist with a distinct role: Zoe (AI influencer), Marc (video director), Mira (brand designer), Maya (deck architect), Lina (film director), and 11 more. Users "hire" agents for specific tasks; each learns their style over time.',
@@ -781,41 +773,4 @@ const BRIEF_ITEMS = [
     summary: 'Four models covering sound effects, short clips, and fully structured songs — comparable to recent audio model launches from Google.',
     sourceUrl: 'https://stability.ai/news/stable-audio-3',
   },
-  // ── May 19 ──
-  {
-    platform: 'Canva', color: '#22C55E', date: 'May 19', sortDate: '2026-05-19',
-    highlight: true, rank: 2, rankRationale: 'Distribution threat at the largest scale — Gemini has 900M users (Google I/O, May 19, 2026). Design habits forming inside Gemini bypass Creative Cloud entirely.',
-    headline: 'Canva is now usable directly inside Google Gemini',
-    summary: 'Users can generate, edit, repurpose, and brand-align Canva designs without leaving Gemini — accessible via @Canva, including Magic Layers and translate.',
-    sourceUrl: 'https://www.canva.com/newsroom/news/whats-new-may-2026/',
-    images: [
-      'https://images.fonearena.com/blog/wp-content/uploads/2026/05/Canva-x-Google-Gemini-1024x576.jpg',
-      'https://images.fonearena.com/blog/wp-content/uploads/2026/05/Canva-Gemini-Image-Generation.jpg',
-      'https://images.fonearena.com/blog/wp-content/uploads/2026/05/Canva-Brand-Kit-in-a-prompt.jpg',
-    ],
-    imageCaption: 'Source: fonearena.com · May 2026',
-    adobeImplication: 'Both Canva and Adobe Firefly are now usable directly inside AI assistants — Canva inside Gemini, Firefly inside Claude. The difference is which assistant: Gemini has 900M users (announced Google I/O, May 19, 2026) and is built into Google Workspace, where students already write papers, build slide decks, and collaborate. Firefly\'s integration with Claude reaches a more professional and developer audience. The student exposure gap is real even if the capability parity isn\'t.',
-    implicationSource: 'canva.com · Adobe Internal Briefing · May 19, 2026 · Ramp AI Index May 2026 (techcrunch.com/2026/05/13)',
-  },
-  // ── May 15–16 ──
-  {
-    platform: 'Meta Edits', color: '#60A5FA', date: 'May 15', sortDate: '2026-05-15',
-    headline: 'Edits: transition controls, sound effects, live photo uploads',
-    summary: 'Adds transition pace control, text/sticker opacity, live photo support (iOS), and 200 new sound effects — each release tied to a cultural moment (this one: Met Gala).',
-    sourceUrl: 'https://www.socialmediatoday.com/news/meta-edits-updates-may-2026',
-  },
-  {
-    platform: 'Picsart', color: '#22C55E', date: 'May 2026', sortDate: '2026-05-15',
-    headline: 'Recraft V4.1 integrated: photorealistic, vector, and product shot models',
-    summary: 'Three coordinated models in Picsart AI Playground — main (photorealistic), vector (editable graphics), utility (catalog product shots).',
-    sourceUrl: 'https://picsart.com/blog/recraft-v4-1',
-  },
-  // ── May 13 ──
-  {
-    platform: 'Claude', color: '#A78BFA', date: 'May 13', sortDate: '2026-05-13',
-    headline: 'Claude for Small Business launches — Canva is the design layer',
-    summary: 'Anthropic\'s new SMB package puts Claude inside everyday tools (QuickBooks, Google Workspace, HubSpot); Canva is specifically named as the creative AI layer for design tasks.',
-    sourceUrl: 'https://www.anthropic.com/news/claude-for-small-business',
-  },
-  // ── May 13 ──
 ];
