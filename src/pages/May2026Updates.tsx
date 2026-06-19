@@ -211,9 +211,7 @@ function ImplicationsCarousel({ items }: { items: any[] }) {
   const item = items[idx];
   return (
     <div style={{ marginBottom: 28 }}>
-      <div style={{ fontSize: 10, fontWeight: 700, color: '#F59E0B', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10 }}>
-        Implications for Creative Cloud for Students
-      </div>
+
 
       {/* Card */}
       <div style={{ border: '1px solid #e8e8e8', borderRadius: 4, overflow: 'hidden', background: '#f8f8f8' }}>
