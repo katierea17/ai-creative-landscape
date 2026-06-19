@@ -522,18 +522,6 @@ export function May2026Updates() {
   );
 }
 
-// ── Update type icon inference ────────────────────────────────────────────
-function inferUpdateIcon(headline: string, summary: string): string {
-  const text = (headline + ' ' + summary).toLowerCase();
-  if (text.includes('boo') || text.includes('commencement') || text.includes('protest') || text.includes('sentiment') || text.includes('anxiety') || text.includes('frustrat')) return '🙅‍♀️';
-  // Product check first — catches "agent/marketplace/model" before "brand" triggers campaign
-  if (text.includes('agent') || text.includes('marketplace') || text.includes('model') || text.includes('studio') || text.includes('editor 2.0')) return '🛠';
-  if (text.includes('price') || text.includes('pricing') || text.includes('$') || text.includes('/mo') || text.includes('valuation') || text.includes('raise') || text.includes('funding') || text.includes(' arr ') || text.includes('tier')) return '💰';
-  if (text.includes('partner') || text.includes('integrat') || text.includes('inside chatgpt') || text.includes('inside claude') || text.includes('inside gemini') || text.includes('usable directly') || text.includes('mcp') || text.includes('connect')) return '🤝';
-  if (text.includes('campaign') || text.includes('ads') || text.includes('adverti') || text.includes('brand') || text.includes('event') || text.includes('community') || text.includes('tour') || text.includes('squirrel')) return '📣';
-  return '🛠';
-}
-
 // ── Platform favicon domains ──────────────────────────────────────────────
 
 const PLATFORM_DOMAIN: Record<string, string> = {
