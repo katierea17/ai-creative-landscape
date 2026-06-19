@@ -568,8 +568,8 @@ const BRIEF_ITEMS = [
   },
   {
     platform: 'Adobe', color: '#EB1000', date: 'Jun 18', sortDate: '2026-06-18',
-    highlight: true, rank: 4,
-    rankRationale: "Adobe's creative agent expansion across every major CC app is the company's most direct answer to AI-first competitors — professional-grade workflow orchestration built into the tools creatives already use.",
+    highlight: true, rank: 1,
+    rankRationale: "Adobe's creative agent expansion across every major CC app is the biggest platform move of this cycle — professional-grade workflow orchestration across Premiere, Photoshop, Illustrator, InDesign, and Frame.io, integrated with every major AI assistant.",
     headline: 'Adobe rolls out creative agent across Premiere, Photoshop, Illustrator, InDesign, and Frame.io',
     summary: 'Adobe\'s creative agent now orchestrates multi-step workflows across every major CC app — describing an outcome triggers a sequence of actions: Premiere assembles cuts and organizes assets, Photoshop swaps backgrounds and resizes for platforms, Illustrator batch-generates files, InDesign applies brand updates across layouts, Frame.io surfaces feedback and generates B-roll. Also integrates into ChatGPT, Claude, Copilot, Gemini, and Slack. "Every creative now has an agent capable of helping them execute across every app and platform where they work so they can set the vision, apply their taste and make the calls that only they can." — David Wadhwani, Adobe',
     sourceUrl: 'https://news.adobe.com/news/2026/06/adobe-unveils-major-expansion',
@@ -599,7 +599,7 @@ const BRIEF_ITEMS = [
   // ── Jun 6–12 ──
   {
     platform: 'Google', color: '#4285F4', date: 'Jun 9', sortDate: '2026-06-09',
-    highlight: true, rank: 1,
+    highlight: true, rank: 2,
     rankRationale: 'Google cut AI Plus to $4.99/mo — now the cheapest paid AI subscription in the US, undercutting every competitor and setting a new price anchor for what students expect from AI tools.',
     headline: 'Google cuts AI Plus to $4.99/mo — now cheaper than a Spotify student plan',
     summary: 'Effective June 9, Google AI Plus dropped from $7.99 to $4.99/month while doubling storage to 400GB. Includes Gemini Pro access, Gemini Omni video generation, and the new Daily Brief agent. Part of a widening AI subscription price war now spreading to the US market.',
@@ -728,7 +728,7 @@ const BRIEF_ITEMS = [
   // ── May 26 ──
   {
     platform: 'Students', color: '#111111', date: 'May 26', sortDate: '2026-05-26',
-    highlight: true, rank: 2,
+    highlight: true, rank: 3,
     rankRationale: 'Student sentiment is a direct signal about the audience CC needs to win, and a positioning opportunity Adobe can act on now.',
     headline: 'Graduates booing AI optimism at commencement speeches',
     summary: 'Students at multiple graduations protested speakers celebrating AI, citing fears about skills disruption — a growing gap between AI narratives and student confidence.',
@@ -755,7 +755,7 @@ const BRIEF_ITEMS = [
   // ── May 21 ──
   {
     platform: 'Picsart', color: '#22C55E', date: 'May 21', sortDate: '2026-05-21',
-    highlight: true, rank: 3,
+    highlight: true, rank: 4,
     rankRationale: 'Picsart\'s agent suite spans the full creative workflow — brand, content, localization, video — at a price point that significantly undercuts Creative Cloud.',
     headline: 'Picsart AI Agents Marketplace — 16 named creative specialists you can hire',
     summary: 'Each agent is a named specialist with a distinct role: Zoe (AI influencer), Marc (video director), Mira (brand designer), Maya (deck architect), Lina (film director), and 11 more. Users "hire" agents for specific tasks; each learns their style over time.',
