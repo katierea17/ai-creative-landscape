@@ -365,12 +365,10 @@ export function May2026Updates() {
         </div>
         {(() => {
           const rest = filteredBriefItems.filter(i => !i.highlight);
-          const PLATFORM_ORDER = ['Canva', 'Affinity', 'Runway', 'Google', 'Meta Edits', 'ChatGPT'];
           const allPlatforms = [...new Set(rest.map(i => i.platform))];
-          const platforms = [
-            ...PLATFORM_ORDER.filter(p => allPlatforms.includes(p)),
-            ...allPlatforms.filter(p => !PLATFORM_ORDER.includes(p)),
-          ];
+          // Sort platforms by their most recent sortDate so freshest news rises to the top
+          const latestByPlatform = (p: string) => rest.filter(i => i.platform === p).map(i => i.sortDate).sort().reverse()[0] ?? '';
+          const platforms = [...allPlatforms].sort((a, b) => latestByPlatform(b).localeCompare(latestByPlatform(a)));
           const grouped = platforms.map(p => ({
             platform: p,
             color: rest.find(i => i.platform === p)!.color,
