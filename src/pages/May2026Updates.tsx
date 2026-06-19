@@ -570,11 +570,13 @@ const BRIEF_ITEMS = [
   {
     platform: 'Adobe', color: '#EB1000', date: 'Jun 18', sortDate: '2026-06-18',
     highlight: true, rank: 4,
-    rankRationale: "Adobe's AI agent expansion across all CC apps and into ChatGPT, Claude, Gemini, and Copilot is the company's most direct competitive response — meeting students in the tools they already use.",
-    headline: 'Adobe AI agents now inside ChatGPT, Claude, Gemini, and Copilot — everywhere students already work',
-    summary: 'Adobe expanded AI agents across Photoshop, Premiere, Illustrator, InDesign, and Frame.io, then integrated them into ChatGPT, Claude, Copilot, Gemini, and Slack. Students can now invoke Firefly, auto-organize Premiere assets, batch-edit in Photoshop, and manage Illustrator layers without leaving their AI assistant.',
+    rankRationale: "Adobe's creative agent expansion across every major CC app is the company's most direct answer to AI-first competitors — professional-grade workflow orchestration built into the tools creatives already use.",
+    headline: 'Adobe rolls out creative agent across Premiere, Photoshop, Illustrator, InDesign, and Frame.io',
+    summary: 'Adobe\'s creative agent now orchestrates multi-step workflows across every major CC app — describing an outcome triggers a sequence of actions: Premiere assembles cuts and organizes assets, Photoshop swaps backgrounds and resizes for platforms, Illustrator batch-generates files, InDesign applies brand updates across layouts, Frame.io surfaces feedback and generates B-roll. Also integrates into ChatGPT, Claude, Copilot, Gemini, and Slack. "Every creative now has an agent capable of helping them execute across every app and platform where they work so they can set the vision, apply their taste and make the calls that only they can." — David Wadhwani, Adobe',
     sourceUrl: 'https://news.adobe.com/news/2026/06/adobe-unveils-major-expansion',
-    adobeImplication: 'Adobe is going where students already are, rather than asking students to come to Adobe. Embedding agents in ChatGPT and Claude puts CC capabilities into the workflow of students who may never open the desktop app — a direct counter to the "simpler AI-first tools" narrative.',
+    videoEmbed: 'https://video.tv.adobe.com/v/3492442',
+    videoCaption: 'Source: Adobe Newsroom · Jun 18, 2026',
+    adobeImplication: 'This reframes Creative Cloud from a suite of tools into an orchestrated creative system — the agent handles the production complexity so students can focus on decisions only they can make. Directly counters the "AI-first tools are simpler" narrative by making CC\'s depth an advantage rather than a barrier.',
     implicationSource: 'Adobe Newsroom · Jun 18, 2026',
   },
   {
