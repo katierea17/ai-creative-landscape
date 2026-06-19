@@ -221,7 +221,7 @@ function ImplicationsCarousel({ items }: { items: any[] }) {
           <div style={{ padding: '16px 18px', borderRight: (item.images?.length || item.videoEmbed || item.videoUrl) ? '1px solid #e8e8e8' : 'none', overflowY: 'auto', height: '100%', boxSizing: 'border-box' }}>
             {/* Update section */}
             <div style={{ marginBottom: 14, paddingBottom: 14, borderBottom: '1px solid #f0f0f0' }}>
-              <div style={{ fontSize: 11, fontWeight: 700, color: '#111111', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>Industry Update</div>
+
               <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
                 {PLATFORM_DOMAIN[item.platform] && (
                   <img src={`https://www.google.com/s2/favicons?domain=${PLATFORM_DOMAIN[item.platform]}&sz=64`} alt={item.platform} style={{ width: 14, height: 14, borderRadius: 3, flexShrink: 0 }} onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} />
