@@ -231,9 +231,8 @@ function ImplicationsCarousel({ items }: { items: any[] }) {
                 <span style={{ fontSize: 11, fontWeight: 700, color: item.color, background: `${item.color}18`, border: `1px solid ${item.color}40`, padding: '1px 5px', borderRadius: 3, flexShrink: 0 }}>{item.platform}</span>
                 <span style={{ fontSize: 11, color: '#111111' }}>{item.date}</span>
               </div>
-              <p style={{ fontSize: 14, fontWeight: 600, color: '#111111', margin: '0 0 6px', lineHeight: 1.5, display: 'flex', alignItems: 'baseline', gap: 6 }}>
-                <span style={{ fontSize: 12, flexShrink: 0 }}>{inferUpdateIcon(item.headline, item.summary)}</span>
-                <span>{item.headline}</span>
+              <p style={{ fontSize: 14, fontWeight: 600, color: '#111111', margin: '0 0 6px', lineHeight: 1.5 }}>
+                {item.headline}
               </p>
               {item.rankRationale && (
                 <p style={{ fontSize: 12, color: '#111111', margin: 0, lineHeight: 1.5, fontStyle: 'italic' }}>{item.rankRationale}</p>
@@ -277,7 +276,7 @@ function ImplicationsCarousel({ items }: { items: any[] }) {
                   style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
                 />
               </div>
-              <div style={{ fontSize: 9, color: '#888888', marginTop: 5, flexShrink: 0, fontStyle: 'italic' }}>YouTube · 2026 graduates boo commencement speeches on AI</div>
+              {item.videoCaption && <div style={{ fontSize: 9, color: '#888888', marginTop: 5, flexShrink: 0, fontStyle: 'italic' }}>{item.videoCaption}</div>}
             </div>
           )}
         </div>
@@ -568,6 +567,18 @@ const QUADRANT_HERO: Partial<Record<FourP, string>> = {
 const BRIEF_ITEMS = [
   // ── Jun 13–19 ──
   {
+    platform: 'Adobe', color: '#EB1000', date: 'Jun 16', sortDate: '2026-06-16',
+    headline: "87% of creators say AI grew their business — Adobe's 2026 Creators' Toolkit Report",
+    summary: "Adobe's survey of creators globally finds 87% say creative AI has accelerated the growth of their business or audience. Top uses: speeding up production, generating ideas, and reaching new audiences. Suggests student creators who adopt AI early may have a measurable career advantage.",
+    sourceUrl: 'https://news.adobe.com/news/2026/06/creators-toolkit-report-2026',
+  },
+  {
+    platform: 'Adobe', color: '#EB1000', date: 'Jun 16', sortDate: '2026-06-16',
+    headline: 'Adobe Firefly Foundry joins Disney Imagineering\'s design pipeline for theme parks',
+    summary: 'Disney Parks and Experiences is using Firefly Foundry to accelerate pre-production visualization — concept art, environmental design, and experience prototyping. Positions Firefly as the AI of record for the most demanding creative institutions.',
+    sourceUrl: 'https://news.adobe.com/news/2026/06/adobe-and-disney-imagineering-collaborate',
+  },
+  {
     platform: 'Adobe', color: '#EB1000', date: 'Jun 18', sortDate: '2026-06-18',
     highlight: true, rank: 4,
     rankRationale: "Adobe's creative agent expansion across every major CC app is the company's most direct answer to AI-first competitors — professional-grade workflow orchestration built into the tools creatives already use.",
@@ -737,6 +748,7 @@ const BRIEF_ITEMS = [
     adobeImplication: 'Students are expressing fear and anxiety about AI\'s impact on their creative futures — the exact audience CC needs to win. Positioning Firefly and Creative Cloud as tools that amplify human creativity rather than replace it could be a meaningful differentiator at a moment when the industry\'s standard AI messaging is landing poorly.',
     implicationSource: 'Social Media Today · Adobe Internal Briefing · May 26, 2026',
     videoEmbed: 'https://www.youtube.com/embed/rgC874ARnX8',
+    videoCaption: 'Source: PBS NewsHour · Social Media Today · May 26, 2026',
   },
   // ── May 25 ──
   {
