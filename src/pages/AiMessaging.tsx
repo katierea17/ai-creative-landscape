@@ -82,14 +82,34 @@ export function AiMessaging() {
                 </span>
               </div>
 
-              <div className="section-label" style={{ marginBottom: 4 }}>Hero Tagline</div>
-              <p style={{ color: '#fff', fontSize: 13, fontWeight: 500, marginBottom: 12, lineHeight: 1.5 }}>
+              {c.studentMessaging && (
+                <>
+                  <div className="section-label" style={{ marginBottom: 4 }}>Student Messaging</div>
+                  <p style={{ color: '#fff', fontSize: 13, fontWeight: 500, marginBottom: 12, lineHeight: 1.5 }}>
+                    {c.studentMessaging}
+                  </p>
+                </>
+              )}
+
+              {(c as any).videoEmbed && (
+                <div style={{ marginBottom: 12, borderRadius: 6, overflow: 'hidden', aspectRatio: '16/9', background: '#111' }}>
+                  <iframe
+                    src={(c as any).videoEmbed}
+                    title={`${c.name} student video`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
+                  />
+                </div>
+              )}
+
+              <div className="section-label" style={{ marginBottom: 4 }}>AI Messaging</div>
+              <p style={{ color: '#fff', fontSize: 13, fontWeight: 500, marginBottom: 6, lineHeight: 1.5 }}>
                 {heroTagline}
               </p>
 
               {restOfMessage && (
                 <>
-                  <div className="section-label" style={{ marginBottom: 4 }}>Full Messaging</div>
                   <p style={{ color: '#A0A0A0', fontSize: 12, lineHeight: 1.6, margin: 0 }}>
                     {isExpanded ? restOfMessage : restOfMessage.slice(0, 120) + (restOfMessage.length > 120 ? '…' : '')}
                   </p>
@@ -103,11 +123,22 @@ export function AiMessaging() {
                   )}
                 </>
               )}
-              <div style={{ marginTop: 12, paddingTop: 10, borderTop: '1px solid #2a2a2a' }}>
+
+              <div style={{ marginTop: 12, paddingTop: 10, borderTop: '1px solid #2a2a2a', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 6 }}>
+                {c.studentPromo && (
+                  <span style={{
+                    display: 'inline-flex', padding: '2px 8px', borderRadius: 3,
+                    background: '#EB100018', border: '1px solid #EB100040',
+                    color: '#EB1000', fontSize: 10, fontWeight: 600,
+                  }}>
+                    {c.studentPromo}
+                  </span>
+                )}
                 <span style={{
                   display: 'inline-flex', padding: '2px 8px', borderRadius: 3,
                   background: '#1e1e1e', border: '1px solid #3a3a3a',
                   color: '#555', fontSize: 10, fontWeight: 500,
+                  marginLeft: c.studentPromo ? 'auto' : 0,
                 }}>
                   Slide 8 · GenAI Competitive Landscape Assessment
                 </span>
