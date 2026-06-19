@@ -91,10 +91,10 @@ export function AiMessaging() {
                 </>
               )}
 
-              {(c as any).videoEmbed && (
+              {c.videoEmbed && (
                 <div style={{ marginBottom: 12, borderRadius: 6, overflow: 'hidden', aspectRatio: '16/9', background: '#111' }}>
                   <iframe
-                    src={(c as any).videoEmbed}
+                    src={c.videoEmbed}
                     title={`${c.name} student video`}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

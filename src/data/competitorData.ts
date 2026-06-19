@@ -22,6 +22,7 @@ export interface Competitor {
     notableChange: string | null;
   };
   creditDetail: string | null;
+  videoEmbed?: string;
   aiFeatures: {
     ideate: boolean | string;
     creativeEditing: boolean | string;
@@ -296,6 +297,7 @@ export const competitors: Competitor[] = [
       studentPromo: '71% off for verified students and teachers',
       notableChange: 'Creative agent launched Jun 2026 across Premiere, Photoshop, Illustrator, InDesign, Frame.io; Firefly Foundry now in Disney Imagineering pipeline',
     },
+    videoEmbed: 'https://video.tv.adobe.com/v/3483861?hidetitle=true',
     creditDetail: 'Firefly generative credits included with all plans. All Apps: 1,000 credits/mo. Monthly credits reset; unused credits do not roll over.',
     aiFeatures: {
       ideate: 'Creative agent (natural language → multi-step workflow), Firefly image generation',
