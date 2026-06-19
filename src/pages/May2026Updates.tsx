@@ -551,6 +551,12 @@ const QUADRANT_HERO: Partial<Record<FourP, string>> = {
 const BRIEF_ITEMS = [
   // ── Jun 13–19 ──
   {
+    platform: 'Google', color: '#4285F4', date: 'Jun 17', sortDate: '2026-06-17',
+    headline: 'Google Vids doubles avatar library to 53 — custom avatars can now walk, talk, and interact with objects',
+    summary: 'Avatar presets grew from 23 to 53, spanning photorealistic, 3D cartoon, and graphic novel styles, with 16 new languages (24 total). Custom avatars built with Nano Banana Pro can now take physical actions — walking, talking, and interacting with objects — rather than just delivering lines. Closes the gap with dedicated avatar platforms like Synthesia and HeyGen.',
+    sourceUrl: 'https://workspace.google.com/blog/google-vids-updates',
+  },
+  {
     platform: 'Adobe', color: '#EB1000', date: 'Jun 16', sortDate: '2026-06-16',
     headline: "87% of creators say AI grew their business — Adobe's 2026 Creators' Toolkit Report",
     summary: "Adobe's survey of creators globally finds 87% say creative AI has accelerated the growth of their business or audience. Top uses: speeding up production, generating ideas, and reaching new audiences. Suggests student creators who adopt AI early may have a measurable career advantage.",
@@ -593,6 +599,12 @@ const BRIEF_ITEMS = [
     sourceUrl: 'https://fluxnote.io/guides/capcut-pro-pricing-2026',
   },
   // ── Jun 6–12 ──
+  {
+    platform: 'ChatGPT', color: '#A78BFA', date: 'Jun 12', sortDate: '2026-06-12',
+    headline: 'OpenAI Academy launches AI Foundations, Workflows, and Agents courses with completion certificates',
+    summary: 'Three structured courses guide learners from effective prompting → repeatable AI workflows → agent-assisted work. Developed with BCG, Accenture, and BBVA; positioned as workforce AI-readiness training. OpenAI is defining what "AI-ready" looks like — creating a certification path that could compete with Adobe\'s own learn/certification programs for student relevance.',
+    sourceUrl: 'https://openai.com/index/openai-academy',
+  },
   {
     platform: 'Google', color: '#4285F4', date: 'Jun 9', sortDate: '2026-06-09',
     highlight: true, rank: 2,
@@ -676,12 +688,6 @@ const BRIEF_ITEMS = [
     sourceUrl: 'https://openai.com/chatgpt',
   },
   {
-    platform: 'ChatGPT', color: '#A78BFA', date: 'May 2026', sortDate: '2026-05-30',
-    headline: 'ChatGPT adds job search and resume builder',
-    summary: 'Live roles and freelance opportunities from Indeed, Upwork, and Appcast, personalized to user goals. Resume upload, tailoring to a specific role, and download also added. Job search U.S. only; resume globally available. Another specialized workflow absorbed into a single chat interface.',
-    sourceUrl: 'https://openai.com/chatgpt',
-  },
-  {
     platform: 'IBM', color: '#2563EB', date: 'Jun 5', sortDate: '2026-06-05',
     headline: 'IBM opens free AI dev tools to 20,000 universities — $15K student prize pool',
     summary: 'Students get free access to IBM Bob (AI-powered development partner) via IBM SkillsBuild, plus mentorship and competition. IBM is embedding its AI ecosystem in student projects and workforce preparation programs across 20,000 post-secondary institutions worldwide.',
@@ -700,12 +706,6 @@ const BRIEF_ITEMS = [
     headline: 'Figma AI Agent — native design agent on the canvas',
     summary: 'Native AI agent embedded directly in the collaborative canvas — generates and edits designs using your actual design system components and tokens. Free in rolling beta; available to Full seat users on paid plans post-GA.',
     sourceUrl: 'https://www.figma.com/blog/the-figma-agent-is-here/',
-  },
-  {
-    platform: 'Google', color: '#A78BFA', date: 'May 20', sortDate: '2026-05-20',
-    headline: 'Google overhauls AI subscriptions — new AI Ultra tier at $99.99/mo',
-    summary: 'At Google I/O: AI Premium renamed AI Pro ($19.99/mo), new AI Ultra entry tier ($99.99/mo), top Ultra tier ($199.99/mo). Gemini Spark (24/7 personal agent) and Gemini Omni announced.',
-    sourceUrl: 'https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/',
   },
   // ── May 28 ──
   {
