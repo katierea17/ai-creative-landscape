@@ -285,7 +285,7 @@ export const competitors: Competitor[] = [
     mau: '33M+',
     aiLevel: 'Open',
     coreValueProp: 'Industry-standard creative suite for professionals and students — Photoshop, Premiere, Illustrator, InDesign, and more, now orchestrated by a creative agent across every app',
-    genAiMessaging: 'Every creative now has an agent. Adobe\'s creative agent orchestrates multi-step workflows across Premiere, Photoshop, Illustrator, InDesign, and Frame.io — describe an outcome, and it executes across apps. Powered by Firefly, the only AI trained exclusively on licensed content. Integrates natively into ChatGPT, Claude, Copilot, Gemini, and Slack. "Set the vision, apply your taste, make the calls that only you can." — Adobe, Jun 2026.',
+    genAiMessaging: 'Every creative now has an agent. Adobe\'s creative agent orchestrates multi-step workflows across Premiere, Photoshop, Illustrator, InDesign, and Frame.io — describe an outcome, and it executes across apps. Powered by Firefly, the only AI trained exclusively on licensed content. Set the vision, apply your taste, make the calls that only you can. — Adobe, Jun 2026.',
     studentMessaging: 'Students save 71% on Creative Cloud Pro. Access 20+ industry-leading apps, including Photoshop, Illustrator, Adobe Premiere, and more, plus responsible AI features from Adobe Firefly. Also available for teachers.',
     studentPromo: 'All Apps from $19.99/mo (first year, 71% off)',
     pricing: {
