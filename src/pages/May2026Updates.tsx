@@ -353,7 +353,7 @@ export function May2026Updates() {
           <span style={{ fontSize: 18, fontWeight: 800, color: '#111111', letterSpacing: '-0.01em' }}>
             📋 Industry Briefings
           </span>
-          <span style={{ fontSize: 12, color: '#111111' }}>May 13 – Jun 11, 2026</span>
+          <span style={{ fontSize: 12, color: '#111111' }}>May 13 – Jun 18, 2026</span>
           <span style={{ fontSize: 10, color: '#888888', marginLeft: 4 }}>Sources: company newsrooms, TechCrunch, 9to5Google, The Verge, Social Media Today, official release notes &amp; public web · Adobe internal competitive intelligence</span>
         </div>
 
@@ -554,6 +554,7 @@ const PLATFORM_DOMAIN: Record<string, string> = {
   'Gamma': 'gamma.app',
   'IBM': 'ibm.com',
   'Microsoft Copilot': 'copilot.microsoft.com',
+  'Adobe': 'adobe.com',
 };
 
 // ── Quadrant hero images ───────────────────────────────────────────────────
@@ -565,6 +566,35 @@ const QUADRANT_HERO: Partial<Record<FourP, string>> = {
 // ── Briefing data — flat, sorted newest first ─────────────────────────────
 
 const BRIEF_ITEMS = [
+  // ── Jun 13–19 ──
+  {
+    platform: 'Adobe', color: '#EB1000', date: 'Jun 18', sortDate: '2026-06-18',
+    highlight: true, rank: 5,
+    rankRationale: "Adobe's AI agent expansion across all CC apps and into ChatGPT, Claude, Gemini, and Copilot is the company's most direct competitive response — meeting students in the tools they already use.",
+    headline: 'Adobe AI agents now inside ChatGPT, Claude, Gemini, and Copilot — everywhere students already work',
+    summary: 'Adobe expanded AI agents across Photoshop, Premiere, Illustrator, InDesign, and Frame.io, then integrated them into ChatGPT, Claude, Copilot, Gemini, and Slack. Students can now invoke Firefly, auto-organize Premiere assets, batch-edit in Photoshop, and manage Illustrator layers without leaving their AI assistant.',
+    sourceUrl: 'https://news.adobe.com/news/2026/06/adobe-unveils-major-expansion',
+    adobeImplication: 'Adobe is going where students already are, rather than asking students to come to Adobe. Embedding agents in ChatGPT and Claude puts CC capabilities into the workflow of students who may never open the desktop app — a direct counter to the "simpler AI-first tools" narrative.',
+    implicationSource: 'Adobe Newsroom · Jun 18, 2026',
+  },
+  {
+    platform: 'Runway', color: '#F59E0B', date: 'Jun 18', sortDate: '2026-06-18',
+    headline: 'Runway Studio: trim, stitch, reorder, and export final video in one place',
+    summary: 'New in-app editor lets creators build a finished video from generated clips without leaving Runway — trimming, sequencing, and exporting all in one workflow.',
+    sourceUrl: 'https://runwayml.com/changelog',
+  },
+  {
+    platform: 'Figma', color: '#F59E0B', date: 'Jun 18', sortDate: '2026-06-18',
+    headline: 'Figma Aleph 2.0 — frame-level video direction inside Figma Weave',
+    summary: 'Supports video clips up to 30 seconds, reference images for visual direction, and preserved keyframe edits throughout sequences. Figma moving from design tool into motion and video production.',
+    sourceUrl: 'https://releasebot.io/updates/figma',
+  },
+  {
+    platform: 'CapCut', color: '#22C55E', date: 'Jun 2026', sortDate: '2026-06-15',
+    headline: 'CapCut adds $19.99/mo Pro tier — old Pro renamed Standard',
+    summary: 'Pricing restructure: previous Pro becomes Standard ($9.99/mo); new Pro at $19.99/mo adds 4K export, full AI toolkit, 1TB cloud storage, and 1,200 AI points. CapCut Ultra also teased.',
+    sourceUrl: 'https://fluxnote.io/guides/capcut-pro-pricing-2026',
+  },
   // ── Jun 6–12 ──
   {
     platform: 'Google', color: '#4285F4', date: 'Jun 9', sortDate: '2026-06-09',
@@ -744,12 +774,6 @@ const BRIEF_ITEMS = [
     ],
     imageCaption: 'Source: picsart.com/ai-agent · picsart.com/blog/meet-the-new-ai-agents',
   },
-  {
-    platform: 'Runway', color: '#F59E0B', date: 'May 21', sortDate: '2026-05-21',
-    headline: 'Aleph 2.0 + Edit Studio: precise video editing up to 30s',
-    summary: 'Localized edits (swap product, change background, restyle) while preserving original footage — editable across multiple shots simultaneously.',
-    sourceUrl: 'https://runwayml.com/blog/aleph-2-edit-studio',
-  },
   // ── May 20 ──
   {
     platform: 'Stability AI', color: '#F59E0B', date: 'May 20', sortDate: '2026-05-20',
@@ -772,13 +796,6 @@ const BRIEF_ITEMS = [
     imageCaption: 'Source: fonearena.com · May 2026',
     adobeImplication: 'Both Canva and Adobe Firefly are now usable directly inside AI assistants — Canva inside Gemini, Firefly inside Claude. The difference is which assistant: Gemini has 900M users (announced Google I/O, May 19, 2026) and is built into Google Workspace, where students already write papers, build slide decks, and collaborate. Firefly\'s integration with Claude reaches a more professional and developer audience. The student exposure gap is real even if the capability parity isn\'t.',
     implicationSource: 'canva.com · Adobe Internal Briefing · May 19, 2026 · Ramp AI Index May 2026 (techcrunch.com/2026/05/13)',
-  },
-  // ── May 18 ──
-  {
-    platform: 'Figma', color: '#F59E0B', date: 'May 18', sortDate: '2026-05-18',
-    headline: 'Sections added to Figma Slides',
-    summary: 'Users can now name and reorder rows of slides in grid view, and jump between sections from Presenter and Audience view.',
-    sourceUrl: 'https://www.figma.com/blog/figma-slides-sections',
   },
   // ── May 15–16 ──
   {

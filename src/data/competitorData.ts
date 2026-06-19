@@ -328,12 +328,12 @@ export const competitors: Competitor[] = [
     studentPromo: null,
     pricing: {
       free: true,
-      premiumSubscription: 'Pro $19.99/mo or $179.99/yr',
+      premiumSubscription: 'Standard $9.99/mo · Pro $19.99/mo (or $179.99/yr)',
       oneTimePurchase: null,
       aiCredits: true,
       studentPrice: null,
       studentPromo: null,
-      notableChange: 'AI credits introduced Q1 2026; free tier now limited to 200 AI uses/mo',
+      notableChange: 'Pricing restructured Jun 2026: old Pro renamed Standard ($9.99/mo); new Pro at $19.99/mo adds 4K export, full AI toolkit, 1TB storage, 1,200 AI points; CapCut Ultra teased',
     },
     creditDetail: 'Free: 150 AI credits/wk (~600/mo). Pro: 1,200 AI credits/mo. Credits used for AI text-to-video, AI avatars, Auto Caption, sky replacement.',
     aiFeatures: {
