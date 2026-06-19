@@ -4,6 +4,7 @@ import { useFilter } from '../context/FilterContext';
 import { competitors } from '../data/competitorData';
 
 const PLATFORM_DOMAIN: Record<string, string> = {
+  'adobe-cc':        'adobe.com',
   'google-photos':   'google.com',
   'instagram-edits': 'instagram.com',
   'imovie':          'apple.com',
@@ -25,6 +26,11 @@ type CreativeItem =
   | { type: 'image'; src: string; label: string };
 
 const STUDENT_CREATIVE: Record<string, { items: CreativeItem[] }> = {
+  'adobe-cc': {
+    items: [
+      { type: 'video', embed: 'https://video.tv.adobe.com/v/3483861?hidetitle=true', label: 'Avrey Ovard, Parsons School of Design — Adobe Creative Cloud student story · 2026' },
+    ],
+  },
   'chatgpt': {
     items: [
       { type: 'image', src: 'https://cms.brandnewschool.com/assets/work/chatgpt/havarti_16x9_emeric_17.png', label: 'ChatGPT student campaign OOH · Brand New School · 2025' },
@@ -129,10 +135,10 @@ function VideoCreative({ creative, name }: { creative: { items: CreativeItem[] }
 export function StudentMessaging() {
   const { activeCategories } = useFilter();
   const DISPLAY_ORDER = [
-    'canva', 'final-cut-pro', 'picsart',
-    'chatgpt', 'figma', 'runway',
-    'midjourney', 'gemini', 'claude',
-    'capcut', 'instagram-edits', 'google-photos', 'imovie', 'affinity',
+    'adobe-cc', 'canva', 'final-cut-pro',
+    'picsart', 'chatgpt', 'figma',
+    'runway', 'midjourney', 'gemini',
+    'claude', 'capcut', 'instagram-edits', 'google-photos', 'imovie', 'affinity',
   ];
   const filtered = competitors
     .filter(c => activeCategories.includes(c.category))
